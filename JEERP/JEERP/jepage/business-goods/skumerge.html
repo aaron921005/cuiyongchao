@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>搜索页</title>
+    <link href="../../assets/css/bs3/dpl.css" rel="stylesheet">
+    <link href="../../assets/css/bs3/bui.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="demo-content">
+        <!-- 搜索页 ================================================== -->
+        <div class="row">
+            <div class="span24">
+                <form id="searchForm" class="form-horizontal" tabindex="0" style="outline: none;">
+                    <div class="row">
+                        <div class="control-group span8">
+                            <label class="control-label">平台：</label>
+                            <div class="controls">
+                                <input type="text" name="a" class="control-text">
+                            </div>
+                        </div>
+                        <div class="control-group span8">
+                            <label class="control-label">店铺：</label>
+                            <div class="controls">
+                                <input type="text" name="b" class="control-text">
+                            </div>
+                        </div>
+                        <div class="control-group span8">
+                            <label class="control-label">SKU：</label>
+                            <div class="controls">
+                                <input type="text" name="c" class="control-text">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="control-group span8">
+                            <label class="control-label">状态：</label>
+                            <div class="controls">
+                                <input type="text" name="a" class="control-text">
+                            </div>
+                        </div>
+                        <div class="form-actions span5">
+                            <button id="btnSearch" type="submit" class="button button-primary">搜索</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- 此节点内部的内容会在弹出框内显示,默认隐藏此节点-->
+        <div id="tongbu" class="hidden" style="display: none;">
+            <form id="form" class="form-horizontal">
+                <div class="row">
+                    <div class="control-group span15">
+                        <label class="control-label">产品名称1212：</label>
+                        <div class="controls" style="margin-top: 6px;">
+                            MIER 16 Can Large Insulated Lunch Bag
+                        </div>
+                    </div>
+                    <div class="control-group span15">
+                        <label class="control-label">SKU：</label>
+                        <div class="controls" style="margin-top: 6px;">
+                            SA10050087-wine
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="control-group span15">
+                        <label class="control-label">平台-店铺：</label>
+                        <div class="controls" style="margin-top: 6px;">
+                            NCDS02300200078 WHITE(WISH-ASONG)
+                            <br> NCDS02300200078 WHITE(WISH-ASONG)
+                            <br> NCDS02300200078 WHITE(WISH-ASONG)
+                            <br> NCDS02300200078 WHITE(WISH-ASONG)
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="control-group span15">
+                        <label class="control-label"></label>
+                        <div class="controls control-row4">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- 此节点内部的内容会在弹出框内显示,默认隐藏此节点-->
+        <div id="guanli" class="hidden" style="display: none;">
+            <form id="form" class="form-horizontal">
+                <div class="row">
+                    <div class="control-group span15">
+                        <label class="control-label">产品名称：</label>
+                        <div class="controls" style="margin-top: 6px;">
+                            MIER 16 Can Large Insulated Lunch Bag
+                        </div>
+                    </div>
+                    <div class="control-group span15">
+                        <label class="control-label">SKU：</label>
+                        <div class="controls" style="margin-top: 6px;">
+                            SA10050087-wine
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="control-group span15">
+                        <label class="control-label">平台-店铺：</label>
+                        <div class="controls" style="margin-top: 6px;">
+                            NCDS02300200078 WHITE(WISH-ASONG)
+                            <br> NCDS02300200078 WHITE(WISH-ASONG)
+                            <br> NCDS02300200078 WHITE(WISH-ASONG)
+                            <br> NCDS02300200078 WHITE(WISH-ASONG)
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="control-group span15">
+                        <label class="control-label"></label>
+                        <div class="controls control-row4">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="search-grid-container">
+            <button id="btnxinjian" class="button button-primary">新建</button>
+            <button id="btnshanchu" class="button button-primary">删除</button>
+            <button id="btnzhankaiall" class="button button-primary">展开所有</button>
+            <button id="btnzhedieall" class="button button-primary">折叠所有</button>
+            <button id="btntongbu" class="button button-primary">同步在线商品</button>
+            <div id="grid">
+            </div>
+        </div>
+        <script src="http://g.tbcdn.cn/fi/bui/jquery-1.8.1.min.js"></script>
+        <script src="http://g.tbcdn.cn/fi/bui/bui-min.js?t=201309041336"></script>
+        <script src="../../assets/js/jquery-1.8.1.min.js"></script>
+        <script type="text/javascript">
+        var tongbu;
+        var xiangqing;
+        var guanli;
+
+        $(function() {
+
+        });
+        BUI.use(['bui/overlay', 'bui/form'], function(Overlay, Form) {
+
+            var form = new Form.HForm({
+                srcNode: '#form'
+            }).render();
+
+            tongbu = new Overlay.Dialog({
+                title: '同步在线商品',
+                width: 600,
+                height: 320,
+                //配置DOM容器的编号
+                contentId: 'tongbu',
+                buttons: [{
+                    text: '关闭',
+                    elCls: 'button',
+                    handler: function() {
+                        this.close();
+                    }
+                }],
+            });
+            guanli = new Overlay.Dialog({
+                title: 'SKU管理',
+                width: 600,
+                height: 320,
+                //配置DOM容器的编号
+                contentId: 'guanli',
+                buttons: [{
+                    text: '关闭',
+                    elCls: 'button',
+                    handler: function() {
+                        this.close();
+                    }
+                }],
+            });
+            //展开点击
+            $("#grid").on("click", ".zhankai", function() {
+              $(this).parent().parent().parent().parent().find('td:eq(1) div span').click();
+
+            });
+            //详情点击
+            $("#grid").on("click", ".xiangqing", function() {
+                alert('跳页面');
+
+            });
+            //管理点击
+            $("#grid").on("click", ".guanli", function() {
+                guanli.show();
+            });
+        });
+
+
+
+        // //创建表单，表单中的日历，不需要单独初始化
+        // var form = new BUI.Form.HForm({
+        //     srcNode: '#searchForm'
+        // }).render();
+
+        // form.on('beforesubmit', function(ev) {
+        //     //序列化成对象
+        //     var obj = form.serializeToObject();
+        //     obj.start = 0; //返回第一页
+        //     store.load(obj);
+        //     return false;
+        // });
+
+
+
+
+        BUI.use(['bui/grid', 'bui/data'], function(Grid, Data) {
+            var Grid = BUI.Grid,
+                Store = BUI.Data.Store,
+                columns = [
+                    { title: '产品图片', width: 30, sortable: false, dataIndex: 'a' },
+                    { title: '产品名称', width: 150, sortable: true, dataIndex: 'b', selectable: true },
+                    {
+                        title: 'SKU',
+                        width: 100,
+                        sortable: false,
+                        dataIndex: 'c',
+                        selectable: true,
+                        renderer: function(value, obj) {
+                            return value + ':' + obj.d;
+                        }
+                    },
+                    { title: 'SKU重量', width: 30, sortable: true, dataIndex: 'd', showTip: true },
+                    {
+                        title: '店铺SKU/平台-店铺名称',
+                        width: 100,
+                        sortable: true,
+                        dataIndex: 'e',
+                        renderer: function(value, obj) {
+                            return value + '-' + '<span class="grid-command zhankai">展开[+]</span>';
+                        }
+                    },
+                    { title: '状态', width: 30, sortable: true, dataIndex: 'f' },
+                    {
+                        title: '操作',
+                        width: 30,
+                        dataIndex: 'g',
+                        renderer: function(value, obj) {
+
+                            var c = '<span class="grid-command xiangqing">商品详情</span>';
+                            c += '<span class="grid-command guanli">SKU管理</span>';
+                            return c;
+                        }
+                    }
+                ];
+
+            // data = [{ a: '123', records: [{ a: '123' }, { b: '2334' }] }, { a: 'cdd', b: 'edd', records: [{ a: '123' }, { b: '2334' }] }, { a: '1333', c: 'eee', d: 2, records: [{ a: '123' }, { b: '2334' }] }];
+
+            // 实例化 Grid.Plugins.Cascade 插件
+            var cascade = new Grid.Plugins.Cascade({
+                    renderer: function(record) {
+                        return '<div class="inner-grid"></div>'; //生成简单表格的容器
+                    }
+                }),
+                //简单表格的配置信息
+                simpleGridConfig = {
+                    autoRender: true, //自动生成
+                    columns: BUI.cloneObject([
+                    { title: '', width: 30, sortable: false, dataIndex: 'a' },
+                    { title: '', width: 150, sortable: true, dataIndex: 'b', selectable: true },
+                    {
+                        title: '',
+                        width: 100,
+                        sortable: false,
+                        dataIndex: 'c',
+                        selectable: true
+                    },
+                    { title: '', width: 30, sortable: true, dataIndex: 'd', showTip: true },
+                    {
+                        title: '店铺SKU/平台-店铺名称',
+                        width: 100,
+                        sortable: true,
+                        dataIndex: 'e',
+                        renderer: function(value, obj) {
+                            return value;
+                        }
+                    },
+                    { title: '', width: 30, sortable: true, dataIndex: 'f' },
+                    {
+                        title: '',
+                        width: 30,
+                        dataIndex: 'g'
+                    }
+                ]) //这里为了简单起见，复制了配置信息，应用中需要自己配置
+                };
+
+            var store = new Store({
+                    url: '../../data/skumerge.json',
+                    autoLoad: true
+                }),
+                grid = new Grid.Grid({
+                    render: '#grid',
+                    columns: columns,
+                    loadMask: true,
+                    forceFit: true,
+                    store: store,
+                    plugins: [cascade,Grid.Plugins.CheckSelection, Grid.Plugins.AutoFit] // Grid.Plugins.Cascade 插件
+                });
+
+            grid.render();
+
+            cascade.on('expand', function(ev) {
+                var data = ev.record,
+                    row = ev.row,
+                    sgrid = $(row).data('sub-grid');
+                if (!sgrid) {
+                    var container = $(row).find('.inner-grid'),
+                        gridConfig = BUI.cloneObject(simpleGridConfig);
+                    gridConfig.render = container;
+
+                    sgrid = new Grid.SimpleGrid(gridConfig);
+                    sgrid.showData(data.records);
+                    $(row).data('sub-grid', sgrid);
+                }
+            });
+
+            cascade.on('removed', function(ev) {
+                var data = ev.record,
+                    row = ev.row,
+                    sgrid = $(row).data('sub-grid');
+                if (sgrid) {
+                    sgrid.destroy();
+                }
+            });
+            //新建
+
+            $('#btnxinjian').on('click', function() {
+
+            });
+            //删除
+
+            $('#btnshanchu').on('click', function() {
+
+            });
+            //展开
+
+            $('#btnzhankaiall').on('click', function() {
+                cascade.expandAll();
+
+            });
+            //折叠
+
+            $('#btnzhedieall').on('click', function() {
+                cascade.collapseAll();
+
+            });
+            //同步
+
+            $('#btntongbu').on('click', function() {
+                tongbu.show();
+
+            });
+
+        });
+        </script>
+        <!-- script end -->
+</body>
+
+</html>

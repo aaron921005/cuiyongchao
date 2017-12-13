@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <title>JEERP,为电商而生，让天下没有难做的生意</title>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+   <link href="assets/css/dpl-min.css" rel="stylesheet" type="text/css" />
+  <link href="assets/css/bui-min.css" rel="stylesheet" type="text/css" />
+   <link href="assets/css/main-min.css" rel="stylesheet" type="text/css" />
+ </head>
+ <body>
+
+  <div class="header">
+    
+      <div class="dl-title">
+         <span class="lp-title-port">JEERP 供应链管理系统</span><span class="dl-title-text">为电商而生</span>
+      </div>
+
+    <div class="dl-log">欢迎您，<span class="dl-log-user">$上海欧酷网络科技有限公司$</span><a href="###" title="退出系统" class="dl-log-quit">[退出]</a>
+	<a href="#" title="消息" class="dl-log-quit">消息</a>
+    </div>
+  </div>
+   <div class="content">
+    <div class="dl-main-nav">
+      <div class="dl-inform"><div class="dl-inform-title">jeerp<s class="dl-inform-icon dl-up"></s></div></div>
+      <ul id="J_Nav"  class="nav-list ks-clear">
+        <li class="nav-item dl-selected"><div class="nav-item-inner nav-home">看板</div></li>
+        <li class="nav-item"><div class="nav-item-inner nav-order">统计</div></li>
+        <li class="nav-item"><div class="nav-item-inner nav-inventory">内容</div></li>
+        <li class="nav-item"><div class="nav-item-inner nav-supplier">需求</div></li>
+		<li class="nav-item"><div class="nav-item-inner nav-supplier">设置</div></li>
+      </ul>
+    </div>
+    <ul id="J_NavContent" class="dl-tab-conten">
+
+    </ul>
+   </div>
+  <script type="text/javascript" src="assets/js/jquery-1.8.1.min.js"></script>
+  <script type="text/javascript" src="./assets/js/bui.js"></script>
+  <script type="text/javascript" src="./assets/js/config.js"></script>
+
+  <script>
+    BUI.use('common/main',function(){
+      var config = [{
+          id:'bu-ad-home', 
+          homePage : 'code',
+          menu:[{
+              text:'系统看板',
+              items:[
+                {id:'code',text:'系统看板',href:'bu-ad-home/kanban.html',closeable : false}
+              ]
+            }]
+          },{
+            id:'bu-ad-sta',
+            menu:[{
+                text:'商品管理',
+                items:[
+                  {id:'adcategory',text:'商品类目管理',href:'bu-ad-sta/adcategory.html'},
+                  {id:'admgoods',text:'商品管理',href:'bu-ad-sta/admgoods.html'}
+                ]
+              },{
+                text:'用户管理',
+                items:[
+                  {id:'admorder',text:'订单管理',href:'bu-ad-sta/admorder.html'},
+                  {id:'admclient',text:'客户管理',href:'bu-ad-sta/admclient.html'},
+                  {id:'admshipper',text:'物流商管理',href:'bu-ad-sta/admshipper.html'},
+                  {id:'admsuper',text:'供应商管理',href:'bu-ad-sta/admsuper.html'},
+                  {id:'admcollect',text:'收款管理',href:'bu-ad-sta/admcollect.html'},
+                ]
+              }]
+          },{
+            id:'bu-ad-content',
+            menu:[{
+                text:'内容',
+                items:[
+                  {id:'admnews',text:'新闻及通知',href:'bu-ad-content/admnews.html'},
+                  {id:'admhelp',text:'帮助中心',href:'bu-ad-content/admhelp.html'}
+                ]
+              }]
+          },{
+            id:'bu-ad-demand',
+            menu:[{
+                text:'需求反馈',
+                items:[
+                  {id:'admdemand',text:'需求反馈',href:'bu-ad-demand/admdemand.html'}
+                ]
+              }]
+          },{
+            id:'bu-ad-set',
+            menu:[{
+                text:'系统设置',
+                items:[
+                  {id:'homeset',text:'首页设置',href:'bu-ad-set/homeset.html'}
+                ]
+              }]
+          }];
+      new PageUtil.MainPage({
+        modulesConfig : config
+      });
+    });
+  </script>
+ </body>
+</html>

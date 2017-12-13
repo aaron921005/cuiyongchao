@@ -1,0 +1,241 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <title>JEERP,为电商而生，让天下没有难做的生意</title>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+   <link href="assets/css/dpl-min.css" rel="stylesheet" type="text/css" />
+  <link href="assets/css/bui-min.css" rel="stylesheet" type="text/css" />
+   <link href="assets/css/main-min.css" rel="stylesheet" type="text/css" />
+ </head>
+ <body>
+
+  <div class="header">
+    
+      <div class="dl-title">
+         <span class="lp-title-port">JEERP</span><span class="dl-title-text">为电商而生</span>
+      </div>
+
+    <div class="dl-log">欢迎您，<span class="dl-log-user">$上海欧酷网络科技有限公司$</span><a href="###" title="退出系统" class="dl-log-quit">[退出]</a>
+	<a href="#" title="消息" class="dl-log-quit">消息</a>
+    </div>
+  </div>
+   <div class="content">
+    <div class="dl-main-nav">
+      <div class="dl-inform"><div class="dl-inform-title">JEERP<s class="dl-inform-icon dl-up"></s></div></div>
+      <ul id="J_Nav"  class="nav-list ks-clear">
+		<li class="nav-item dl-selected"><div class="nav-item-inner nav-home">首页</div></li>
+        <li class="nav-item"><div class="nav-item-inner nav-order">商品</div></li>
+        <li class="nav-item"><div class="nav-item-inner nav-inventory">订单</div></li>
+        <li class="nav-item"><div class="nav-item-inner nav-supplier">采购</div></li>
+		<li class="nav-item"><div class="nav-item-inner nav-supplier">物流</div></li>
+		<li class="nav-item"><div class="nav-item-inner nav-supplier">仓库</div></li>
+		<li class="nav-item"><div class="nav-item-inner nav-supplier">财务</div></li>
+		<li class="nav-item"><div class="nav-item-inner nav-supplier">数据</div></li>
+		<li class="nav-item"><div class="nav-item-inner nav-supplier">设置</div></li>
+      </ul>
+    </div>
+    <ul id="J_NavContent" class="dl-tab-conten">
+
+    </ul>
+   </div>
+  <script type="text/javascript" src="assets/js/jquery-1.8.1.min.js"></script>
+  <script type="text/javascript" src="./assets/js/bui.js"></script>
+  <script type="text/javascript" src="./assets/js/config.js"></script>
+
+  <script>
+    BUI.use('common/main',function(){
+      var config = [{
+          id:'menu', 
+          homePage : 'code',
+          menu:[{
+              text:'看板',
+              items:[
+                {id:'code',text:'看板',href:'jepage/business-set/code.html',closeable : false}
+              ]
+            },{
+                text:'快捷方式',
+                items:[
+                  {id:'grid',text:'订单管理',href:'jepage/form/grid.html'},
+                  {id:'form-grid',text:'客户管理',href:'jepage/form/form-grid.html'},
+                  {id:'dialog-grid',text:'物流商管理',href:'jepage/form/dialog-grid.html'},
+                  {id:'form-dialog-grid',text:'供应商管理',href:'jepage/form/form-dialog-grid.html'},
+                  {id:'form-dialog-grid',text:'收款管理',href:'jepage/form/form-dialog-grid.html'},
+				  {id:'form-dialog-grid',text:'收款管理',href:'jepage/form/form-dialog-grid.html'},
+				  {id:'form-dialog-grid',text:'收款管理',href:'jepage/form/form-dialog-grid.html'},
+				  {id:'form-dialog-grid',text:'收款管理',href:'jepage/form/form-dialog-grid.html'},
+				  {id:'form-dialog-grid',text:'收款管理',href:'jepage/form/form-dialog-grid.html'},
+				  {id:'form-dialog-grid',text:'收款管理',href:'jepage/form/form-dialog-grid.html'},
+				  {id:'form-dialog-grid',text:'收款管理',href:'jepage/form/form-dialog-grid.html'},
+				  {id:'form-dialog-grid',text:'收款管理',href:'jepage/form/form-dialog-grid.html'},
+				  {id:'form-dialog-grid',text:'收款管理',href:'jepage/form/form-dialog-grid.html'},
+				  {id:'form-dialog-grid',text:'收款管理',href:'jepage/form/form-dialog-grid.html'},
+				  {id:'form-dialog-grid',text:'收款管理',href:'jepage/form/form-dialog-grid.html'},
+				  {id:'form-dialog-grid',text:'收款管理',href:'jepage/form/form-dialog-grid.html'},
+				  {id:'form-dialog-grid',text:'收款管理',href:'jepage/form/form-dialog-grid.html'}
+              ]
+            }]
+          },{
+            id:'business-goods',
+            menu:[{
+                text:'商品列表',
+                items:[
+                  {id:'code',text:'商品列表',href:'jepage/business-goods/skumerge.html'},
+                  {id:'example',text:'SKU配对',href:'jepage/business-goods/skupair.html'}
+                ]
+              }]
+          },{
+            id:'business-order',
+            menu:[{
+                text:'订单列表',
+                items:[
+                  {id:'code',text:'销售订单',href:'jepage/business-order/salesorder.html'},
+                  {id:'example',text:'售后管理',href:'jepage/business-order/returnorder.html'}
+                ]
+              }]
+          },{
+            id:'business-purchase',
+            menu:[{
+                text:'采购管理',
+                items:[
+                  {id:'code',text:'待采购列表',href:'jepage/business-purchase/tobepurchase.html'},
+				  {id:'code',text:'采购单列表',href:'jepage/business-purchase/purchaseorder.html'},
+				  {id:'code',text:'供应商管理',href:'jepage/business-purchase/suppliermanagement.html'}
+                ]
+              },{
+                text:'采购对账',
+                items:[
+                  {id:'code',text:'采购对账',href:'jepage/business-purchase/purchasereconciliation.html'}
+                ]
+              }]
+          },{
+            id:'business-shippment',
+            menu:[{
+                text:'收货管理',
+                items:[
+                  {id:'tobereceived',text:'待收货列表',href:'jepage/business-shippment/tobereceived.html'},
+				  {id:'receipt',text:'收货',href:'jepage/business-shippment/receipt.html'}
+                ]
+              },{
+                text:'发货管理',
+                items:[
+                  {id:'tobedelivered',text:'待发货',href:'jepage/business-shippment/tobedelivered.html'},
+				  {id:'oderchoose',text:'拣选',href:'jepage/business-shippment/oderchoose.html'},
+				  {id:'orderscan',text:'扫描称重打单',href:'jepage/business-shippment/orderscan.html'},
+				  {id:'ordership',text:'发货',href:'jepage/business-shippment/ordership.html'}
+                ]
+              },{
+                text:'海外仓发货',
+                items:[
+                  {id:'ocbatchship',text:'创建货件',href:'jepage/business-shippment/ocbatchship.html'},
+                  {id:'batchlist',text:'货件列表',href:'jepage/business-shippment/batchlist.html'},
+				  {id:'obshiplist',text:'发货列表',href:'jepage/business-shippment/obshiplist.html'}
+                ]
+              },{
+                text:'调拨管理',
+                items:[
+                  {id:'octorder',text:'创建调拨单',href:'jepage/business-shippment/octorder.html'},
+				  {id:'trlist',text:'调拨列表',href:'jepage/business-shippment/trlist.html'}
+                ]
+              },{
+                text:'配送管理',
+                items:[
+                  {id:'mdelivery',text:'快递跟踪',href:'jepage/business-shippment/mdelivery.html'}
+                ]
+              },{
+                text:'物流对账',
+                items:[
+                  {id:'ostate',text:'对账单列表',href:'jepage/business-shippment/ostate.html'},
+				  {id:'opaylist',text:'付款单列表',href:'jepage/business-shippment/opaylist.html'}
+                ]
+              }]
+          },{
+            id:'business-whouse',
+            menu:[{
+                text:'上架管理',
+                items:[
+                  {id:'toboshelves',text:'待上架列表',href:'jepage/business-whouse/toboshelves.html'},
+				  {id:'shelves',text:'上架',href:'jepage/business-whouse/shelves.html'},
+				  {id:'inshift',text:'库存移位',href:'jepage/business-whouse/inshift.html'}
+                ]
+              },{
+                text:'盘点管理',
+                items:[
+                  {id:'incheck',text:'盘点',href:'jepage/business-whouse/incheck.html'}
+                ]
+              },{
+                text:'仓库查询',
+                items:[
+                  {id:'inquery',text:'库存查询',href:'jepage/business-whouse/inquery.html'},
+				  {id:'inoutrecords',text:'出入库记录',href:'jepage/business-whouse/inoutrecords.html'}
+                ]
+              }]
+          },{
+            id:'business-finance',
+            menu:[{
+                text:'对账管理',
+                items:[
+                  {id:'precon',text:'采购对账',href:'jepage/business-finance/precon.html'},
+				  {id:'pshiprecon',text:'物流对账',href:'jepage/business-finance/pshiprecon.html'},
+				  {id:'pcost',text:'订单成本核算',href:'jepage/business-finance/pcost.html'}
+                ]
+              }]
+          },{
+            id:'business-data',
+            menu:[{
+                text:'销售统计',
+                items:[
+                  {id:'odata',text:'订单统计',href:'jepage/business-data/odata.html'},
+				  {id:'ordata',text:'退货统计',href:'jepage/business-data/ordata.html'}
+                ]
+              },{
+                text:'热度分析',
+                items:[
+                  {id:'dhotsku',text:'SKU热度',href:'jepage/dbusiness-data/dhotsku.html'},
+				  {id:'dhotare',text:'销售区域',href:'jepage/business-data/dhotare.html'}
+                ]
+              },{
+                text:'成本分析',
+                items:[
+                  {id:'dcost',text:'成本统计',href:'jepage/business-data/dcost.html'},
+				  {id:'dprofit',text:'毛利分析',href:'jepage/business-data/dprofit.html'}
+                ]
+              }]
+          },{
+            id:'business-set',
+            menu:[{
+                text:'系统设置',
+                items:[
+                  {id:'spermis',text:'用户及权限',href:'jepage/business-set/spermis.html'},
+				  {id:'sapi',text:'平台对接',href:'jepage/business-set/sapi.html'},
+				  {id:'smode',text:'系统模式设置',href:'jepage/business-set/smode.html'}
+                ]
+              },{
+                text:'物流设置',
+                items:[
+                  {id:'sgchoose',text:'拣选规则设置',href:'jepage/business-set/sgchoose.html'},
+				  {id:'sgsku',text:'SKU规则设置',href:'jepage/business-set/sgsku.html'},
+				  {id:'sgship',text:'物流规则设置',href:'jepage/business-set/sgship.html'},
+				  {id:'sgshipper',text:'物流商管理',href:'jepage/business-set/sgshipper.html'},
+				  {id:'sglabel',text:'标签模板设置',href:'jepage/business-set/sglabel.html'}
+                ]
+              },{
+                text:'仓库设置',
+                items:[
+                  {id:'smware',text:'仓库管理',href:'jepage/business-set/smware.html'},
+				  {id:'sgware',text:'仓库规则设置',href:'jepage/business-set/sgware.html'},
+				  {id:'sgsupur',text:'采购建议设置',href:'jepage/business-set/sgsupur.html'}
+                ]
+              },{
+                text:'成本管理',
+                items:[
+                  {id:'smcost',text:'成本项管理',href:'jepage/business-set/smcost.html'}
+                ]
+              }]
+          }];
+      new PageUtil.MainPage({
+        modulesConfig : config
+      });
+    });
+  </script>
+ </body>
+</html>
