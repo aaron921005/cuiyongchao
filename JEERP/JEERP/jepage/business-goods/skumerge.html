@@ -6,6 +6,123 @@
     <title>搜索页</title>
     <link href="../../assets/css/bs3/dpl.css" rel="stylesheet">
     <link href="../../assets/css/bs3/bui.css" rel="stylesheet">
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    ol,
+    ul {
+        list-style: none;
+    }
+
+    blockquote,
+    q {
+        quotes: none;
+    }
+
+    a {
+        text-decoration: none;
+        color: #2d2f30;
+        -webkit-transition: all .3s linear;
+        -moz-transition: all .3s linear;
+        -o-transition: all .3s linear;
+        -ms-transition: all .3s linear;
+        transition: all .3s linear;
+    }
+
+    a:focus {
+        outline: none;
+    }
+
+    .content {
+        margin: auto;
+        width: 1200px;
+    }
+
+    .sx_updown {
+        width: 100%;
+        background: #fff;
+        overflow: hidden;
+        z-index: 9999;
+        left: 0;
+        top: 38px;
+        text-align: left;
+    }
+
+    .updown_box {
+        /*float: left;*/
+        min-height: 60px;
+        width: 100%;
+        border-left: 0px solid #f2f2f2;
+        padding: 0 30px;
+        -webkit-box-sizing: content-box;
+        -moz-box-sizing: content-box;
+        box-sizing: content-box;
+    }
+
+    .updown_box h3 {
+        font-size: 16px;
+        margin-bottom: 18px;
+        padding-left: 10px;
+    }
+
+    .updown_box ul li {
+        float: left;
+        margin: 0 10px 10px 10px;
+    }
+
+    .updown_box ul li a {
+        display: block;
+        font-size: 14px;
+        padding: 6px 8px;
+        line-height: 18px;
+    }
+
+    .updown_box ul li.selected a {
+        background: #7ecbc8;
+        color: #fff;
+    }
+
+    .w136 {
+        width: 136px;
+        border-left: 0;
+        padding: 0;
+    }
+
+    .w290 {
+        width: 290px;
+    }
+
+    .w160 {
+        width: 160px;
+        padding: 0 40px;
+    }
+
+    .sousuo {
+        padding: 10px 0 36px 0;
+        width: 100%;
+    }
+
+    .select-result {
+        width: 900px;
+        float: left;
+    }
+
+    .select-result ul li a {
+        height: 30px;
+        padding: 0 24px 0 10px;
+        line-height: 30px;
+        display: block;
+        position: relative;
+        float: left;
+        margin: 0 10px 10px 0;
+        color: #fff;
+        font-size: 14px;
+        background: url(../../assets/img/close1.png) 90% center no-repeat #7ecbc8;
+    }
+    </style>
 </head>
 
 <body>
@@ -51,37 +168,40 @@
         <!-- 此节点内部的内容会在弹出框内显示,默认隐藏此节点-->
         <div id="tongbu" class="hidden" style="display: none;">
             <form id="form" class="form-horizontal">
-                <div class="row">
-                    <div class="control-group span15">
-                        <label class="control-label">产品名称1212：</label>
-                        <div class="controls" style="margin-top: 6px;">
-                            MIER 16 Can Large Insulated Lunch Bag
+                <div class="sx_updown clearfix">
+                    <div class="content">
+                        <div class="updown_box" >
+                            <h3>选择平台</h3>
+                            <ul id="select1">
+                                <li><a href="javascript:;">Wish</a></li>
+                                <li><a href="javascript:;">Amazon</a></li>
+                                <li><a href="javascript:;">AliExpress</a></li>
+                                <li><a href="javascript:;">Wish</a></li>
+                                <li><a href="javascript:;">Amazon</a></li>
+                                <li><a href="javascript:;">AliExpress</a></li>
+                            </ul>
+                        </div><br>
+                        <div class="updown_box" >
+                            <h3>选择店铺</h3>
+                            <ul id="select2">
+                                <li date-type="1"><a href="javascript:;">店铺1</a></li>
+                                <li date-type="2"><a href="javascript:;">店铺2</a></li>
+                                <li date-type="3"><a href="javascript:;">店铺3</a></li>
+                                <li date-type="4"><a href="javascript:;">店铺4</a></li>
+                                <li date-type="5"><a href="javascript:;">店铺5</a></li>
+                                <li date-type="6"><a href="javascript:;">店铺6</a></li>
+                                <li date-type="7"><a href="javascript:;">店铺7</a></li>
+                            </ul>
                         </div>
                     </div>
-                    <div class="control-group span15">
-                        <label class="control-label">SKU：</label>
-                        <div class="controls" style="margin-top: 6px;">
-                            SA10050087-wine
-                        </div>
-                    </div>
+                </div><br><br><br>
+                <div class="progress progress-striped">
+                    <div class="bar bar-success" style="width: 30%;"></div>
                 </div>
-                <div class="row">
-                    <div class="control-group span15">
-                        <label class="control-label">平台-店铺：</label>
-                        <div class="controls" style="margin-top: 6px;">
-                            NCDS02300200078 WHITE(WISH-ASONG)
-                            <br> NCDS02300200078 WHITE(WISH-ASONG)
-                            <br> NCDS02300200078 WHITE(WISH-ASONG)
-                            <br> NCDS02300200078 WHITE(WISH-ASONG)
-                            <br>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="control-group span15">
-                        <label class="control-label"></label>
-                        <div class="controls control-row4">
-                        </div>
+                <div class="sousuo clearfix">
+                    <div class="select-result clearfix">
+                        <ul>
+                        </ul>
                     </div>
                 </div>
             </form>
@@ -89,37 +209,124 @@
         <!-- 此节点内部的内容会在弹出框内显示,默认隐藏此节点-->
         <div id="guanli" class="hidden" style="display: none;">
             <form id="form" class="form-horizontal">
-                <div class="row">
-                    <div class="control-group span15">
-                        <label class="control-label">产品名称：</label>
-                        <div class="controls" style="margin-top: 6px;">
-                            MIER 16 Can Large Insulated Lunch Bag
+                <div class="demo-content">
+                    <div class="row">
+                        <div class="offset1 span20 doc-content" style="    margin-left: 26px;">
+                            <img style="width: 55px;height: 55px;    margin-top: 23px;" src="https://s.tbcdn.cn/g/fi/act/finder/img/test/1.jpg">
+                            <table class="table" style="    display: initial;    margin-left: 13px;">
+                                <tbody>
+                                    <tr>
+                                        <td>MIER 16 Can Large Insulated Lunch Bag</td>
+                                    </tr>
+                                    <tr>
+                                        <td>SKU：SA10050087-White 配对的平台SKU</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
-                    <div class="control-group span15">
-                        <label class="control-label">SKU：</label>
-                        <div class="controls" style="margin-top: 6px;">
-                            SA10050087-wine
+                    <div class="row">
+                        <div class="offset1 span20 doc-content" style="    margin-left: 26px;">
+                            <table cellspacing="0" class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th colspan="6">
+                                            <ul class="toolbar">
+                                                <li>
+                                                    <label class="checkbox">
+                                                        <input type="checkbox"><a href="#">全选</a></label>
+                                                </li>
+                                                <li>
+                                                    <button class="button button-primary">添加</button>
+                                                </li>
+                                                <li>
+                                                    <button class="button button-danger">删除</button>
+                                                </li>
+                                                <li>
+                                                    <button class="button button-info">上架</button>
+                                                </li>
+                                                <li>
+                                                    <button class="button button-warning">下架</button>
+                                                </li>
+                                            </ul>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th width="15"></th>
+                                        <th>序号</th>
+                                        <th>平台SKU</th>
+                                        <th>平台</th>
+                                        <th>店铺</th>
+                                        <th>状态</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <input type="checkbox">
+                                        </td>
+                                        <td>1</td>
+                                        <td>NCDS02300200078(WISH)</td>
+                                        <td>Amazon</td>
+                                        <td>店铺1</td>
+                                        <td>上架</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="checkbox">
+                                        </td>
+                                        <td>1</td>
+                                        <td>NCDS02300200078(WISH)</td>
+                                        <td>Amazon</td>
+                                        <td>店铺1</td>
+                                        <td>上架</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="checkbox">
+                                        </td>
+                                        <td>1</td>
+                                        <td>NCDS02300200078(WISH)</td>
+                                        <td>Amazon</td>
+                                        <td>店铺1</td>
+                                        <td>上架</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="checkbox">
+                                        </td>
+                                        <td>1</td>
+                                        <td>NCDS02300200078(WISH)</td>
+                                        <td>Amazon</td>
+                                        <td>店铺1</td>
+                                        <td>上架</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="checkbox">
+                                        </td>
+                                        <td>1</td>
+                                        <td>NCDS02300200078(WISH)</td>
+                                        <td>Amazon</td>
+                                        <td>店铺1</td>
+                                        <td>上架</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div>
+                               <!--  <div class="pagination pull-right">
+                                    <ul>
+                                        <li class="disabled"><a href="#">« 上一页</a></li>
+                                        <li class="active"><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">下一页 »</a></li>
+                                    </ul>
+                                </div> -->
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="control-group span15">
-                        <label class="control-label">平台-店铺：</label>
-                        <div class="controls" style="margin-top: 6px;">
-                            NCDS02300200078 WHITE(WISH-ASONG)
-                            <br> NCDS02300200078 WHITE(WISH-ASONG)
-                            <br> NCDS02300200078 WHITE(WISH-ASONG)
-                            <br> NCDS02300200078 WHITE(WISH-ASONG)
-                            <br>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="control-group span15">
-                        <label class="control-label"></label>
-                        <div class="controls control-row4">
-                        </div>
+                        <!-- script end -->
                     </div>
                 </div>
             </form>
@@ -133,9 +340,8 @@
             <div id="grid">
             </div>
         </div>
-        <script src="http://g.tbcdn.cn/fi/bui/jquery-1.8.1.min.js"></script>
-        <script src="http://g.tbcdn.cn/fi/bui/bui-min.js?t=201309041336"></script>
         <script src="../../assets/js/jquery-1.8.1.min.js"></script>
+        <script src="../../assets/js/bui-min.js?t=201309041336"></script>
         <script type="text/javascript">
         var tongbu;
         var xiangqing;
@@ -153,34 +359,34 @@
             tongbu = new Overlay.Dialog({
                 title: '同步在线商品',
                 width: 600,
-                height: 320,
+                height: 420,
                 //配置DOM容器的编号
                 contentId: 'tongbu',
                 buttons: [{
-                    text: '关闭',
+                    text: '开始同步',
                     elCls: 'button',
                     handler: function() {
-                        this.close();
+                        // this.close();
                     }
                 }],
             });
             guanli = new Overlay.Dialog({
                 title: 'SKU管理',
-                width: 600,
-                height: 320,
+                width: 850,
+                height: 520,
                 //配置DOM容器的编号
                 contentId: 'guanli',
                 buttons: [{
-                    text: '关闭',
+                    text: '保存',
                     elCls: 'button',
                     handler: function() {
-                        this.close();
+                        // this.close();
                     }
                 }],
             });
             //展开点击
             $("#grid").on("click", ".zhankai", function() {
-              $(this).parent().parent().parent().parent().find('td:eq(1) div span').click();
+                $(this).parent().parent().parent().parent().find('td:eq(1) div span').click();
 
             });
             //详情点击
@@ -245,7 +451,7 @@
                         dataIndex: 'g',
                         renderer: function(value, obj) {
 
-                            var c = '<span class="grid-command xiangqing">商品详情</span>';
+                            var c = '<a class="grid-command xiangqing" href="skumerge_detail.html">商品详情</a>';
                             c += '<span class="grid-command guanli">SKU管理</span>';
                             return c;
                         }
@@ -264,32 +470,32 @@
                 simpleGridConfig = {
                     autoRender: true, //自动生成
                     columns: BUI.cloneObject([
-                    { title: '', width: 30, sortable: false, dataIndex: 'a' },
-                    { title: '', width: 150, sortable: true, dataIndex: 'b', selectable: true },
-                    {
-                        title: '',
-                        width: 100,
-                        sortable: false,
-                        dataIndex: 'c',
-                        selectable: true
-                    },
-                    { title: '', width: 30, sortable: true, dataIndex: 'd', showTip: true },
-                    {
-                        title: '店铺SKU/平台-店铺名称',
-                        width: 100,
-                        sortable: true,
-                        dataIndex: 'e',
-                        renderer: function(value, obj) {
-                            return value;
+                        { title: '', width: 30, sortable: false, dataIndex: 'a' },
+                        { title: '', width: 150, sortable: true, dataIndex: 'b', selectable: true },
+                        {
+                            title: '',
+                            width: 100,
+                            sortable: false,
+                            dataIndex: 'c',
+                            selectable: true
+                        },
+                        { title: '', width: 30, sortable: true, dataIndex: 'd', showTip: true },
+                        {
+                            title: '店铺SKU/平台-店铺名称',
+                            width: 100,
+                            sortable: true,
+                            dataIndex: 'e',
+                            renderer: function(value, obj) {
+                                return value;
+                            }
+                        },
+                        { title: '', width: 30, sortable: true, dataIndex: 'f' },
+                        {
+                            title: '',
+                            width: 30,
+                            dataIndex: 'g'
                         }
-                    },
-                    { title: '', width: 30, sortable: true, dataIndex: 'f' },
-                    {
-                        title: '',
-                        width: 30,
-                        dataIndex: 'g'
-                    }
-                ]) //这里为了简单起见，复制了配置信息，应用中需要自己配置
+                    ]) //这里为了简单起见，复制了配置信息，应用中需要自己配置
                 };
 
             var store = new Store({
@@ -302,7 +508,7 @@
                     loadMask: true,
                     forceFit: true,
                     store: store,
-                    plugins: [cascade,Grid.Plugins.CheckSelection, Grid.Plugins.AutoFit] // Grid.Plugins.Cascade 插件
+                    plugins: [cascade, Grid.Plugins.CheckSelection, Grid.Plugins.AutoFit] // Grid.Plugins.Cascade 插件
                 });
 
             grid.render();
@@ -359,6 +565,51 @@
 
             });
 
+        });
+
+
+        $("#select1 li").click(function() {
+            $(this).addClass("selected").siblings().removeClass("selected");
+            var copyThisA = $(this).clone();
+            //console.log(copyThisA);
+            if ($("#selectA").length > 0) {
+                $("#selectA a").html($(this).text());
+            } else {
+                $(".select-result ul").append(copyThisA.attr("id", "selectA"));
+            }
+        });
+        $("#select2 li").click(function() {
+            var type = $(this).attr("date-type");
+            var copyThisB = $(this).clone();
+            if ($(this).hasClass("selected")) {
+                $(".select-result li[date-type='" + type + "']").fadeToggle();
+            } else {
+                $(".select-result ul").append(copyThisB);
+            };
+            $(this).toggleClass("selected");
+
+        });
+        $("#select3 li").click(function() {
+            $(this).addClass("selected").siblings().removeClass("selected");
+            var copyThisC = $(this).clone();
+            if ($("#selectC").length > 0) {
+                $("#selectC a").html($(this).text());
+            } else {
+                $(".select-result ul").append(copyThisC.attr("id", "selectC"));
+            }
+        });
+        $("#selectA").live("click", function() {
+            $(this).remove();
+            $("#select1 li").removeClass("selected");
+        });
+        $(".select-result ul").delegate("li", "click", function() {
+            var type = $(this).attr("date-type");
+            $(this).fadeOut();
+            $("#select2 li[date-type='" + type + "']").removeClass("selected");
+        });
+        $("#selectC").live("click", function() {
+            $(this).remove();
+            $("#select3 li").removeClass("selected");
         });
         </script>
         <!-- script end -->
