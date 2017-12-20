@@ -39,7 +39,7 @@
                 columns = [{
                     title: '产品图片',
                     dataIndex: 'a',
-                    width: 100
+                    width: 70
                 }, {
                     title: '产品名称',
                     dataIndex: 'b',
@@ -53,7 +53,7 @@
                     dataIndex: 'd',
                     width: 200
                 }],
-                data = [{ a: '<img style="width: 25px;height: 25px;" src="https://s.tbcdn.cn/g/fi/act/finder/img/test/1.jpg">', b: 'MIER 16 Can Large Insulated Lunch Bag', c: '店铺1', d: 'NCDXS01544154' }, { a: '<img style="width: 25px;height: 25px;" src="https://s.tbcdn.cn/g/fi/act/finder/img/test/1.jpg">', b: 'MIER 16 Can Large Insulated Lunch Bag', c: '店铺1', d: 'NCDXS01544154' }, { a: '<img style="width: 25px;height: 25px;" src="https://s.tbcdn.cn/g/fi/act/finder/img/test/1.jpg">', b: 'MIER 16 Can Large Insulated Lunch Bag', c: '店铺1', d: 'NCDXS01544154' }, { a: '<img style="width: 25px;height: 25px;" src="https://s.tbcdn.cn/g/fi/act/finder/img/test/1.jpg">', b: 'MIER 16 Can Large Insulated Lunch Bag', c: '店铺1', d: 'NCDXS01544154' }, { a: '<img style="width: 25px;height: 25px;" src="https://s.tbcdn.cn/g/fi/act/finder/img/test/1.jpg">', b: 'MIER 16 Can Large Insulated Lunch Bag', c: '店铺1', d: 'NCDXS01544154' }];
+                data = [{ a: '<img style="width: 35px;height: 35px;" src="https://s.tbcdn.cn/g/fi/act/finder/img/test/1.jpg">', b: 'MIER 16 Can Large Insulated Lunch Bag', c: '店铺1', d: 'NCDXS01544154' }, { a: '<img style="width: 35px;height: 35px;" src="https://s.tbcdn.cn/g/fi/act/finder/img/test/1.jpg">', b: 'MIER 16 Can Large Insulated Lunch Bag', c: '店铺1', d: 'NCDXS01544154' }, { a: '<img style="width: 35px;height: 35px;" src="https://s.tbcdn.cn/g/fi/act/finder/img/test/1.jpg">', b: 'MIER 16 Can Large Insulated Lunch Bag', c: '店铺1', d: 'NCDXS01544154' }, { a: '<img style="width: 35px;height: 35px;" src="https://s.tbcdn.cn/g/fi/act/finder/img/test/1.jpg">', b: 'MIER 16 Can Large Insulated Lunch Bag', c: '店铺1', d: 'NCDXS01544154' }, { a: '<img style="width: 35px;height: 35px;" src="https://s.tbcdn.cn/g/fi/act/finder/img/test/1.jpg">', b: 'MIER 16 Can Large Insulated Lunch Bag', c: '店铺1', d: 'NCDXS01544154' }];
 
             var store = new Store({
                     data: data,
@@ -77,10 +77,10 @@
             var Grid = Grid,
                 Store = Data.Store,
                 columns = [
-                    { title: '图片', width: 20, dataIndex: 'a' }, //editor中的定义等用于 BUI.Form.Field.Text的定义
+                    { title: '图片', width: 23, dataIndex: 'a' }, //editor中的定义等用于 BUI.Form.Field.Text的定义
                     { title: '推荐SKU', dataIndex: 'b', editor: { xtype: 'text', rules: { required: true } } }
                 ],
-                data = [{ a: '<img style="width: 25px;height: 25px;" src="https://s.tbcdn.cn/g/fi/act/finder/img/test/1.jpg">', b: 'S01544154-White   X' }, { a: '<img style="width: 25px;height: 25px;" src="https://s.tbcdn.cn/g/fi/act/finder/img/test/1.jpg">', b: 'S01544154-White   X' }, { a: '<img style="width: 25px;height: 25px;" src="https://s.tbcdn.cn/g/fi/act/finder/img/test/1.jpg">', b:'S01544154-White   X'}];
+                data = [{ a: '<img style="width: 35px;height: 35px;" src="https://s.tbcdn.cn/g/fi/act/finder/img/test/1.jpg">', b: 'S01544154-White   X' }, { a: '<img style="width: 35px;height: 35px;" src="https://s.tbcdn.cn/g/fi/act/finder/img/test/1.jpg">', b: 'S01544154-White   X' }, { a: '<img style="width: 35px;height: 35px;" src="https://s.tbcdn.cn/g/fi/act/finder/img/test/1.jpg">', b: 'S01544154-White   X' }];
             var editing = new Grid.Plugins.CellEditing(),
                 store = new Store({
                     data: data,
@@ -93,13 +93,12 @@
                     forceFit: true,
                     tbar: { //添加、删除
                         items: [{
-                                btnCls: 'button button-small',
-                                text: '<i class="icon-ok"></i>保存',
-                                listeners: {
-                                    'click': addFunction
-                                }
+                            btnCls: 'button button-small',
+                            text: '<i class="icon-ok"></i>保存',
+                            listeners: {
+                                'click': addFunction
                             }
-                        ]
+                        }]
                     },
                     plugins: [editing, Grid.Plugins.CheckSelection],
                     store: store
@@ -109,7 +108,7 @@
 
             //添加记录
             function addFunction() {
-              alert("这是保存");
+                alert("这是保存");
             }
             //删除选中的记录
             function delFunction() {

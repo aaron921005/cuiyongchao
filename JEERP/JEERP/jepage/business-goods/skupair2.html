@@ -13,15 +13,141 @@
         <div class="doc-content">
             <ul class="link-tabs">
                 <li><a href="skupair.html">未配对SKU</a></li>
-                <li  class="active"><a href="#">合并SKU</a></li>
+                <li class="active"><a href="#">合并SKU</a></li>
             </ul>
         </div>
         <!-- script end -->
     </div>
+    <br>
+    <span class="badge" style="text-align: left;">注意：SKU合并按照序列号合并，及序列1与序列1合并，序列2与序列2合并，SKU合并后，所有已绑定的店铺SKU汇总到SKU1名下 <br>
+      SKU合并后，不可撤销，请谨慎操作
+    </span>
+    <br>
+    <br>
+    <br>
+    <div class="demo-content">
+        <div class="row">
+            <div class="span24 doc-content">
+                <form class="form-horizontal">
+                    <div class="row show-grid">
+                        <div class="span8">
+                            <label class="control-label" style="    width: 30px;">SKU1</label>
+                            <div class="controls">
+                                <input class="input-normal control-text" type="text" value="NCDXS01544154">
+                            </div>
+                        </div>
+                        <div class="span8">
+                            <label class="control-label">SKU1</label>
+                            <div class="controls">
+                                <input class="input-normal control-text" type="text" value="NCDXS01544154">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="demo-content">
+        <div class="row">
+            <div class="span10">
+                <div id="grid1">
+                </div>
+            </div>
+            <div class="span10">
+                <div id="grid2">
+                </div>
+                <p style="text-align: left;margin-top: 5px;">
+                    <button class='button button-primary'>开始合并</button>
+                </p>
+            </div>
+        </div>
         <script src="../../assets/js/jquery-1.8.1.min.js"></script>
         <script src="../../assets/js/bui-min.js?t=201309041336"></script>
-    <script type="text/javascript">
-    </script>
+        <!-- script start -->
+        <script type="text/javascript">
+        BUI.use(['bui/grid', 'bui/data', 'bui/picker', 'bui/tree'], function(Grid, Data, Picker, Tree) {
+
+
+            var Grid = Grid,
+                Store = Data.Store,
+                columns = [
+                    { title: '商品信息', width: 130, dataIndex: 'a' }, //editor中的定义等用于 BUI.Form.Field.Text的定义
+                    { title: '排序', width: 30, dataIndex: 'b', editor: { xtype: 'number', rules: { required: true } } }
+                ],
+                data = [{ a: '<img style="width: 35px;height: 35px;" src="https://s.tbcdn.cn/g/fi/act/finder/img/test/1.jpg"><table class="table" style="display: initial;    margin-left: 13px;"><tbody><tr><td>MIER 16 Can Large Insulated Lunch Bag</td></tr><tr><td>SKU：SA10050087-White 配对的平台SKU</td></tr></tbody></table>', b: '1' }, { a: '<img style="width: 35px;height: 35px;" src="https://s.tbcdn.cn/g/fi/act/finder/img/test/1.jpg"><table class="table" style="display: initial;    margin-left: 13px;"><tbody><tr><td>MIER 16 Can Large Insulated Lunch Bag</td></tr><tr><td>SKU：SA10050087-White 配对的平台SKU</td></tr></tbody></table>', b: '2' }, { a: '<img style="width: 35px;height: 35px;" src="https://s.tbcdn.cn/g/fi/act/finder/img/test/1.jpg"><table class="table" style="display: initial;    margin-left: 13px;"><tbody><tr><td>MIER 16 Can Large Insulated Lunch Bag</td></tr><tr><td>SKU：SA10050087-White 配对的平台SKU</td></tr></tbody></table>', b: '3' }];
+            var editing = new Grid.Plugins.CellEditing(),
+                store = new Store({
+                    data: data,
+                    autoLoad: true
+                }),
+                grid = new Grid.Grid({
+                    render: '#grid1',
+                    columns: columns,
+                    width: 400,
+                    forceFit: true,
+                    tbar: { //添加、删除
+                        items: []
+                    },
+                    plugins: [editing],
+                    store: store
+                });
+
+            grid.render();
+
+            //添加记录
+            function addFunction() {
+                alert("这是保存");
+            }
+            //删除选中的记录
+            function delFunction() {
+                var selections = grid.getSelection();
+                store.remove(selections);
+            }
+        });
+        </script>
+        <!-- script end -->
+        <script type="text/javascript">
+        BUI.use(['bui/grid', 'bui/data', 'bui/picker', 'bui/tree'], function(Grid, Data, Picker, Tree) {
+
+
+            var Grid = Grid,
+                Store = Data.Store,
+                columns = [
+                    { title: '商品信息', width: 130, dataIndex: 'a' }, //editor中的定义等用于 BUI.Form.Field.Text的定义
+                    { title: '排序', width: 30, dataIndex: 'b', editor: { xtype: 'number', rules: { required: true } } }
+                ],
+                data = [{ a: '<img style="width: 35px;height: 35px;" src="https://s.tbcdn.cn/g/fi/act/finder/img/test/1.jpg"><table class="table" style="display: initial;    margin-left: 13px;"><tbody><tr><td>MIER 16 Can Large Insulated Lunch Bag</td></tr><tr><td>SKU：SA10050087-White 配对的平台SKU</td></tr></tbody></table>', b: '1' }, { a: '<img style="width: 35px;height: 35px;" src="https://s.tbcdn.cn/g/fi/act/finder/img/test/1.jpg"><table class="table" style="display: initial;    margin-left: 13px;"><tbody><tr><td>MIER 16 Can Large Insulated Lunch Bag</td></tr><tr><td>SKU：SA10050087-White 配对的平台SKU</td></tr></tbody></table>', b: '2' }, { a: '<img style="width: 35px;height: 35px;" src="https://s.tbcdn.cn/g/fi/act/finder/img/test/1.jpg"><table class="table" style="display: initial;    margin-left: 13px;"><tbody><tr><td>MIER 16 Can Large Insulated Lunch Bag</td></tr><tr><td>SKU：SA10050087-White 配对的平台SKU</td></tr></tbody></table>', b: '3' }];
+            var editing = new Grid.Plugins.CellEditing(),
+                store = new Store({
+                    data: data,
+                    autoLoad: true
+                }),
+                grid = new Grid.Grid({
+                    render: '#grid2',
+                    columns: columns,
+                    width: 400,
+                    forceFit: true,
+                    tbar: { //添加、删除
+                        items: []
+                    },
+                    plugins: [editing],
+                    store: store
+                });
+
+            grid.render();
+
+            //添加记录
+            function addFunction() {
+                alert("这是保存");
+            }
+            //删除选中的记录
+            function delFunction() {
+                var selections = grid.getSelection();
+                store.remove(selections);
+            }
+        });
+        </script>
+    </div>
 </body>
 
 </html>
