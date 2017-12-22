@@ -14,7 +14,8 @@
 
     ol,
     ul {
-        list-style: none;    display: inline-flex;
+        list-style: none;
+        display: inline-flex;
     }
 
     blockquote,
@@ -122,13 +123,17 @@
         font-size: 14px;
         background: url(../../assets/img/close1.png) 90% center no-repeat #7ecbc8;
     }
+    .bianji,.quxiao,.shenhe{color: #3366cc;
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 5px;}
     </style>
 </head>
 
 <body>
     <div class="demo-content">
         <div class="sousuo clearfix">
-            <div class="select-result clearfix">
+            <div class="select-result clearfix" style="display: none;">
                 <ul>
                 </ul>
             </div>
@@ -138,6 +143,7 @@
                 <div class="updown_box">
                     <span>选择平台</span>
                     <ul id="select1" style="    padding-left: 3px;">
+                        <li><a href="javascript:;">全部</a></li>
                         <li><a href="javascript:;">Wish</a></li>
                         <li><a href="javascript:;">Amazon</a></li>
                         <li><a href="javascript:;">AliExpress</a></li>
@@ -149,7 +155,8 @@
                 <br>
                 <div class="updown_box">
                     <span>选择店铺</span>
-                    <ul id="select2"  style="    padding-left: 3px;">
+                    <ul id="select2" style="    padding-left: 3px;">
+                        <li date-type="1"><a href="javascript:;">全部</a></li>
                         <li date-type="1"><a href="javascript:;">店铺1</a></li>
                         <li date-type="2"><a href="javascript:;">店铺2</a></li>
                         <li date-type="3"><a href="javascript:;">店铺3</a></li>
@@ -189,13 +196,13 @@
                     </div>
                     <div class="row">
                         <div class="control-group span8">
-                            <label class="control-label"  style="width: 83px;">客户姓名：</label>
+                            <label class="control-label" style="width: 83px;">客户姓名：</label>
                             <div class="controls">
                                 <input type="text" name="c" class="control-text">
                             </div>
                         </div>
                         <div class="control-group span8">
-                            <label class="control-label" >订单状态：</label>
+                            <label class="control-label">订单状态：</label>
                             <div class="controls">
                                 <input type="text" name="a" class="control-text">
                             </div>
@@ -209,7 +216,7 @@
                     </div>
                     <div class="row">
                         <div class="control-group span8">
-                            <label class="control-label"  style="width: 83px;">国家：</label>
+                            <label class="control-label" style="width: 83px;">国家：</label>
                             <div class="controls">
                                 <input type="text" name="c" class="control-text">
                             </div>
@@ -357,13 +364,122 @@
                 </div>
             </form>
         </div>
-        <div class="search-grid-container">
-            <button id="btnxinjian" class="button button-primary">新建</button>
-            <button id="btnshanchu" class="button button-primary">删除</button>
-            <button id="btnzhankaiall" class="button button-primary">展开所有</button>
-            <button id="btnzhedieall" class="button button-primary">折叠所有</button>
-            <button id="btntongbu" class="button button-primary">同步在线商品</button>
-            <div id="grid">
+        <div class="row">
+            <div class="doc-content">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>序列</th>
+                            <th>下单时间</th>
+                            <th>订单号</th>
+                            <th>包裹号</th>
+                            <th>图片</th>
+                            <th>国家</th>
+                            <th>配送属性</th>
+                            <th>店铺</th>
+                            <th>商品价格</th>
+                            <th>订单金额</th>
+                            <th>配送方式</th>
+                            <th>运单号</th>
+                            <th>订单状态</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>2017-12-31 18:18</td>
+                            <td><a href="orderdetail.html" class="xiangqing">115-5248962-565892</a>
+                                <br><span style="color: red;">--地址信息不全</span></td>
+                            <td>XM4789552525</td>
+                            <td><div class="bui-grid-cell-inner"><img style="width: 35px;height: 35px;" src="https://s.tbcdn.cn/g/fi/act/finder/img/test/1.jpg"><span class="bui-grid-cell-text " title=""><table class="table" style="display: initial;"><tbody><tr><td style="border-top:0px;">S01544154-White</td></tr></tbody></table></span></div></td>
+                            <td>美国</td>
+                            <td>标准</td>
+                            <td>Wish-4025455@126.COM</td>
+                            <td>8.99</td>
+                            <td>12.99</td>
+                            <td>stand</td>
+                            <td>32165132151321</td>
+                            <td>待审核</td>
+                            <td>
+                                <span class="bui-grid-cell-text " title="">
+                            <a class="grid-command bianji" href="#">编辑</a>
+                            <a class="grid-command quxiao" href="#">取消</a>
+                            <a class="grid-command shenhe" href="#">审核</a>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>2017-12-31 18:18</td>
+                            <td><a href="orderdetail.html" class="xiangqing">115-5248962-565892</a>
+                                <br><span style="color: red;">--地址信息不全</span></td>
+                            <td>XM4789552525</td>
+                            <td><div class="bui-grid-cell-inner"><img style="width: 35px;height: 35px;" src="https://s.tbcdn.cn/g/fi/act/finder/img/test/1.jpg"><span class="bui-grid-cell-text " title=""><table class="table" style="display: initial;"><tbody><tr><td style="border-top:0px;">S01544154-White</td></tr></tbody></table></span></div></td>
+                            <td>美国</td>
+                            <td>标准</td>
+                            <td>Wish-4025455@126.COM</td>
+                            <td>8.99</td>
+                            <td>12.99</td>
+                            <td>stand</td>
+                            <td>32165132151321</td>
+                            <td>待审核</td>
+                            <td>
+                                <span class="bui-grid-cell-text " title="">
+                            <a class="grid-command bianji" href="#">编辑</a>
+                            <a class="grid-command quxiao" href="#">取消</a>
+                            <a class="grid-command shenhe" href="#">审核</a>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>2017-12-31 18:18</td>
+                            <td><a href="orderdetail.html" class="xiangqing">115-5248962-565892</a>
+                                <br><span style="color: red;">--地址信息不全</span></td>
+                            <td>XM4789552525</td>
+                            <td><div class="bui-grid-cell-inner"><img style="width: 35px;height: 35px;" src="https://s.tbcdn.cn/g/fi/act/finder/img/test/1.jpg"><span class="bui-grid-cell-text " title=""><table class="table" style="display: initial;"><tbody><tr><td style="border-top:0px;">S01544154-White</td></tr></tbody></table></span></div></td>
+                            <td>美国</td>
+                            <td>标准</td>
+                            <td>Wish-4025455@126.COM</td>
+                            <td>8.99</td>
+                            <td>12.99</td>
+                            <td>stand</td>
+                            <td>32165132151321</td>
+                            <td>待审核</td>
+                            <td>
+                                <span class="bui-grid-cell-text " title="">
+                            <a class="grid-command bianji" href="#">编辑</a>
+                            <a class="grid-command quxiao" href="#">取消</a>
+                            <a class="grid-command shenhe" href="#">审核</a>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>2017-12-31 18:18</td>
+                            <td><a href="orderdetail.html" class="xiangqing">115-5248962-565892</a>
+                                <br><span style="color: red;">--地址信息不全</span></td>
+                            <td>XM4789552525</td>
+                            <td><div class="bui-grid-cell-inner"><img style="width: 35px;height: 35px;" src="https://s.tbcdn.cn/g/fi/act/finder/img/test/1.jpg"><span class="bui-grid-cell-text " title=""><table class="table" style="display: initial;"><tbody><tr><td style="border-top:0px;">S01544154-White</td></tr></tbody></table></span></div></td>
+                            <td>美国</td>
+                            <td>标准</td>
+                            <td>Wish-4025455@126.COM</td>
+                            <td>8.99</td>
+                            <td>12.99</td>
+                            <td>stand</td>
+                            <td>32165132151321</td>
+                            <td>待审核</td>
+                            <td>
+                                <span class="bui-grid-cell-text " title="">
+                            <a class="grid-command bianji" href="#">编辑</a>
+                            <a class="grid-command quxiao" href="#">取消</a>
+                            <a class="grid-command shenhe" href="#">审核</a>
+                                </span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
         <script src="../../assets/js/jquery-1.8.1.min.js"></script>
@@ -414,6 +530,7 @@
         });
         </script>
         <!-- script end -->
+    </div>
 </body>
 
 </html>
