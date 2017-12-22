@@ -65,9 +65,9 @@
             var Grid = BUI.Grid,
                 Store = BUI.Data.Store,
                 columns = [
-                    { title: '下单时间', width: 50, sortable: false, dataIndex: 'a' },
-                    { title: '包裹号', width: 50, sortable: true, dataIndex: 'b', selectable: true },
-                    { title: '订单号', width: 30, sortable: true, dataIndex: 'c', selectable: true },
+                    { title: '下单时间', width: 40, sortable: false, dataIndex: 'a' },
+                    { title: '包裹号', width: 40, sortable: true, dataIndex: 'b', selectable: true },
+                    { title: '订单号', width: 40, sortable: true, dataIndex: 'c', selectable: true },
                     {
                         title: '下单平台',
                         width: 30,
@@ -77,7 +77,7 @@
                             return '<span class="grid-command zhankai">' + value + '</span>';
                         }
                     },
-                    { title: '国家', width: 30, sortable: true, dataIndex: 'e', showTip: true },
+                    { title: '国家', width: 20, sortable: true, dataIndex: 'e', showTip: true },
                     { title: '收件人', width: 30, sortable: true, dataIndex: 'f', showTip: true },
                     {
                         title: 'SKU',
@@ -107,7 +107,7 @@
                 loadMask: true,
                 items: data,
                 forceFit: true,
-                plugins: [Grid.Plugins.CheckSelection, Grid.Plugins.AutoFit] // Grid.Plugins.Cascade 插件
+                plugins: [ Grid.Plugins.AutoFit] // Grid.Plugins.Cascade 插件
             });
 
             grid.render();
