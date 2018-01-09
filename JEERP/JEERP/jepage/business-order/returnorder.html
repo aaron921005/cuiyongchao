@@ -20,6 +20,7 @@
 					</ul>
 				</div>
 			</div>
+			<!-- 搜索页1 ================================================== -->
 			<div class="sx_updown clearfix">
 				<div class="content">
 					<div class="updown_box">
@@ -79,9 +80,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="demo-content">
-			<!-- 搜索页 ================================================== -->
+			<!-- 搜索页 2================================================== -->
 			<div class="row">
 				<div class="span24">
 					<form id="searchForm" class="form-horizontal" tabindex="0" style="outline: none;">
@@ -179,265 +178,95 @@
 					</form>
 				</div>
 			</div>
-			<!-- 此节点内部的内容会在弹出框内显示,默认隐藏此节点-->
-			<div id="tongbu" class="hidden" style="display: none;">
-				<form id="form" class="form-horizontal">
-					<br>
-					<br>
-					<br>
-					<div class="progress progress-striped">
-						<div class="bar bar-success" style="width: 30%;"></div>
-					</div>
-				</form>
-			</div>
-			<!-- 此节点内部的内容会在弹出框内显示,默认隐藏此节点-->
-			<div id="guanli" class="hidden" style="display: none;">
-				<form id="form" class="form-horizontal">
-					<div class="demo-content">
-						<div class="row">
-							<div class="offset1 span20 doc-content" style="    margin-left: 26px;">
-								<img style="width: 55px;height: 55px;    margin-top: 23px;" src="https://s.tbcdn.cn/g/fi/act/finder/img/test/1.jpg">
-								<table class="table" style="    display: initial;    margin-left: 13px;">
-									<tbody>
-										<tr>
-											<td>MIER 16 Can Large Insulated Lunch Bag</td>
-										</tr>
-										<tr>
-											<td>SKU：SA10050087-White 配对的平台SKU</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-						</div>
-						<div class="row">
-							<div class="offset1 span20 doc-content" style="    margin-left: 26px;">
-								<table cellspacing="0" class="table table-bordered">
-									<thead>
-										<tr>
-											<th colspan="6">
-												<ul class="toolbar">
-													<li>
-														<label class="checkbox">
-                                                        <input type="checkbox"><a href="#">全选</a></label>
-													</li>
-													<li>
-														<button class="button button-primary">添加</button>
-													</li>
-													<li>
-														<button class="button button-danger">删除</button>
-													</li>
-													<li>
-														<button class="button button-info">上架</button>
-													</li>
-													<li>
-														<button class="button button-warning">下架</button>
-													</li>
-												</ul>
-											</th>
-										</tr>
-										<tr>
-											<th width="15"></th>
-											<th>序号</th>
-											<th>平台SKU</th>
-											<th>平台</th>
-											<th>店铺</th>
-											<th>状态</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>
-												<input type="checkbox">
-											</td>
-											<td>1</td>
-											<td>NCDS02300200078(WISH)</td>
-											<td>Amazon</td>
-											<td>店铺1</td>
-											<td>上架</td>
-										</tr>
-										<tr>
-											<td>
-												<input type="checkbox">
-											</td>
-											<td>1</td>
-											<td>NCDS02300200078(WISH)</td>
-											<td>Amazon</td>
-											<td>店铺1</td>
-											<td>上架</td>
-										</tr>
-										<tr>
-											<td>
-												<input type="checkbox">
-											</td>
-											<td>1</td>
-											<td>NCDS02300200078(WISH)</td>
-											<td>Amazon</td>
-											<td>店铺1</td>
-											<td>上架</td>
-										</tr>
-										<tr>
-											<td>
-												<input type="checkbox">
-											</td>
-											<td>1</td>
-											<td>NCDS02300200078(WISH)</td>
-											<td>Amazon</td>
-											<td>店铺1</td>
-											<td>上架</td>
-										</tr>
-										<tr>
-											<td>
-												<input type="checkbox">
-											</td>
-											<td>1</td>
-											<td>NCDS02300200078(WISH)</td>
-											<td>Amazon</td>
-											<td>店铺1</td>
-											<td>上架</td>
-										</tr>
-									</tbody>
-								</table>
-								<div>
-									<!--  <div class="pagination pull-right">
-                                    <ul>
-                                        <li class="disabled"><a href="#">« 上一页</a></li>
-                                        <li class="active"><a href="#">1</a></li>
-                                        <li><a href="#">2</a></li>
-                                        <li><a href="#">3</a></li>
-                                        <li><a href="#">4</a></li>
-                                        <li><a href="#">下一页 »</a></li>
-                                    </ul>
-                                </div> -->
-								</div>
-							</div>
-							<!-- script end -->
-						</div>
-					</div>
-				</form>
-			</div>
+			<!--表格-->
 			<div class="row">
 				<div class="doc-content">
+					<ul class="toolbar" style="    margin-left: 10px;    line-height: 29px;">
+						<li><label class="checkbox"><input type="checkbox" class="quanxun"><a href="#">全选</a></label></li>
+						<li><button class="button button-success lurushouhou">录入售后订单</button></li>
+					</ul>
 					<table class="table">
 						<thead>
 							<tr>
 								<th>序列</th>
 								<th>下单时间</th>
 								<th>订单号</th>
-								<th>包裹号</th>
-								<th>图片</th>
+								<th>平台/店铺</th>
+								<th>商品信息</th>
 								<th>国家</th>
-								<th>配送属性</th>
-								<th>店铺</th>
-								<th>商品价格</th>
 								<th>订单金额</th>
-								<th>配送方式</th>
 								<th>运单号</th>
 								<th>订单状态</th>
+								<th>售后状态</th>
+								<th>申请原因</th>
+								<th>处理结果</th>
 								<th>操作</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
-								<td>1</td>
+								<td><input type="checkbox">1</td>
 								<td>2017-12-31 18:18</td>
-								<td>
-									<a href="orderdetail.html" class="xiangqing">115-5248962-565892</a>
-									<br><span style="color: red;">--地址信息不全</span></td>
-								<td>XM4789552525</td>
+								<td>111-23423423423-234234234</td>
+								<td>Amazon<br/>CNDX</td>
 								<td>
 									<div class="bui-grid-cell-inner"><img style="width: 35px;height: 35px;" src="https://s.tbcdn.cn/g/fi/act/finder/img/test/1.jpg"><span class="bui-grid-cell-text " title=""><table class="table" style="display: initial;"><tbody><tr><td style="border-top:0px;">S01544154-White</td></tr></tbody></table></span></div>
 								</td>
 								<td>美国</td>
-								<td>标准</td>
-								<td>Wish-4025455@126.COM</td>
-								<td>8.99</td>
-								<td>12.99</td>
-								<td>stand</td>
-								<td>32165132151321</td>
-								<td>待审核</td>
+								<td>30.98</td>
+								<td>DHL<br/>546466546654</td>
+								<td>已发货</td>
+								<td>处理中</td>
+								<td>图片与样式不符</td>
+								<td>拒绝</td>
 								<td>
 									<span class="bui-grid-cell-text " title="">
                             <a class="grid-command bianji" href="#">编辑</a>
-                            <a class="grid-command quxiao" href="#">取消</a>
-                            <a class="grid-command shenhe" href="#">审核</a>
+                            <a class="grid-command shouhou" href="#">售后</a>
                                 </span>
 								</td>
 							</tr>
 							<tr>
-								<td>2</td>
+								<td><input type="checkbox"> 2</td>
 								<td>2017-12-31 18:18</td>
-								<td>
-									<a href="orderdetail.html" class="xiangqing">115-5248962-565892</a>
-									<br><span style="color: red;">--地址信息不全</span></td>
-								<td>XM4789552525</td>
+								<td>111-23423423423-234234234</td>
+								<td>Amazon<br/>CNDX</td>
 								<td>
 									<div class="bui-grid-cell-inner"><img style="width: 35px;height: 35px;" src="https://s.tbcdn.cn/g/fi/act/finder/img/test/1.jpg"><span class="bui-grid-cell-text " title=""><table class="table" style="display: initial;"><tbody><tr><td style="border-top:0px;">S01544154-White</td></tr></tbody></table></span></div>
 								</td>
 								<td>美国</td>
-								<td>标准</td>
-								<td>Wish-4025455@126.COM</td>
-								<td>8.99</td>
-								<td>12.99</td>
-								<td>stand</td>
-								<td>32165132151321</td>
-								<td>待审核</td>
+								<td>30.98</td>
+								<td>DHL<br/>546466546654</td>
+								<td>已发货</td>
+								<td>已完成</td>
+								<td>物流延迟</td>
+								<td>退货退款</td>
 								<td>
 									<span class="bui-grid-cell-text " title="">
                             <a class="grid-command bianji" href="#">编辑</a>
-                            <a class="grid-command quxiao" href="#">取消</a>
-                            <a class="grid-command shenhe" href="#">审核</a>
+                            <a class="grid-command shouhou" href="#">售后</a>
                                 </span>
 								</td>
 							</tr>
 							<tr>
-								<td>3</td>
+								<td><input type="checkbox">3</td>
 								<td>2017-12-31 18:18</td>
-								<td>
-									<a href="orderdetail.html" class="xiangqing">115-5248962-565892</a>
-									<br><span style="color: red;">--地址信息不全</span></td>
-								<td>XM4789552525</td>
+								<td>111-23423423423-234234234</td>
+								<td>Amazon<br/>CNDX</td>
 								<td>
 									<div class="bui-grid-cell-inner"><img style="width: 35px;height: 35px;" src="https://s.tbcdn.cn/g/fi/act/finder/img/test/1.jpg"><span class="bui-grid-cell-text " title=""><table class="table" style="display: initial;"><tbody><tr><td style="border-top:0px;">S01544154-White</td></tr></tbody></table></span></div>
 								</td>
 								<td>美国</td>
-								<td>标准</td>
-								<td>Wish-4025455@126.COM</td>
-								<td>8.99</td>
-								<td>12.99</td>
-								<td>stand</td>
-								<td>32165132151321</td>
-								<td>待审核</td>
+								<td>30.98</td>
+								<td>DHL<br/>546466546654</td>
+								<td>已发货</td>
+								<td>处理中</td>
+								<td>图片与样式不符</td>
+								<td>拒绝</td>
 								<td>
 									<span class="bui-grid-cell-text " title="">
                             <a class="grid-command bianji" href="#">编辑</a>
-                            <a class="grid-command quxiao" href="#">取消</a>
-                            <a class="grid-command shenhe" href="#">审核</a>
-                                </span>
-								</td>
-							</tr>
-							<tr>
-								<td>4</td>
-								<td>2017-12-31 18:18</td>
-								<td>
-									<a href="orderdetail.html" class="xiangqing">115-5248962-565892</a>
-									<br><span style="color: red;">--地址信息不全</span></td>
-								<td>XM4789552525</td>
-								<td>
-									<div class="bui-grid-cell-inner"><img style="width: 35px;height: 35px;" src="https://s.tbcdn.cn/g/fi/act/finder/img/test/1.jpg"><span class="bui-grid-cell-text " title=""><table class="table" style="display: initial;"><tbody><tr><td style="border-top:0px;">S01544154-White</td></tr></tbody></table></span></div>
-								</td>
-								<td>美国</td>
-								<td>标准</td>
-								<td>Wish-4025455@126.COM</td>
-								<td>8.99</td>
-								<td>12.99</td>
-								<td>stand</td>
-								<td>32165132151321</td>
-								<td>待审核</td>
-								<td>
-									<span class="bui-grid-cell-text " title="">
-                            <a class="grid-command bianji" href="#">编辑</a>
-                            <a class="grid-command quxiao" href="#">取消</a>
-                            <a class="grid-command shenhe" href="#">审核</a>
+                            <a class="grid-command shouhou" href="#">售后</a>
                                 </span>
 								</td>
 							</tr>
@@ -445,54 +274,309 @@
 					</table>
 				</div>
 			</div>
-			<script src="../../assets/js/jquery-1.8.1.min.js"></script>
-			<script src="../../assets/js/bui-min.js?t=201309041336"></script>
-			<script type="text/javascript">
-				$("#select1 li").click(function() {
-					$(this).addClass("selected").siblings().removeClass("selected");
-					var copyThisA = $(this).clone();
-					//console.log(copyThisA);
-					if($("#selectA").length > 0) {
-						$("#selectA a").html($(this).text());
-					} else {
-						$(".select-result ul").append(copyThisA.attr("id", "selectA"));
-					}
-				});
-				$("#select2 li").click(function() {
-					var type = $(this).attr("date-type");
-					var copyThisB = $(this).clone();
-					if($(this).hasClass("selected")) {
-						$(".select-result li[date-type='" + type + "']").fadeToggle();
-					} else {
-						$(".select-result ul").append(copyThisB);
-					};
-					$(this).toggleClass("selected");
 
-				});
-				$("#select3 li").click(function() {
-					$(this).addClass("selected").siblings().removeClass("selected");
-					var copyThisC = $(this).clone();
-					if($("#selectC").length > 0) {
-						$("#selectC a").html($(this).text());
-					} else {
-						$(".select-result ul").append(copyThisC.attr("id", "selectC"));
+			<!-- 录入售后弹框-->
+			<div class="row lurushouhouArea">
+				<div class="control-group">
+					<label class="control-label" style="width: 83px;">订单号：<input type="text" name="a" class="control-text"></label>
+				</div>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>序号</th>
+							<th>平台</th>
+							<th>店铺</th>
+							<th>商品信息</th>
+							<th>数量</th>
+							<th>售价</th>
+							<th>运费</th>
+							<th>总计金额</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>Wish</td>
+							<td>NCSDX</td>
+							<td>
+								<div style="float:left;"><img src="../../data/窗口.png"></div>
+								<div style="float:left;">
+									<table class="table" style="    margin-bottom: 0px;">
+										<tbody>
+											<tr>
+												<td style="border-top:0px;line-height: 4px;">MIER 17 Can Large Insulated Lunch Bag</td>
+											</tr>
+											<tr>
+												<td style="border-top:0px;line-height: 4px;">S01544154-White</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</td>
+							<td>2</td>
+							<td>9.99</td>
+							<td>1.00</td>
+							<td>20.98</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>Wish</td>
+							<td>NCSDX</td>
+							<td>
+								<div style="float:left;"><img src="../../data/窗口.png"></div>
+								<div style="float:left;">
+									<table class="table" style="    margin-bottom: 0px;">
+										<tbody>
+											<tr>
+												<td style="border-top:0px;line-height: 4px;">MIER 17 Can Large Insulated Lunch Bag</td>
+											</tr>
+											<tr>
+												<td style="border-top:0px;line-height: 4px;">S01544154-White</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</td>
+							<td>5</td>
+							<td>16.99</td>
+							<td>1.00</td>
+							<td>60.98</td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="control-group">
+					<label class="control-label">申请原因：
+						<select>
+				          <option value="全部">全部</option>
+				          <option value="物流延迟">物流延迟</option>
+				          <option value="商品与图片不符">商品与图片不符</option>
+				        </select>
+					</label>
+				</div><br />
+				<div class="control-group">
+					<label class="control-label">备&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注：
+						<textarea  style="width: 70%;"></textarea>
+					</label>
+				</div>
+			</div>
+
+			<!-- 编辑售后弹框-->
+			<div class="row bianjishouhouArea">
+				<div class="control-group">
+					<label class="control-label" style="width: 83px;">订单号：<input type="text" name="a" class="control-text"></label>
+				</div>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>序号</th>
+							<th>平台</th>
+							<th>店铺</th>
+							<th>商品信息</th>
+							<th>数量</th>
+							<th>售价</th>
+							<th>运费</th>
+							<th>总计金额</th>
+							<th>退款金额</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>Wish</td>
+							<td>NCSDX</td>
+							<td>
+								<div style="float:left;"><img src="../../data/窗口.png"></div>
+								<div style="float:left;">
+									<table class="table" style="    margin-bottom: 0px;">
+										<tbody>
+											<tr>
+												<td style="border-top:0px;line-height: 4px;">MIER 17 Can Large Insulated Lunch Bag</td>
+											</tr>
+											<tr>
+												<td style="border-top:0px;line-height: 4px;">S01544154-White</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</td>
+							<td>2</td>
+							<td>9.99</td>
+							<td>1.00</td>
+							<td>20.98</td>
+							<td style="color: red;">-20.98</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>Wish</td>
+							<td>NCSDX</td>
+							<td>
+								<div style="float:left;"><img src="../../data/窗口.png"></div>
+								<div style="float:left;">
+									<table class="table" style="    margin-bottom: 0px;">
+										<tbody>
+											<tr>
+												<td style="border-top:0px;line-height: 4px;">MIER 17 Can Large Insulated Lunch Bag</td>
+											</tr>
+											<tr>
+												<td style="border-top:0px;line-height: 4px;">S01544154-White</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</td>
+							<td>5</td>
+							<td>16.99</td>
+							<td>1.00</td>
+							<td>60.98</td>
+							<td style="color: red;">-60.98</td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="row show-grid">
+					<div class="span8">
+						<div class="control-group">
+							<label class="control-label">申请原因：
+						<select>
+				          <option value="全部">全部</option>
+				          <option value="物流延迟">物流延迟</option>
+				          <option value="商品与图片不符">商品与图片不符</option>
+				        </select>
+					</label>
+						</div><br />
+						<div class="control-group">
+							<label class="control-label">处理结果：
+						<select>
+				          <option value="仅退款">仅退款</option>
+				          <option value="退货退款">退货退款</option>
+				          <option value="拒绝">拒绝</option>
+				        </select>
+					</label>
+						</div><br />
+						<div class="control-group">
+							<label class="control-label">退款金额：
+						<input type="text" name="" id="" value="" />
+					</label>
+						</div><br />
+						<div class="control-group">
+							<label class="control-label">责任方：&nbsp;&nbsp;&nbsp;&nbsp;
+						<select>
+				          <option value="平台规则">平台规则</option>
+				          <option value="供应商问题">供应商问题</option>
+				          <option value="物流问题">物流问题</option>
+				          <option value="订单操作失误">订单操作失误</option>
+				        </select>
+					</label>
+						</div>
+					</div>
+					<div class="span8 yinying">
+						<div class="control-group">
+							<label class="control-label">备注记录：</label>
+							<div class="controls control-row4">
+								<p>王小丫   2017-12-02 18：00：00     此单不发货</p>
+								<p>王小丫   2017-12-02 18：00：00     此单不发货</p>
+								<p>王小丫   2017-12-02 18：00：00     此单不发货</p>
+								<p>王小丫   2017-12-02 18：00：00     此单不发货</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				</form><br />
+				<div class="control-group">
+					<label class="control-label">备&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注：
+						<textarea  style="width: 70%;"></textarea>
+					</label>
+				</div>
+				<input type="checkbox">标记为已完成
+
+			</div>
+		</div>
+
+		<script src="../../assets/js/jquery-1.8.1.min.js"></script>
+		<script src="../../assets/js/bui-min.js?t=201309041336"></script>
+		<script src="../../assets/layer/layer.js"></script>
+		<!-- script start -->
+		<script type="text/javascript">
+			$('.lurushouhouArea').hide();
+			$('.lurushouhou').click(function() {
+				layer.open({
+					title: '录入售后',
+					area: '880px',
+					content: $('.lurushouhouArea').html(),
+					btn: ['保存', '取消'],
+					yes: function(index, layero) {
+						//按钮【按钮一】的回调
+					},
+					btn2: function(index, layero) {
+						//按钮【按钮二】的回调
+
+						//return false 开启该代码可禁止点击该按钮关闭
 					}
 				});
-				$("#selectA").live("click", function() {
-					$(this).remove();
-					$("#select1 li").removeClass("selected");
+			});
+			$('.bianjishouhouArea').hide();
+			$('table').on('click', '.bianji', function() {
+				layer.open({
+					title: '编辑售后',
+					area: '880px',
+					content: $('.bianjishouhouArea').html(),
+					btn: ['保存', '取消'],
+					yes: function(index, layero) {
+						//按钮【按钮一】的回调
+					},
+					btn2: function(index, layero) {
+						//按钮【按钮二】的回调
+
+						//return false 开启该代码可禁止点击该按钮关闭
+					}
 				});
-				$(".select-result ul").delegate("li", "click", function() {
-					var type = $(this).attr("date-type");
-					$(this).fadeOut();
-					$("#select2 li[date-type='" + type + "']").removeClass("selected");
-				});
-				$("#selectC").live("click", function() {
-					$(this).remove();
-					$("#select3 li").removeClass("selected");
-				});
-			</script>
-			<!-- script end -->
+			});
+		</script>
+		<script type="text/javascript">
+			$("#select1 li").click(function() {
+				$(this).addClass("selected").siblings().removeClass("selected");
+				var copyThisA = $(this).clone();
+				//console.log(copyThisA);
+				if($("#selectA").length > 0) {
+					$("#selectA a").html($(this).text());
+				} else {
+					$(".select-result ul").append(copyThisA.attr("id", "selectA"));
+				}
+			});
+			$("#select2 li").click(function() {
+				var type = $(this).attr("date-type");
+				var copyThisB = $(this).clone();
+				if($(this).hasClass("selected")) {
+					$(".select-result li[date-type='" + type + "']").fadeToggle();
+				} else {
+					$(".select-result ul").append(copyThisB);
+				};
+				$(this).toggleClass("selected");
+
+			});
+			$("#select3 li").click(function() {
+				$(this).addClass("selected").siblings().removeClass("selected");
+				var copyThisC = $(this).clone();
+				if($("#selectC").length > 0) {
+					$("#selectC a").html($(this).text());
+				} else {
+					$(".select-result ul").append(copyThisC.attr("id", "selectC"));
+				}
+			});
+			$("#selectA").live("click", function() {
+				$(this).remove();
+				$("#select1 li").removeClass("selected");
+			});
+			$(".select-result ul").delegate("li", "click", function() {
+				var type = $(this).attr("date-type");
+				$(this).fadeOut();
+				$("#select2 li[date-type='" + type + "']").removeClass("selected");
+			});
+			$("#selectC").live("click", function() {
+				$(this).remove();
+				$("#select3 li").removeClass("selected");
+			});
+		</script>
+		<!-- script end -->
 		</div>
 	</body>
 
