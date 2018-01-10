@@ -7,7 +7,24 @@
 		<!-- 此文件为了显示Demo样式，项目中不需要引入 -->
 		<link href="../../assets/css/bs3/dpl.css" rel="stylesheet">
 		<link href="../../assets/css/bs3/bui.css" rel="stylesheet">
-
+		<style type="text/css">
+			.uploadImg img {
+				cursor: pointer;
+				margin-left: 10px;
+			}
+			
+			.subJianju input,
+			.subJianju select {
+				margin-top: 5px;
+			}
+		</style>
+		<script charset="utf-8" src="../../assets/kindeditor/kindeditor-all-min.js"></script>
+		<script charset="utf-8" src="../../assets/kindeditor/lang/zh-CN.js"></script>
+		<script>
+			KindEditor.ready(function(K) {
+				window.editor = K.create('#editor_id');
+			});
+		</script>
 	</head>
 
 	<body>
@@ -49,7 +66,7 @@
 				</div>
 				<div class="control-group">
 					<label class="control-label">商品参数：</label>
-					<div class="controls bui-form-group-select" style=" height: auto;margin-bottom: 15px;" data-type="city">
+					<div class="controls bui-form-group-select subJianju" style=" height: auto;margin-bottom: 15px;" data-type="city">
 						参数
 						<select class="input-small">
 							<option>服装</option>
@@ -80,55 +97,145 @@
 				<hr />
 				<h3>商品描述</h3>
 				<div class="control-group">
-					<label class="control-label"><s>*</s>地址：</label>
-					<div class="controls">
-						<input type="text" class="input-large" data-rules="{required : true}">
+					<label class="control-label">商品描述:</label>
+					<div class="controls subJianju" style=" height: auto;margin-bottom: 15px;">
+						<input type="text" class="input-large" data-rules="{required : true}"><br />
+						<input type="text" class="input-large" data-rules="{required : true}"><br />
+						<input type="text" class="input-large" data-rules="{required : true}"><br />
+						<input type="text" class="input-large" data-rules="{required : true}"><br />
+						<input type="text" class="input-large" data-rules="{required : true}"><br />
 					</div>
 				</div>
+				<hr />
+				<h3>描述</h3>
 				<div class="control-group">
-					<label class="control-label"><s>*</s>电话：</label>
-					<div class="controls">
-						<input type="text" class="input-large" data-rules="{required : true}">
-					</div>
-				</div>
-				<div class="control-group">
-					<label class="control-label">公交：</label>
-					<div class="controls  control-row-auto">
+					<label class="control-label">描述:</label>
+					<div class="controls" style=" height: auto;margin-bottom: 15px;">
 						<textarea name="" id="" class="control-row4 input-large"></textarea>
 					</div>
 				</div>
+				<hr />
+				<h3>产品图片</h3>
 				<div class="control-group">
-					<label class="control-label">地图坐标：</label>
-					<div class="controls  control-row-auto">
-						<div class="bordered span-width span8" style="height:200px;"></div>
-						<div class="actions-bar actions-bar-small centered"><button type="button" class="button button-small">修改坐标</button></div>
+					<label class="control-label">产品图片:</label>
+					<div class="controls uploadImg" style=" height: auto;margin-bottom: 15px;">
+						<img src="../../assets/img/uploadImg.png" alt="" />
+						<img src="../../assets/img/uploadImg.png" alt="" />
+						<img src="../../assets/img/uploadImg.png" alt="" />
+						<img src="../../assets/img/uploadImg.png" alt="" />
+						<img src="../../assets/img/uploadImg.png" alt="" />
+
 					</div>
 				</div>
+				<hr />
+				<h3>添加页面描述</h3>
 				<div class="control-group">
-					<label class="control-label">其他：</label>
-					<div class="controls">
-						<label class="radio" for=""><input type="radio">规则未执行等同执行失败</label>&nbsp;&nbsp;&nbsp;
-						<label class="radio" for=""><input type="radio">规则未执行等同执行成功</label>
+					<label class="control-label">添加页面描述:</label>
+					<div class="controls" style=" height: auto;margin-bottom: 15px;">
+						<textarea id="editor_id" name="content" style="width:700px;height:300px;"></textarea>
+
 					</div>
 				</div>
+				<hr />
+				<h3>SKU信息</h3>
 				<div class="control-group">
-					<label class="control-label"><s>*</s>店铺类型：</label>
-					<div class="controls bui-form-group" data-rules="{checkRange:1}" data-messages="{checkRange:'至少勾选一项！'}">
-						<label class="checkbox" for=""><input name="stype" value="1" type="checkbox">集市</label>
-						<label class="checkbox" for=""><input name="stype" value="2" type="checkbox">商城</label>
-						<label class="checkbox" for=""><input name="stype" value="3" type="checkbox">无名良品</label>
+					<label class="control-label">SKU信息:</label>
+					<div class="controls" style=" height: auto;margin-bottom: 15px;">
+						<div style="float: left;"><button class="button button-primary">添加店铺SKU</button></div>
+						<div style="float: right;"><button class="button button-primary">取消</button><button class="button button-primary">保存</button></div>
+
+						<table class="table">
+							<thead>
+								<tr>
+									<th>序列</th>
+									<th>FNSKU</th>
+									<th>SKU</th>
+									<th width="10%">平台</th>
+									<th width="10%">店铺</th>
+									<th width="20%">店铺SKU</th>
+									<th width="5%">售价</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>1</td>
+									<td>S1523452352345</td>
+									<td>S2324243234-White</td>
+									<td class="pingtai">
+										<p>Amazon</p>
+										<p>Amazon</p>
+									</td>
+									<td class="dianpu">
+										<p>CDDX</p>
+										<p>CDDX</p>
+									</td>
+									<td class="sku">
+										<p>NECD3635435435435-White</p>
+										<p>NECD3635435435435-White</p>
+									</td>
+									<td class="shoujia">
+										<p>$29.99</p>
+									</td>
+								</tr>
+								<tr>
+									<td>2</td>
+									<td>S1523452352345</td>
+									<td>S2324243234-White</td>
+									<td class="pingtai">
+										<p>Amazon</p>
+										<p>Amazon</p>
+									</td>
+									<td class="dianpu">
+										<p>CDDX</p>
+										<p>CDDX</p>
+									</td>
+									<td class="sku">
+										<p>NECD3635435435435-White</p>
+										<p>NECD3635435435435-White</p>
+									</td>
+									<td class="shoujia">
+										<p>$29.99</p>
+									</td>
+								</tr>
+								<tr>
+									<td>3</td>
+									<td>S1523452352345</td>
+									<td>S2324243234-White</td>
+									<td class="pingtai">
+										<p>Amazon</p>
+										<p>Amazon</p>
+									</td>
+									<td class="dianpu">
+										<p>CDDX</p>
+										<p>CDDX</p>
+									</td>
+									<td class="sku">
+										<p>NECD3635435435435-White</p>
+										<p>NECD3635435435435-White</p>
+									</td>
+									<td class="shoujia">
+										<p>$29.99</p>
+									</td>
+								</tr>
+							</tbody>
+						</table>
 					</div>
 				</div>
+				<hr />
+				<h3>报关信息</h3>
 				<div class="control-group">
-					<label class="control-label">使用营销工具：</label>
-					<div class="controls">
-						<label class="checkbox" for=""><input type="checkbox">店铺优惠券<i class=""></i></label>
+					<label class="control-label">报关信息:</label>
+					<div class="controls subJianju" style=" height: auto;margin-bottom: 15px;">
+						报关名称 <input type="text" />&nbsp;&nbsp;&nbsp;&nbsp;HS&nbsp;&nbsp;编码 <input style="margin-left: 1px;" type="text" /><br /> 商品单价 <input type="text" />&nbsp;&nbsp;&nbsp;&nbsp;报关类型 <input type="text" /><br /> 商品数量 <input type="text" />&nbsp;&nbsp;&nbsp;&nbsp;<br
+						/> 商品金额 <input type="text" />&nbsp;&nbsp;&nbsp;&nbsp;<br />
 					</div>
 				</div>
+
 				<div class="row actions-bar">
 					<div class="form-actions span13 offset3">
+						<button type="submit" class="button button-primary">编辑</button>
 						<button type="submit" class="button button-primary">保存</button>
-						<button type="reset" class="button">重置</button>
+						<!--<button type="reset" class="button">重置</button>-->
 					</div>
 				</div>
 			</form>
@@ -139,6 +246,80 @@
 
 			<!-- script start -->
 			<script type="text/javascript">
+				//初始化Data
+				
+				//平台
+				var pingtaiSelect='';
+			    pingtaiSelect += "<select style='width:90px;'>\n";
+			    pingtaiSelect += "	<option value=\"Amazon\">Amazon<\/option>\n";
+			    pingtaiSelect += "	<option value=\"Wish\">Wish<\/option>\n";
+			    pingtaiSelect += "	<option value=\"Joom\">Joom<\/option>\n";
+			    pingtaiSelect += "	<option value=\"OTHER\">OTHER<\/option>\n";
+			    pingtaiSelect += "<\/select>\n";
+			    
+				//店铺
+				var dianpuSelect='';
+			    dianpuSelect += "<select style='width:90px;'>\n";
+			    dianpuSelect += "	<option value=\"NCDX\">NCDX<\/option>\n";
+			    dianpuSelect += "	<option value=\"JEPX\">JEPX<\/option>\n";
+			    dianpuSelect += "	<option value=\"UUEN\">UUEN<\/option>\n";
+			    dianpuSelect += "	<option value=\"AOSD\">AOSD<\/option>\n";
+			    dianpuSelect += "	<option value=\"OTHER\">OTHER<\/option>\n";
+			    dianpuSelect += "<\/select>\n";
+			    
+			
+				//平台
+				$('.pingtai').on('click', 'p', function() {
+					//继续
+					if ($(this).find('select').length==0){
+						var text=$(this).html();
+						$(this).html(pingtaiSelect);
+						$(this).find('select:first').val(text).focus();
+					}
+				});
+				$('.pingtai').on('blur', 'select', function() {
+					$(this).parent('p').html($(this).val());
+				});
+				
+				//店铺
+				$('.dianpu').on('click', 'p', function() {
+					//继续
+					if ($(this).find('select').length==0){
+						var text=$(this).html();
+						$(this).html(dianpuSelect);
+						$(this).find('select:first').val(text).focus();
+					}
+				});
+				$('.dianpu').on('blur', 'select', function() {
+					$(this).parent('p').html($(this).val());
+				});
+				
+				//SKU
+				$('.sku').on('click', 'p', function() {
+					//继续
+					if ($(this).find('input').length==0){
+						$(this).html('<input type="text"  style="" value="' + $(this).html() + '" >');
+						$(this).find('input:first').focus();
+					}
+				});
+				$('.sku').on('blur', 'input', function() {
+					$(this).parent('p').html($(this).val());
+				});
+				
+				//金额
+				$('.shoujia').on('click', 'p', function() {
+					//继续
+					if ($(this).find('input').length==0){
+						$(this).html('<input type="text"  style="width:30px;" value="' + $(this).html() + '" >');
+						$(this).find('input:first').focus();
+					}
+				});
+				$('.shoujia').on('blur', 'input', function() {
+					$(this).parent('p').html($(this).val());
+				});
+				
+				
+				
 			</script>
 			<!-- script end -->
 		</div>
