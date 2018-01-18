@@ -18,11 +18,11 @@
 		<div class="demo-content">
 			<div class="doc-content">
 				<ul class="link-tabs" style="width: 100%;">
-					<li class="active">
-						<a href="#">待采购清单</a>
-					</li>
 					<li>
-						<a href="tobepurchase2.html">已忽略</a>
+						<a href="tobepurchase.html">待采购清单</a>
+					</li>
+					<li class="active">
+						<a href="#">已忽略</a>
 					</li>
 				</ul>
 			</div>
@@ -85,8 +85,6 @@
 			</div>
 			<div class="row">
 				<div class="">
-					<button id="btnpl" class="button button-primary ">批量创建采购单</button>
-					<button id="btnsg" class="button button-primary ">创建手工采购单</button>
 					<table class="table">
 						<thead>
 							<tr>
@@ -101,7 +99,6 @@
 								<th>缺货数量</th>
 								<th>建议数量</th>
 								<th>单价</th>
-								<th>附加费</th>
 								<th>总金额</th>
 								<th>操作</th>
 							</tr>
@@ -119,11 +116,10 @@
 								<td>5</td>
 								<td><input class="tinput" type="text" name="" id="" value="8" /></td>
 								<td><input class="tinput" type="text" name="" id="" value="35.00" /></td>
-								<td><input class="tinput" type="text" name="" id="" value="0.00" /></td>
 								<td><input class="tinput" type="text" name="" id="" value="260.00" /></td>
 								<td>
-									<a href="">创建采购单</a><br />
-									<a href="">忽略</a>
+									<a href="">还原</a><br />
+									<a href="">删除</a>
 								</td>
 							</tr>
 							<tr>
@@ -138,11 +134,10 @@
 								<td>5</td>
 								<td><input class="tinput" type="text" name="" id="" value="8" /></td>
 								<td><input class="tinput" type="text" name="" id="" value="35.00" /></td>
-								<td><input class="tinput" type="text" name="" id="" value="0.00" /></td>
 								<td><input class="tinput" type="text" name="" id="" value="260.00" /></td>
 								<td>
-									<a href="">创建采购单</a><br />
-									<a href="">忽略</a>
+									<a href="">还原</a><br />
+									<a href="">删除</a>
 								</td>
 							</tr>
 							<tr>
@@ -157,97 +152,31 @@
 								<td>5</td>
 								<td><input class="tinput" type="text" name="" id="" value="8" /></td>
 								<td><input class="tinput" type="text" name="" id="" value="35.00" /></td>
-								<td><input class="tinput" type="text" name="" id="" value="0.00" /></td>
 								<td><input class="tinput" type="text" name="" id="" value="260.00" /></td>
 								<td>
-									<a href="">创建采购单</a><br />
-									<a href="">忽略</a>
+									<a href="">还原</a><br />
+									<a href="">删除</a>
 								</td>
 							</tr>
 						</tbody>
 					</table>
 				</div>
 			</div>
-
-		</div>
-		<!--创建手工采购单-->
-		<div class="row SGArea">
-			<div class="control-group">
-				<label class="control-label">SKU：<input type="text" /> <button class="button button-primary ">加载</button></label>
-			</div>
-			<table class="table">
-				<thead>
-					<tr>
-						<th>序列</th>
-						<th>供应商</th>
-						<th>结算方式</th>
-						<th>SKU</th>
-						<th>图片</th>
-						<th>商品名称</th>
-						<th>库存总数</th>
-						<th>单价</th>
-						<th>采购数量</th>
-						<th>附加费</th>
-						<th>总金额</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>1</td>
-						<td>上海柯城贸易</td>
-						<td>现结</td>
-						<td>SH9892992-WHITE</td>
-						<td><img src="../../data/窗口.png"></td>
-						<td>哥弟 半高领蝙蝠袖针织</td>
-						<td>125</td>
-						<td><input class="tinput" type="text" name="" id="" value="35.00" /></td>
-						<td><input class="tinput" type="text" name="" id="" value="" /></td>
-						<td><input class="tinput" type="text" name="" id="" value="0.00" /></td>
-						<td>
-
-						</td>
-					</tr>
-					<tr>
-						<td>2</td>
-						<td>上海柯城贸易</td>
-						<td>现结</td>
-						<td>SH9892992-WHITE</td>
-						<td><img src="../../data/窗口.png"></td>
-						<td>哥弟 半高领蝙蝠袖针织</td>
-						<td>125</td>
-						<td><input class="tinput" type="text" name="" id="" value="35.00" /></td>
-						<td><input class="tinput" type="text" name="" id="" value="" /></td>
-						<td><input class="tinput" type="text" name="" id="" value="0.00" /></td>
-						<td>
-
-						</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-		<script src="../../assets/js/jquery-1.8.1.min.js"></script>
-		<script src="../../assets/js/bui-min.js?t=201309041336"></script>
-		<script src="../../assets/layer/layer.js"></script>
-		<script type="text/javascript">
-			$("#select1 li").click(function() {
-				$(this).addClass("selected").siblings().removeClass("selected");
-				var copyThisA = $(this).clone();
-				//console.log(copyThisA);
-				if ($("#selectA").length > 0) {
-					$("#selectA a").html($(this).text());
-				} else {
-					$(".select-result ul").append(copyThisA.attr("id", "selectA"));
-				}
-			});
-			$('.SGArea').hide();
-			$('#btnsg').click(function() {
-				layer.open({
-					title: '创建手工采购单',
-					area: '780px',
-					content: $('.SGArea').html()
+			<script src="../../assets/js/jquery-1.8.1.min.js"></script>
+			<script src="../../assets/js/bui-min.js?t=201309041336"></script>
+			<script type="text/javascript">
+				$("#select1 li").click(function() {
+					$(this).addClass("selected").siblings().removeClass("selected");
+					var copyThisA = $(this).clone();
+					//console.log(copyThisA);
+					if ($("#selectA").length > 0) {
+						$("#selectA a").html($(this).text());
+					} else {
+						$(".select-result ul").append(copyThisA.attr("id", "selectA"));
+					}
 				});
-			});
-		</script>
+			</script>
+		</div>
 	</body>
 
 </html>

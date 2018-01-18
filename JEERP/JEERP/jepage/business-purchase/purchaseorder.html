@@ -1,143 +1,285 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
- <head>
-  <title> 基础表单验证</title>
-   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-       <link href="../../assets/css/dpl-min.css" rel="stylesheet" type="text/css" />
-    <link href="../../assets/css/bui-min.css" rel="stylesheet" type="text/css" />
-    <link href="../../assets/css/page-min.css" rel="stylesheet" type="text/css" />   <!-- 下面的样式，仅是为了显示代码，而不应该在项目中使用-->
-   <link href="../../assets/css/prettify.css" rel="stylesheet" type="text/css" />
-   <style type="text/css">
-    code {
-      padding: 0px 4px;
-      color: #d14;
-      background-color: #f7f7f9;
-      border: 1px solid #e1e1e8;
-    }
-   </style>
- </head>
- <body>
-  
-  <div class="container">
-    <div class="row">
-      <div class="span8">
-        <h2>简介</h2>
-        <p>表单验证，我们提供类似于jquery validtion的写法，添加更加灵活的实现方式：</p>
-        <ol>
-          <li>表单html上添加属性：<code>data-rules</code></li>
-          <li>JS生成表单，并在表单配置项中配置： <code>rules</code></li>
-          <li>在JS配置项上使用 <code>validators</code>属性，配置分组或者字段的验证函数。</li>
-          <li>可以在html上配置 <code>data-messages</code>或者<code>messages</code>上配置错误的提示信息。</li>
-        </ol>
-        <p>右边仅提供简单的表单验证，复杂的表单验证请参看：<a class="page-action" data-id="advalid" href="#">复杂表单验证</a></p>
-        <p>表单的异步验证请参看：<a class="page-action" data-id="remote" href="#">远程调用</a></p>
-      </div>
-      <div class="span16">
-        <h2>示例</h2>
-        <p>下面的验证示例是提供的默认验证：</p>
-        <form id="J_Form" action="" class="row">
-          <div class="span16">
-            <div class="well">
-              <label>必填项：</label><input name="a" data-rules="{required:true}" type="text">
-            </div>
-            <pre class="prettyprint linenums">
-&lt;label&gt;必填项：&lt;/label&gt;&lt;input name="a" data-rules="{required:true}" type="text"&gt;
-            </pre>
-            <div class="well">
-              <label>最大值：</label><input name="b" data-rules="{max:100}" type="text">
-            </div>
-            <pre class="prettyprint linenums">
-&lt;label&gt;最大值：&lt;/label&gt;&lt;input name="b" data-rules="{max:100}" type="text"&gt;
-            </pre>
-            <div class="well">
-              <label>最小值：</label><input name="c" data-rules="{min:10}" type="text">
-            </div>
-            <pre class="prettyprint linenums">
-&lt;label&gt;最小值：&lt;/label&gt;&lt;input name="c" data-rules="{min:10}" type="text"&gt;              
-            </pre>
-            <div class="well">
-              <label>最小长度：</label><input name="d" data-rules="{minlength:5}" type="text">
-            </div>
-             <pre class="prettyprint linenums">
-&lt;label&gt;最小长度：&lt;/label&gt;&lt;input name="d" data-rules="{minlength:5}" type="text"&gt;              
-            </pre>
-            <div class="well">
-              <label>最大长度：</label><input name="e" data-rules="{maxlength:5}" type="text">
-            </div>
-            <pre class="prettyprint linenums">
-&lt;label&gt;最大长度：&lt;/label&gt;&lt;input name="e" data-rules="{maxlength:5}" type="text"&gt;              
-            </pre>
-            <div class="well">
-              <label>第一次输入：</label><input id="f1" name="f1" type="text"><br/>
-              <label>第二次输入：</label><input name="f2" data-rules="{equalTo:'#f1'}" type="text">
-            </div>
-            <pre class="prettyprint linenums">
-&lt;label&gt;第一次输入：&lt;/label&gt;&lt;input id="f1" name="f1" type="text"&gt;&lt;br/&gt;
-&lt;label&gt;第二次输入：&lt;/label&gt;&lt;input name="f2" data-rules="{equalTo:'#f1'}" type="text"&gt;              
-            </pre>
-             <div class="well">
-              <label>数字值：</label><input name="g" data-rules="{number:true}" type="text">
-            </div>
-            <pre class="prettyprint linenums">
-&lt;label&gt;数字值：&lt;/label&gt;&lt;input name="g" data-rules="{number:true}" type="text"&gt;              
-            </pre>
-            <div class="well">
-              <label>日期值：</label><input class="calendar" name="h" data-rules="{date:true}" type="text">
-            </div>
-            <pre class="prettyprint linenums">
-&lt;label&gt;日期值：&lt;/label&gt;&lt;input class="calendar" name="h" data-rules="{date:true}" type="text"&gt;              
-            </pre>
-            <div class="well">
-              <label>邮箱值：</label><input name="i" data-rules="{email:true}" type="text">
-            </div>
-            <pre class="prettyprint linenums">
-&lt;label&gt;邮箱值：&lt;/label&gt;&lt;input name="i" data-rules="{email:true}" type="text"&gt;              
-            </pre>
-            <div class="well">
-              <label>正则表达式：</label><input name="j" data-rules="{regexp:/^d+$/}" type="text">
-            </div>
-            <pre class="prettyprint linenums">
-&lt;label&gt;正则表达式：&lt;/label&gt;&lt;input name="j" data-rules="{regexp:/^d+$/}" type="text"&gt;              
-            </pre>
-            <div class="well">
-              <label>最小日期：</label><input class="calendar" name="k" data-rules="{minDate:'2014-01-01'}" type="text">
-            </div>
-            <pre class="prettyprint linenums">
-&lt;label&gt;最小日期：&lt;/label&gt;&lt;input class="calendar" name="k" data-rules="{minDate:'2014-01-01'}" type="text"&gt;              
-            </pre>
-            <div class="well">
-              <label>最大日期：</label><input class="calendar" name="l" data-rules="{maxDate:'2012-01-01'}" type="text">
-            </div>
-            <pre class="prettyprint linenums">
-&lt;label&gt;最大日期：&lt;/label&gt;&lt;input class="calendar" name="l" data-rules="{maxDate:'2012-01-01'}" type="text"&gt;              
-            </pre>
-          </div>
 
-        </form>
-      </div>
-    </div>
-  </div>
-  <script type="text/javascript" src="../../assets/js/jquery-1.8.1.min.js"></script>
-  <script type="text/javascript" src="../../assets/js/bui-min.js"></script>
+	<head>
+		<meta charset="utf-8">
+		<title>采购单列表</title>
+		<link href="../../assets/css/bs3/dpl.css" rel="stylesheet">
+		<link href="../../assets/css/bs3/bui.css" rel="stylesheet">
+		<link href="../../assets/css/goodtype.css" rel="stylesheet">
+		<style type="text/css">
+			.tinput {
+				width: 38px!important;
+			}
+			
+			.hjbh {
+				cursor: pointer;
+			}
+			
+			.subArea {
+				display: none;
+			}
+		</style>
+	</head>
 
-  <script type="text/javascript" src="../../assets/js/config-min.js"></script>
-  <script type="text/javascript">
-    BUI.use('common/page');
-  </script>
-  <!-- 仅仅为了显示代码使用，不要在项目中引入使用-->
-  <script type="text/javascript" src="../../assets/js/prettify.js"></script>
-  <script type="text/javascript">
-    $(function () {
-      prettyPrint();
-    });
-  </script> 
-<script type="text/javascript">
-  BUI.use('bui/form',function (Form) {
-    new Form.Form({
-      srcNode : '#J_Form'
-    }).render();
-  });
-</script>
+	<body>
+		<div class="demo-content">
+			<div class="doc-content">
+				<ul class="link-tabs" style="width: 100%;">
+					<li class="active">
+						<a href="#">采购单列表</a>
+					</li>
+				</ul>
+			</div>
+			<!-- script end -->
+		</div>
+		<div class="demo-content"><br />
+			<!-- 搜索页 ================================================== -->
+			<div class="row">
+				<div class="span26">
+					<form id="searchForm" class="form-horizontal" tabindex="0" style="outline: none;">
+						<div class="row">
+							<div class="content">
+								<div class="updown_box" style="    padding: 0 60px;">
+									<span>收货仓库：</span>
+									<ul id="select1" style="    padding-left: 3px;">
+										<li>
+											<a href="javascript:;">全部(212)</a>
+										</li>
+										<li>
+											<a href="javascript:;">上海一仓</a>
+										</li>
+										<li>
+											<a href="javascript:;">上海二仓</a>
+										</li>
+										<li>
+											<a href="javascript:;">上海三仓</a>
+										</li>
 
-<body>
-</html>  
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="content">
+								<div class="updown_box" style="    padding: 0 60px;">
+									<span>状态：</span>
+									<ul id="select1" style="    padding-left: 3px;">
+										<li>
+											<a href="javascript:;">全部</a>
+										</li>
+										<li>
+											<a href="javascript:;">待付款</a>
+										</li>
+										<li>
+											<a href="javascript:;">已付款</a>
+										</li>
+										<li>
+											<a href="javascript:;">已完成</a>
+										</li>
+										<li>
+											<a href="javascript:;">已入库</a>
+										</li>
+
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="control-group span8">
+								<label class="control-label">供应商：</label>
+								<div class="controls">
+									<input type="text" name="a" class="control-text">
+								</div>
+							</div>
+							<div class="control-group span8">
+								<label class="control-label">采购单号：</label>
+								<div class="controls">
+									<input type="text" name="a" class="control-text">
+								</div>
+							</div>
+							<div class="control-group span8">
+								<label class="control-label">SKU：</label>
+								<div class="controls">
+									<input type="text" name="" id="" value="" />
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="control-group span8">
+								<label class="control-label">结算方式：</label>
+								<div class="controls">
+									<select id="u969_input">
+							          <option selected="" value="所有">所有</option>
+							          <option value="现结">现结</option>
+							          <option value="月结">月结</option>
+							        </select>
+								</div>
+							</div>
+							<button id="btnSearch" type="submit" class="button button-primary">搜索</button>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="row">
+				<div class="">
+					<button id="btndc" class="button button-primary ">导出采购详情</button>
+					<span style="float: right;"><input id="zk" type="checkbox" value="" name="">展开所有</span>
+					<table class="table">
+						<thead>
+							<tr>
+								<th>序列</th>
+								<th>采购单号</th>
+								<th>创建时间</th>
+								<th>供应商</th>
+								<th>收货仓库</th>
+								<th>结算方式</th>
+								<th>状态</th>
+								<th>数量</th>
+								<th>总金额</th>
+								<th>运单号</th>
+								<th>备注</th>
+								<th>操作</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td>POP1345234525</td>
+								<td>2018-01-18</td>
+								<td>上海艺谷科技</td>
+								<td>上海一仓</td>
+								<td>现结</td>
+								<td>已付款</td>
+								<td style="color: blue;">182</td>
+								<td>26300.00</td>
+								<td>
+									<select style="width: 90px;">
+							          <option selected="" value="圆通">圆通</option>
+							          <option value="韵达">韵达</option>
+							          <option value="天天">天天</option>
+							          <option value="安能">安能</option>
+							        </select><input style="width: 90px;" type="text" value="264777787878" />
+								</td>
+								<td>王小丫：供应商部分缺货，已经取消订单</td>
+								<td>
+									<a href="">备注</a><br />
+									<a href="">删除</a>
+								</td>
+							</tr>
+							<tr class="subArea">
+								<td colspan="8">
+									<table class="table" style="width:85%;">
+										<thead>
+											<tr>
+												<th>序号</th>
+												<th>图片</th>
+												<th>SKU号</th>
+												<th>数量</th>
+												<th>单价</th>
+												<th>附加费</th>
+												<th>总金额</th>
+												<th>状态</th>
+												<th>操作</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>1</td>
+												<td><img src="../../data/窗口.png"></td>
+												<td>S232323-white</td>
+												<td>5</td>
+												<td>35.00</td>
+												<td>0.00</td>
+												<td>150.00</td>
+												<td>待付款</td>
+												<td>删除</td>
+											</tr>
+										</tbody>
+									</table>
+								</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>POP1345234525</td>
+								<td>2018-01-18</td>
+								<td>上海艺谷科技</td>
+								<td>上海一仓</td>
+								<td>现结</td>
+								<td>已付款</td>
+								<td style="color: blue;">182</td>
+								<td>26300.00</td>
+								<td>
+									<select style="width: 90px;">
+							          <option selected="" value="圆通">圆通</option>
+							          <option value="韵达">韵达</option>
+							          <option value="天天">天天</option>
+							          <option value="安能">安能</option>
+							        </select><input style="width: 90px;" type="text" value="264777787878" />
+								</td>
+								<td>王小丫：供应商部分缺货，已经取消订单</td>
+								<td>
+									<a href="">备注</a><br />
+									<a href="">删除</a>
+								</td>
+							</tr>
+							<tr class="subArea">
+								<td colspan="8">
+									<table class="table" style="width:85%;">
+										<thead>
+											<tr>
+												<th>序号</th>
+												<th>图片</th>
+												<th>SKU号</th>
+												<th>数量</th>
+												<th>单价</th>
+												<th>附加费</th>
+												<th>总金额</th>
+												<th>状态</th>
+												<th>操作</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>2</td>
+												<td><img src="../../data/窗口.png"></td>
+												<td>S232323-white</td>
+												<td>5</td>
+												<td>35.00</td>
+												<td>0.00</td>
+												<td>150.00</td>
+												<td>待付款</td>
+												<td>删除</td>
+											</tr>
+										</tbody>
+									</table>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+		</div>
+
+		<script src="../../assets/js/jquery-1.8.1.min.js"></script>
+		<script src="../../assets/js/bui-min.js?t=201309041336"></script>
+		<script src="../../assets/layer/layer.js"></script>
+		<script type="text/javascript">
+			$("#select1 li").click(function() {
+				$(this).addClass("selected").siblings().removeClass("selected");
+				var copyThisA = $(this).clone();
+				//console.log(copyThisA);
+				if ($("#selectA").length > 0) {
+					$("#selectA a").html($(this).text());
+				} else {
+					$(".select-result ul").append(copyThisA.attr("id", "selectA"));
+				}
+			});
+			$('#zk').click(function() {
+				$('.subArea').toggle();
+			});
+		</script>
+	</body>
+
+</html>
