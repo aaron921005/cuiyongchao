@@ -1,143 +1,293 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
- <head>
-  <title> 基础表单验证</title>
-   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-       <link href="../../assets/css/dpl-min.css" rel="stylesheet" type="text/css" />
-    <link href="../../assets/css/bui-min.css" rel="stylesheet" type="text/css" />
-    <link href="../../assets/css/page-min.css" rel="stylesheet" type="text/css" />   <!-- 下面的样式，仅是为了显示代码，而不应该在项目中使用-->
-   <link href="../../assets/css/prettify.css" rel="stylesheet" type="text/css" />
-   <style type="text/css">
-    code {
-      padding: 0px 4px;
-      color: #d14;
-      background-color: #f7f7f9;
-      border: 1px solid #e1e1e8;
-    }
-   </style>
- </head>
- <body>
-  
-  <div class="container">
-    <div class="row">
-      <div class="span8">
-        <h2>简介</h2>
-        <p>表单验证，我们提供类似于jquery validtion的写法，添加更加灵活的实现方式：</p>
-        <ol>
-          <li>表单html上添加属性：<code>data-rules</code></li>
-          <li>JS生成表单，并在表单配置项中配置： <code>rules</code></li>
-          <li>在JS配置项上使用 <code>validators</code>属性，配置分组或者字段的验证函数。</li>
-          <li>可以在html上配置 <code>data-messages</code>或者<code>messages</code>上配置错误的提示信息。</li>
-        </ol>
-        <p>右边仅提供简单的表单验证，复杂的表单验证请参看：<a class="page-action" data-id="advalid" href="#">复杂表单验证</a></p>
-        <p>表单的异步验证请参看：<a class="page-action" data-id="remote" href="#">远程调用</a></p>
-      </div>
-      <div class="span16">
-        <h2>示例</h2>
-        <p>下面的验证示例是提供的默认验证：</p>
-        <form id="J_Form" action="" class="row">
-          <div class="span16">
-            <div class="well">
-              <label>必填项：</label><input name="a" data-rules="{required:true}" type="text">
-            </div>
-            <pre class="prettyprint linenums">
-&lt;label&gt;必填项：&lt;/label&gt;&lt;input name="a" data-rules="{required:true}" type="text"&gt;
-            </pre>
-            <div class="well">
-              <label>最大值：</label><input name="b" data-rules="{max:100}" type="text">
-            </div>
-            <pre class="prettyprint linenums">
-&lt;label&gt;最大值：&lt;/label&gt;&lt;input name="b" data-rules="{max:100}" type="text"&gt;
-            </pre>
-            <div class="well">
-              <label>最小值：</label><input name="c" data-rules="{min:10}" type="text">
-            </div>
-            <pre class="prettyprint linenums">
-&lt;label&gt;最小值：&lt;/label&gt;&lt;input name="c" data-rules="{min:10}" type="text"&gt;              
-            </pre>
-            <div class="well">
-              <label>最小长度：</label><input name="d" data-rules="{minlength:5}" type="text">
-            </div>
-             <pre class="prettyprint linenums">
-&lt;label&gt;最小长度：&lt;/label&gt;&lt;input name="d" data-rules="{minlength:5}" type="text"&gt;              
-            </pre>
-            <div class="well">
-              <label>最大长度：</label><input name="e" data-rules="{maxlength:5}" type="text">
-            </div>
-            <pre class="prettyprint linenums">
-&lt;label&gt;最大长度：&lt;/label&gt;&lt;input name="e" data-rules="{maxlength:5}" type="text"&gt;              
-            </pre>
-            <div class="well">
-              <label>第一次输入：</label><input id="f1" name="f1" type="text"><br/>
-              <label>第二次输入：</label><input name="f2" data-rules="{equalTo:'#f1'}" type="text">
-            </div>
-            <pre class="prettyprint linenums">
-&lt;label&gt;第一次输入：&lt;/label&gt;&lt;input id="f1" name="f1" type="text"&gt;&lt;br/&gt;
-&lt;label&gt;第二次输入：&lt;/label&gt;&lt;input name="f2" data-rules="{equalTo:'#f1'}" type="text"&gt;              
-            </pre>
-             <div class="well">
-              <label>数字值：</label><input name="g" data-rules="{number:true}" type="text">
-            </div>
-            <pre class="prettyprint linenums">
-&lt;label&gt;数字值：&lt;/label&gt;&lt;input name="g" data-rules="{number:true}" type="text"&gt;              
-            </pre>
-            <div class="well">
-              <label>日期值：</label><input class="calendar" name="h" data-rules="{date:true}" type="text">
-            </div>
-            <pre class="prettyprint linenums">
-&lt;label&gt;日期值：&lt;/label&gt;&lt;input class="calendar" name="h" data-rules="{date:true}" type="text"&gt;              
-            </pre>
-            <div class="well">
-              <label>邮箱值：</label><input name="i" data-rules="{email:true}" type="text">
-            </div>
-            <pre class="prettyprint linenums">
-&lt;label&gt;邮箱值：&lt;/label&gt;&lt;input name="i" data-rules="{email:true}" type="text"&gt;              
-            </pre>
-            <div class="well">
-              <label>正则表达式：</label><input name="j" data-rules="{regexp:/^d+$/}" type="text">
-            </div>
-            <pre class="prettyprint linenums">
-&lt;label&gt;正则表达式：&lt;/label&gt;&lt;input name="j" data-rules="{regexp:/^d+$/}" type="text"&gt;              
-            </pre>
-            <div class="well">
-              <label>最小日期：</label><input class="calendar" name="k" data-rules="{minDate:'2014-01-01'}" type="text">
-            </div>
-            <pre class="prettyprint linenums">
-&lt;label&gt;最小日期：&lt;/label&gt;&lt;input class="calendar" name="k" data-rules="{minDate:'2014-01-01'}" type="text"&gt;              
-            </pre>
-            <div class="well">
-              <label>最大日期：</label><input class="calendar" name="l" data-rules="{maxDate:'2012-01-01'}" type="text">
-            </div>
-            <pre class="prettyprint linenums">
-&lt;label&gt;最大日期：&lt;/label&gt;&lt;input class="calendar" name="l" data-rules="{maxDate:'2012-01-01'}" type="text"&gt;              
-            </pre>
-          </div>
 
-        </form>
-      </div>
-    </div>
-  </div>
-  <script type="text/javascript" src="../../assets/js/jquery-1.8.1.min.js"></script>
-  <script type="text/javascript" src="../../assets/js/bui-min.js"></script>
+	<head>
+		<meta charset="utf-8">
+		<title>需求反馈</title>
+		<link href="../../assets/css/bs3/dpl.css" rel="stylesheet">
+		<link href="../../assets/css/bs3/bui.css" rel="stylesheet">
+		<link href="../../assets/css/goodtype.css" rel="stylesheet">
+		<link href="../../assets/css/layui.css" rel="stylesheet" media="all">
+		<style type="text/css">
+			body {
+				padding: 10px;
+			}
+			.updown_box{width:auto;padding: 0px;}
+		</style>
+	</head>
 
-  <script type="text/javascript" src="../../assets/js/config-min.js"></script>
-  <script type="text/javascript">
-    BUI.use('common/page');
-  </script>
-  <!-- 仅仅为了显示代码使用，不要在项目中引入使用-->
-  <script type="text/javascript" src="../../assets/js/prettify.js"></script>
-  <script type="text/javascript">
-    $(function () {
-      prettyPrint();
-    });
-  </script> 
-<script type="text/javascript">
-  BUI.use('bui/form',function (Form) {
-    new Form.Form({
-      srcNode : '#J_Form'
-    }).render();
-  });
-</script>
+	<body>
+		<!--<div class="demo-content">
+			<div class="doc-content">
+				<ul class="link-tabs" style="width: 100%;">
+					<li class="active">
+						<a href="#">收款管理</a>
+					</li>
+					<li class="">
+						<a href="admcollect2.html">账号管理</a>
+					</li>
+				</ul>
+			</div>
+		</div>-->
+		<div class="demo-content">
+			<div class="row">
+				<div class="span26">
+					<form id="searchForm" class="form-horizontal" tabindex="0" style="outline: none;">
+						<div class="row">
+							<div class="control-group span20">
+								<label class="control-label">问题编号：</label>
+								<div class="controls updown_box">
+									<ul id="select1">
+										<li class="">
+											<a href="javascript:;">全部</a>
+										</li>
+										<li class="selected">
+											<a href="javascript:;">等待回复</a>
+										</li>
+										<li>
+											<a href="javascript:;">等待中</a>
+										</li>
+										<li>
+											<a href="javascript:;">已回复</a>
+										</li>
+										<li>
+											<a href="javascript:;">已完成</a>
+										</li>
 
-<body>
-</html>  
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="control-group span20">
+								<label class="control-label">客户类型：</label>
+								<div class="controls updown_box">
+									<ul id="select1">
+										<li class="">
+											<a href="javascript:;">全部</a>
+										</li>
+										<li class="selected">
+											<a href="javascript:;">供应商</a>
+										</li>
+										<li>
+											<a href="javascript:;">物流商</a>
+										</li>
+										<li>
+											<a href="javascript:;">商户</a>
+										</li>
+
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="control-group span20">
+								<label class="control-label">需求类型：</label>
+								<div class="controls updown_box">
+									<ul id="select1">
+										<li class="">
+											<a href="javascript:;">全部</a>
+										</li>
+										<li class="selected">
+											<a href="javascript:;">需求</a>
+										</li>
+										<li>
+											<a href="javascript:;">反馈</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						
+					</form>
+				</div>
+			</div>
+
+			<div class="row">
+
+				<table class="table">
+					<!--<p style="margin-left: 10px;">共 2388条记录 ， 销售额$ 2992022.00元</p>-->
+					<thead>
+						<tr>
+							<th>序列</th>
+							<th>问题编号</th>
+							<th>提问日期</th>
+							<th>类型</th>
+							<th>商户类型</th>
+							<th>商户名称</th>
+							<th>内容</th>
+							<th>问题数/答复数</th>
+							<th>最后回复日期</th>
+							<th>跟踪人</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td><a class="edit" href="#">1888821</a></td>
+							<td>2018-09-09 18:00</td>
+							<td>需求</td>
+							<td>供应商</td>
+							<td>振豪科技</td>
+							<td>系统不能上传</td>
+							<td>5/3</td>
+							<td>2018-09-09 23:09</td>
+							<td>王小丫</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td><a class="edit" href="#">1888821</a></td>
+							<td>2018-09-09 18:00</td>
+							<td>需求</td>
+							<td>供应商</td>
+							<td>振豪科技</td>
+							<td>系统不能上传</td>
+							<td>5/3</td>
+							<td>2018-09-09 23:09</td>
+							<td>王小丫</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<div id="test1" style="float: right;margin-right: 20px;"></div>
+			</div>
+			<div class="area add">
+				<form id="J_Form" action="" class="form-horizontal">
+					<div class="control-group">
+						<label class="control-label">上级类目：</label>
+						<div class="controls">
+							<select id="">
+						          <option value="选择一级类目">选择一级类目</option>
+						          <option value="无">无</option>
+						          <option value="服装鞋帽">服装鞋帽</option>
+						        </select>
+							<select id="">
+						          <option value="选择二级类目">选择二级类目</option>
+						          <option value="无">无</option>
+						          <option value="服装鞋帽">服装鞋帽</option>
+						        </select>
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label">类目名称：</label>
+						<div class="controls">
+							<input name="sname" type="text" style="width: 311px;" class="input-large" data-rules="{required : true}">
+						</div>
+					</div>
+				</form>
+			</div>
+
+			<div class="area edit">
+				<form id="J_Form" action="" class="form-horizontal">
+					<div class="control-group">
+						<label class="control-label">问题编号：</label>
+						<div class="controls">
+							1888888821
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label">供应商：</label>
+						<div class="controls">
+							振豪科技
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label">客服：</label>
+						<div class="controls">
+							王小丫
+						</div>
+					</div>
+					详情<hr />
+					<div class="control-group">
+						<label class="control-label">问题：</label>
+						<div class="controls">
+							(2018-09-09 21:35)这是一个问题哦？
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label">回复：</label>
+						<div class="controls">
+							(2018-09-09 21:35)我知道的，谢谢了
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label">问题：</label>
+						<div class="controls">
+							(2018-09-09 21:35)这是一个问题哦？
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label">回复：</label>
+						<div class="controls">
+							(2018-09-09 21:35)我知道的，谢谢了
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label">问题：</label>
+						<div class="controls">
+							(2018-09-09 21:35)这是一个问题哦？
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label">回复：</label>
+						<div class="controls" style="height: 96px;">
+							<textarea name="" rows="3" cols="" style="width: 350px;"></textarea>
+
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label">标记：</label>
+						<div class="controls">
+							<input type="radio" name="bj" />标记为等待中  <input type="radio" name="bj" />标记为完成
+						</div>
+					</div>
+				</form>
+			</div>
+			<script src="../../assets/js/jquery-1.8.1.min.js"></script>
+			<script src="../../assets/js/bui-min.js?t=201309041336"></script>
+			<script src="../../assets/layer/layer.js"></script>
+			<script src="../../assets/layui.js"></script>
+
+			<script type="text/javascript">
+				$('.area').hide();
+				$('#btnAdd').click(function() {
+					layer.open({
+						title: '添加类目',
+						area: '650px',
+						content: $('.area.add').html(),
+						yes: function(index, layero) {
+							layer.close(index); //如果设定了yes回调，需进行手工关闭
+						}
+					});
+				});
+				$('.edit').click(function() {
+					layer.open({
+						title: '编辑',
+						area: ['850px','450px'],
+						content: $('.area.edit').html(),
+						yes: function(index, layero) {
+							layer.close(index); //如果设定了yes回调，需进行手工关闭
+						}
+					});
+				});
+				layui.use('laypage', function() {
+					var laypage = layui.laypage;
+					//执行一个laypage实例
+					laypage.render({
+						elem: 'test1' //注意，这里的 test1 是 ID，不用加 # 号
+							,
+						count: 50 //数据总数，从服务端得到
+					});
+				});
+				//日期
+				BUI.use('bui/calendar', function(Calendar) {
+					var datepicker = new Calendar.DatePicker({
+						trigger: '.calendar',
+						autoRender: true
+					});
+				});
+			</script>
+		</div>
+	</body>
+
+</html>
