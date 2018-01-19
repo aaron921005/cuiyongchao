@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>新闻及通知</title>
+		<link href="../../assets/css/bs3/dpl.css" rel="stylesheet">
+		<link href="../../assets/css/bs3/bui.css" rel="stylesheet">
+		<link href="../../assets/css/goodtype.css" rel="stylesheet">
+		<link href="../../assets/css/layui.css" rel="stylesheet" media="all">
+		<style type="text/css">
+			body {
+				padding: 10px;
+			}
+			
+			.updown_box {
+				width: auto;
+				padding: 0px;
+			}
+		</style>
+		<script charset="utf-8" src="../../assets/kindeditor/kindeditor-all-min.js"></script>
+		<script charset="utf-8" src="../../assets/kindeditor/lang/zh-CN.js"></script>
+		<script>
+			KindEditor.ready(function(K) {
+				window.editor = K.create('#editor_id');
+			});
+		</script>
+	</head>
+
+	<body>
+		<div class="demo-content">
+			<div class="doc-content">
+				<ul class="link-tabs" style="width: 100%;">
+					<li class="">
+						<a href="admnews.html">新闻</a>
+					</li>
+					<li class="active">
+						<a href="#">通知</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="demo-content">
+
+			<div class="row">
+				<div class="span24">
+					<button id="btnAdd" class="button button-primary">添加</button>
+				</div>
+				<table class="table">
+					<!--<p style="margin-left: 10px;">共 2388条记录 ， 销售额$ 2992022.00元</p>-->
+					<thead>
+						<tr>
+							<th>序列</th>
+							<th>发布日期</th>
+							<th>发布人</th>
+							<th>标题</th>
+							<th>内容</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>2018-09-09 </td>
+							<td>管理员</td>
+							<td>厦门啦啦啦啦啦啦</td>
+							<td>厦门啦啦啦啦啦啦</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>2018-09-09 </td>
+							<td>管理员</td>
+							<td>厦门啦啦啦啦啦啦</td>
+							<td>厦门啦啦啦啦啦啦</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<div id="test1" style="float: right;margin-right: 20px;"></div>
+			</div>
+			<div class="area add">
+				<form id="J_Form" action="" class="form-horizontal">
+					<div class="control-group">
+						<label class="control-label">标题：</label>
+						<div class="controls">
+							<input name="sname" type="text" style="width: 311px;" class="input-large" data-rules="{required : true}">
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label">内容：</label>
+						<div class="controls">
+						<textarea id="editor_id" name="content" style="width:600px;height:150px;"></textarea>
+
+						</div>
+					</div>
+				</form>
+			</div>
+
+			<div class="area delete">
+				<form id="J_Form" action="" class="form-horizontal">
+					<div class="control-group">
+						<label class="control-label">上级类目：</label>
+						<div class="controls">
+							<select id="">
+						          <option value="选择一级类目">选择一级类目</option>
+						          <option value="无">无</option>
+						          <option value="服装鞋帽">服装鞋帽</option>
+						        </select>
+							<select id="">
+						          <option value="选择二级类目">选择二级类目</option>
+						          <option value="无">无</option>
+						          <option value="服装鞋帽">服装鞋帽</option>
+						        </select>
+						</div>
+					</div>
+				</form>
+			</div>
+			<script src="../../assets/js/jquery-1.8.1.min.js"></script>
+			<script src="../../assets/js/bui-min.js?t=201309041336"></script>
+			<script src="../../assets/layer/layer.js"></script>
+			<script src="../../assets/layui.js"></script>
+
+			<script type="text/javascript">
+				$('.area').hide();
+				$('#btnAdd').click(function() {
+					layer.open({
+						title: '添加',
+						area: ['850px','450px'],
+						content: $('.area.add').html(),
+						yes: function(index, layero) {
+							layer.close(index); //如果设定了yes回调，需进行手工关闭
+						}
+					});
+				});
+				$('#btnDelete').click(function() {
+					layer.open({
+						title: '删除',
+						area: '650px',
+						content: $('.area.delete').html(),
+						yes: function(index, layero) {
+							layer.close(index); //如果设定了yes回调，需进行手工关闭
+						}
+					});
+				});
+				layui.use('laypage', function() {
+					var laypage = layui.laypage;
+					//执行一个laypage实例
+					laypage.render({
+						elem: 'test1' //注意，这里的 test1 是 ID，不用加 # 号
+							,
+						count: 50 //数据总数，从服务端得到
+					});
+				});
+				//日期
+				BUI.use('bui/calendar', function(Calendar) {
+					var datepicker = new Calendar.DatePicker({
+						trigger: '.calendar',
+						autoRender: true
+					});
+				});
+			</script>
+		</div>
+	</body>
+
+</html>

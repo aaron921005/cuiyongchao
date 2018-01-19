@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>商户管理</title>
+		<link href="../../assets/css/bs3/dpl.css" rel="stylesheet">
+		<link href="../../assets/css/bs3/bui.css" rel="stylesheet">
+		<link href="../../assets/css/goodtype.css" rel="stylesheet">
+		<link href="../../assets/css/layui.css" rel="stylesheet"  media="all">
+			<style type="text/css">
+				body{padding: 10px;}
+			</style>
+	</head>
+
+	<body>
+		<!--<div class="demo-content">
+			<div class="doc-content">
+				<ul class="link-tabs" style="width: 100%;">
+					<li class="active">
+						<a href="#">商户管理</a>
+					</li>
+				</ul>
+			</div>
+		</div>-->
+		<div class="demo-content">
+			<div class="row">
+				<div class="span26">
+					<form id="searchForm" class="form-horizontal" tabindex="0" style="outline: none;">
+						<div class="row">
+							<div class="control-group span8">
+								<label class="control-label">商家名称：</label>
+								<div class="controls">
+									<input type="text" name="a" class="control-text">
+								</div>
+							</div>
+							<div class="control-group span8">
+								<label class="control-label">客户邮箱：</label>
+								<div class="controls">
+									<input type="text" name="b" class="control-text">
+								</div>
+							</div>
+							<div class="control-group span8">
+								<label class="control-label">客户电话：</label>
+								<div class="controls">
+									<input type="text" name="b" class="control-text">
+								</div>
+							</div>
+							<div class="form-actions span5">
+								<button id="btnSearch" type="submit" class="button button-primary">搜索</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+
+			<div class="row">
+
+				<table class="table">
+					<thead>
+						<tr>
+							<th>序列</th>
+							<th>商家名称</th>
+							<th>平台数</th>
+							<th>在线店铺数</th>
+							<th>SKU数</th>
+							<th>最大品类</th>
+							<th>爆款SKU数量</th>
+							<th>今日订单</th>
+							<th>今日销售额</th>
+							<th>15日订单</th>
+							<th>15日销售额</th>
+							<th>30日订单量</th>
+							<th>30日销售额</th>
+							<th>年度订单量</th>
+							<th>年度销售额</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>Aaron</td>
+							<td>j1234124498128@qq.com</td>
+							<td>ANAZON(8)</td>
+							<td>187</td>
+							<td>上海悦云科技(17)</td>
+							<td>美国</td>
+							<td>LA</td>
+							<td>WESTWEGO</td>
+							<td>144 SEEET PEALN</td>
+							<td>12394814-141</td>
+							<td>9899858</td>
+							<td>黑名单(9)</td>
+							<td>黑名单(9)</td>
+							<td>黑名单(9)</td>
+							<td>标记黑名单</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>Aaron</td>
+							<td>j1234124498128@qq.com</td>
+							<td>ANAZON(8)</td>
+							<td>187</td>
+							<td>上海悦云科技(17)</td>
+							<td>美国</td>
+							<td>LA</td>
+							<td>WESTWEGO</td>
+							<td>144 SEEET PEALN</td>
+							<td>12394814-141</td>
+							<td>9899858</td>
+							<td>黑名单(9)</td>
+							<td>黑名单(9)</td>
+							<td>黑名单(9)</td>
+							<td>标记黑名单</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<div id="test1" style="float: right;margin-right: 20px;"></div>
+			</div>
+			
+			<script src="../../assets/js/jquery-1.8.1.min.js"></script>
+			<script src="../../assets/js/bui-min.js?t=201309041336"></script>
+			<script src="../../assets/layer/layer.js"></script>
+			<script src="../../assets/layui.js"></script>
+
+			<script type="text/javascript">
+				
+				layui.use('laypage', function() {
+					var laypage = layui.laypage;
+					//执行一个laypage实例
+					laypage.render({
+						elem: 'test1' //注意，这里的 test1 是 ID，不用加 # 号
+							,
+						count: 50 //数据总数，从服务端得到
+					});
+				});
+			</script>
+		</div>
+	</body>
+
+</html>

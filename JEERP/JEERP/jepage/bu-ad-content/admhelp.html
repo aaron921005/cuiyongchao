@@ -1,143 +1,208 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
- <head>
-  <title> 基础表单验证</title>
-   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-       <link href="../../assets/css/dpl-min.css" rel="stylesheet" type="text/css" />
-    <link href="../../assets/css/bui-min.css" rel="stylesheet" type="text/css" />
-    <link href="../../assets/css/page-min.css" rel="stylesheet" type="text/css" />   <!-- 下面的样式，仅是为了显示代码，而不应该在项目中使用-->
-   <link href="../../assets/css/prettify.css" rel="stylesheet" type="text/css" />
-   <style type="text/css">
-    code {
-      padding: 0px 4px;
-      color: #d14;
-      background-color: #f7f7f9;
-      border: 1px solid #e1e1e8;
-    }
-   </style>
- </head>
- <body>
-  
-  <div class="container">
-    <div class="row">
-      <div class="span8">
-        <h2>简介</h2>
-        <p>表单验证，我们提供类似于jquery validtion的写法，添加更加灵活的实现方式：</p>
-        <ol>
-          <li>表单html上添加属性：<code>data-rules</code></li>
-          <li>JS生成表单，并在表单配置项中配置： <code>rules</code></li>
-          <li>在JS配置项上使用 <code>validators</code>属性，配置分组或者字段的验证函数。</li>
-          <li>可以在html上配置 <code>data-messages</code>或者<code>messages</code>上配置错误的提示信息。</li>
-        </ol>
-        <p>右边仅提供简单的表单验证，复杂的表单验证请参看：<a class="page-action" data-id="advalid" href="#">复杂表单验证</a></p>
-        <p>表单的异步验证请参看：<a class="page-action" data-id="remote" href="#">远程调用</a></p>
-      </div>
-      <div class="span16">
-        <h2>示例</h2>
-        <p>下面的验证示例是提供的默认验证：</p>
-        <form id="J_Form" action="" class="row">
-          <div class="span16">
-            <div class="well">
-              <label>必填项：</label><input name="a" data-rules="{required:true}" type="text">
-            </div>
-            <pre class="prettyprint linenums">
-&lt;label&gt;必填项：&lt;/label&gt;&lt;input name="a" data-rules="{required:true}" type="text"&gt;
-            </pre>
-            <div class="well">
-              <label>最大值：</label><input name="b" data-rules="{max:100}" type="text">
-            </div>
-            <pre class="prettyprint linenums">
-&lt;label&gt;最大值：&lt;/label&gt;&lt;input name="b" data-rules="{max:100}" type="text"&gt;
-            </pre>
-            <div class="well">
-              <label>最小值：</label><input name="c" data-rules="{min:10}" type="text">
-            </div>
-            <pre class="prettyprint linenums">
-&lt;label&gt;最小值：&lt;/label&gt;&lt;input name="c" data-rules="{min:10}" type="text"&gt;              
-            </pre>
-            <div class="well">
-              <label>最小长度：</label><input name="d" data-rules="{minlength:5}" type="text">
-            </div>
-             <pre class="prettyprint linenums">
-&lt;label&gt;最小长度：&lt;/label&gt;&lt;input name="d" data-rules="{minlength:5}" type="text"&gt;              
-            </pre>
-            <div class="well">
-              <label>最大长度：</label><input name="e" data-rules="{maxlength:5}" type="text">
-            </div>
-            <pre class="prettyprint linenums">
-&lt;label&gt;最大长度：&lt;/label&gt;&lt;input name="e" data-rules="{maxlength:5}" type="text"&gt;              
-            </pre>
-            <div class="well">
-              <label>第一次输入：</label><input id="f1" name="f1" type="text"><br/>
-              <label>第二次输入：</label><input name="f2" data-rules="{equalTo:'#f1'}" type="text">
-            </div>
-            <pre class="prettyprint linenums">
-&lt;label&gt;第一次输入：&lt;/label&gt;&lt;input id="f1" name="f1" type="text"&gt;&lt;br/&gt;
-&lt;label&gt;第二次输入：&lt;/label&gt;&lt;input name="f2" data-rules="{equalTo:'#f1'}" type="text"&gt;              
-            </pre>
-             <div class="well">
-              <label>数字值：</label><input name="g" data-rules="{number:true}" type="text">
-            </div>
-            <pre class="prettyprint linenums">
-&lt;label&gt;数字值：&lt;/label&gt;&lt;input name="g" data-rules="{number:true}" type="text"&gt;              
-            </pre>
-            <div class="well">
-              <label>日期值：</label><input class="calendar" name="h" data-rules="{date:true}" type="text">
-            </div>
-            <pre class="prettyprint linenums">
-&lt;label&gt;日期值：&lt;/label&gt;&lt;input class="calendar" name="h" data-rules="{date:true}" type="text"&gt;              
-            </pre>
-            <div class="well">
-              <label>邮箱值：</label><input name="i" data-rules="{email:true}" type="text">
-            </div>
-            <pre class="prettyprint linenums">
-&lt;label&gt;邮箱值：&lt;/label&gt;&lt;input name="i" data-rules="{email:true}" type="text"&gt;              
-            </pre>
-            <div class="well">
-              <label>正则表达式：</label><input name="j" data-rules="{regexp:/^d+$/}" type="text">
-            </div>
-            <pre class="prettyprint linenums">
-&lt;label&gt;正则表达式：&lt;/label&gt;&lt;input name="j" data-rules="{regexp:/^d+$/}" type="text"&gt;              
-            </pre>
-            <div class="well">
-              <label>最小日期：</label><input class="calendar" name="k" data-rules="{minDate:'2014-01-01'}" type="text">
-            </div>
-            <pre class="prettyprint linenums">
-&lt;label&gt;最小日期：&lt;/label&gt;&lt;input class="calendar" name="k" data-rules="{minDate:'2014-01-01'}" type="text"&gt;              
-            </pre>
-            <div class="well">
-              <label>最大日期：</label><input class="calendar" name="l" data-rules="{maxDate:'2012-01-01'}" type="text">
-            </div>
-            <pre class="prettyprint linenums">
-&lt;label&gt;最大日期：&lt;/label&gt;&lt;input class="calendar" name="l" data-rules="{maxDate:'2012-01-01'}" type="text"&gt;              
-            </pre>
-          </div>
 
-        </form>
-      </div>
-    </div>
-  </div>
-  <script type="text/javascript" src="../../assets/js/jquery-1.8.1.min.js"></script>
-  <script type="text/javascript" src="../../assets/js/bui-min.js"></script>
+	<head>
+		<meta charset="utf-8">
+		<title>帮助中心</title>
+		<link href="../../assets/css/bs3/dpl.css" rel="stylesheet">
+		<link href="../../assets/css/bs3/bui.css" rel="stylesheet">
+		<link href="../../assets/css/goodtype.css" rel="stylesheet">
+		<link href="../../assets/css/layui.css" rel="stylesheet" media="all">
+		<style type="text/css">
+			body {
+				padding: 10px;
+			}
+			
+			.updown_box {
+				width: auto;
+				padding: 0px;
+			}
+		</style>
+		<script charset="utf-8" src="../../assets/kindeditor/kindeditor-all-min.js"></script>
+		<script charset="utf-8" src="../../assets/kindeditor/lang/zh-CN.js"></script>
+		<script>
+			KindEditor.ready(function(K) {
+				window.editor_add = K.create('#editor_id_add');
+				window.editor_edit = K.create('#editor_id_edit');
+			});
+		</script>
+	</head>
 
-  <script type="text/javascript" src="../../assets/js/config-min.js"></script>
-  <script type="text/javascript">
-    BUI.use('common/page');
-  </script>
-  <!-- 仅仅为了显示代码使用，不要在项目中引入使用-->
-  <script type="text/javascript" src="../../assets/js/prettify.js"></script>
-  <script type="text/javascript">
-    $(function () {
-      prettyPrint();
-    });
-  </script> 
-<script type="text/javascript">
-  BUI.use('bui/form',function (Form) {
-    new Form.Form({
-      srcNode : '#J_Form'
-    }).render();
-  });
-</script>
+	<body>
+		<!--<div class="demo-content">
+			<div class="doc-content">
+				<ul class="link-tabs" style="width: 100%;">
+					<li class="active">
+						<a href="#">新闻</a>
+					</li>
+					<li class="">
+						<a href="admnews2.html">通知</a>
+					</li>
+				</ul>
+			</div>
+		</div>-->
+		<div class="demo-content">
 
-<body>
-</html>  
+			<div class="row">
+				<div class="span24">
+					<button id="btnAdd" class="button button-primary">添加</button>
+				</div>
+				<table class="table">
+					<!--<p style="margin-left: 10px;">共 2388条记录 ， 销售额$ 2992022.00元</p>-->
+					<thead>
+						<tr>
+							<th width="10%">大标题</th>
+							<th width="20%">小标题</th>
+							<th width="70%">内容</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>系统介绍</td>
+							<td>
+								<p>AMAZON 操作流程</p>
+								<p>wish操作流程</p>
+								<p>Lazade操作流程</p>
+								<p>AMAZON 操作流程</p>
+								<p></p>
+							</td>
+							<td>
+								<p><a class="edit" href="#">编辑</a>| <a class="delete" href="#">删除</a></p>
+								<p> 环滁皆山也。其西南诸峰，林壑尤美，望之蔚然而深秀者，琅琊也。山行六七里，渐闻水声潺潺而泻出于两峰之间者，酿泉也。峰回路转，有亭翼然临于泉上者，醉翁亭也。作亭者谁？山之僧智仙也。名之者谁？太守自谓也。太守与客来饮于此，饮少辄醉，而年又最高，故自号曰醉翁也。醉翁之意不在酒，在乎山水之间也。山水之乐，得之心而寓之酒也。 若夫日出而林霏开，云归而岩穴暝，晦明变化者，山间之朝暮也。野芳发而幽香，佳木秀而繁阴，风霜高洁，水落而石出者，山间之四时也。朝而往，暮而归，四时之景不同，而乐亦无穷也。
+									至于负者歌于途，行者休于树，前者呼，后者应，伛偻提携，往来而不绝者，滁人
+								</p>
+							</td>
+						</tr>
+						<tr>
+							<td>操作介绍</td>
+							<td>
+								<p>订单入库流程</p>
+								<p>订单操作流程</p>
+								<p>盘点流程</p>
+								<p>AMAZON 操作流程</p>
+								<p></p>
+							</td>
+							<td>
+								<p><a class="edit" href="#">编辑</a>| <a class="delete" href="#">删除</a></p>
+								<p> 环滁皆山也。其西南诸峰，林壑尤美，望之蔚然而深秀者，琅琊也。山行六七里，渐闻水声潺潺而泻出于两峰之间者，酿泉也。峰回路转，有亭翼然临于泉上者，醉翁亭也。作亭者谁？山之僧智仙也。名之者谁？太守自谓也。太守与客来饮于此，饮少辄醉，而年又最高，故自号曰醉翁也。醉翁之意不在酒，在乎山水之间也。山水之乐，得之心而寓之酒也。 若夫日出而林霏开，云归而岩穴暝，晦明变化者，山间之朝暮也。野芳发而幽香，佳木秀而繁阴，风霜高洁，水落而石出者，山间之四时也。朝而往，暮而归，四时之景不同，而乐亦无穷也。
+									至于负者歌于途，行者休于树，前者呼，后者应，伛偻提携，往来而不绝者，滁人
+								</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<div id="test1" style="float: right;margin-right: 20px;"></div>
+			</div>
+			<div class="area add">
+				<form id="J_Form" action="" class="form-horizontal">
+					<div class="control-group">
+						<label class="control-label">大标题：</label>
+						<div class="controls">
+							<select id="u7178_input">
+					          <option value="无">无</option>
+					          <option selected="" value="系统介绍">系统介绍</option>
+					          <option value="操作流程">操作流程</option>
+					        </select>
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label">小标题：</label>
+						<div class="controls">
+							<input name="sname" type="text" style="width: 311px;" class="input-large" data-rules="{required : true}">
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label">内容：</label>
+						<div class="controls">
+							<textarea id="editor_id_add" name="content" style="width:600px;height:130px;"></textarea>
+
+						</div>
+					</div>
+				</form>
+			</div>
+
+			<div class="area edit">
+				<form id="J_Form" action="" class="form-horizontal">
+					<div class="control-group">
+						<label class="control-label">大标题：</label>
+						<div class="controls">
+							<select id="u7178_input">
+					          <option value="无">无</option>
+					          <option selected="" value="系统介绍">系统介绍</option>
+					          <option value="操作流程">操作流程</option>
+					        </select>
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label">小标题：</label>
+						<div class="controls">
+							<input name="sname" type="text" style="width: 311px;" class="input-large" data-rules="{required : true}">
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label">内容：</label>
+						<div class="controls">
+							<textarea id="editor_id_edit" name="content" style="width:600px;height:130px;"></textarea>
+
+						</div>
+					</div>
+				</form>
+			</div>
+			<script src="../../assets/js/jquery-1.8.1.min.js"></script>
+			<script src="../../assets/js/bui-min.js?t=201309041336"></script>
+			<script src="../../assets/layer/layer.js"></script>
+			<script src="../../assets/layui.js"></script>
+
+			<script type="text/javascript">
+				$('.area').hide();
+				$('#btnAdd').click(function() {
+					layer.open({
+						title: '添加',
+						area: ['850px', '450px'],
+						content: $('.area.add').html(),
+						yes: function(index, layero) {
+							layer.close(index); //如果设定了yes回调，需进行手工关闭
+						}
+					});
+				});
+				$('.edit').click(function() {
+					layer.open({
+						title: '编辑',
+						area: ['850px', '450px'],
+						content: $('.area.edit').html(),
+						yes: function(index, layero) {
+							layer.close(index); //如果设定了yes回调，需进行手工关闭
+						}
+					});
+				});
+				$('.delete').click(function() {
+					layer.confirm('您确定要删除吗？', {
+						btn: ['点错了', '删除'] //按钮
+					}, function(index) {
+						layer.close(index);
+					}, function() {
+
+					});
+				});
+				layui.use('laypage', function() {
+					var laypage = layui.laypage;
+					//执行一个laypage实例
+					laypage.render({
+						elem: 'test1' //注意，这里的 test1 是 ID，不用加 # 号
+							,
+						count: 50 //数据总数，从服务端得到
+					});
+				});
+				//日期
+				BUI.use('bui/calendar', function(Calendar) {
+					var datepicker = new Calendar.DatePicker({
+						trigger: '.calendar',
+						autoRender: true
+					});
+				});
+			</script>
+		</div>
+	</body>
+
+</html>
