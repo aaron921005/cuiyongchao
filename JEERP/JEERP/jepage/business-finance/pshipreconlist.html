@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>物流对账</title>
+		<link href="../../assets/css/bs3/dpl.css" rel="stylesheet">
+		<link href="../../assets/css/bs3/bui.css" rel="stylesheet">
+		<link href="../../assets/css/goodtype.css" rel="stylesheet">
+		<style type="text/css">
+			.hjbh{cursor: pointer;}
+			.hjbhArea{display:none;}
+			input[name='range']{ vertical-align: middle;}
+			.checkbox input, .radio input{ margin-top: 0;}
+			.demo-content{ margin-bottom:20px;} 
+			.table tr th{ text-align: center;}
+			.table tr td{ text-align: center;}
+			.aa{ padding: 0px 10px; color:#36c; text-decoration: underline;}
+			.m{ margin: 10px 2px;}
+			.precon_a{ color:#4cae4c; margin: 0 4px;}
+			.precon_lable{ color: #FE0000;}
+			.percon_right{ text-align: right!important;}
+			.pre_span{ font-size: 14px; padding-left: 10px;}
+			.pre_lb{ padding-left:20px;}
+			.pre_lb1{ padding-left:10px; color: #004C9B;}
+		</style>
+	</head>
+
+	<body>
+		<div class="demo-content">			
+	        <div class="row m">
+	          <label>付款单号:</label><span class="pre_lb1">FK357454776</span>
+	          <label class="pre_lb">供应商名称:</label><span class="pre_lb1">上海物流公司</span>
+	          <label class="pre_lb">创建时间:</label><span class="pre_lb1">2017-5-5 15:30</span>
+	          <label class="pre_lb">付款日期:</label><span class="pre_lb1">2017-5-5 15:30</span>
+	          <label class="pre_lb">是否逾期:</label><span class="pre_lb1">是  <span class="precon_lable">[-4]</span></span>
+	        </div>
+			<div class="row">
+				<p style="padding-left:10px;"><button class="button">下载明细</button></p>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>序列</th>
+							<th>物流单号</th>
+							<th>订单号</th>
+							<th>发货国家</th>							
+							<th>店铺名称</th>
+							<th>配送属性</th>
+							<th>物流渠道</th>
+							<th>发货日期</th>
+							<th>物流单号</th>
+							<th>包裹重量（g）</th>
+							<th>是否签收</th>
+							<th>是否逾期</th>
+							<th>结算金额</th>
+							<th>调整金额</th>
+							<th>调整差值</th>
+							<th>备注</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>PH099292</td>
+							<td>111-111-32546</td>
+							<td>美国</td>
+							<td>amazon-店铺1</td>
+							<td>快速</td>
+							<td>上海DHL</td>
+							<td>2017-5-5 15:30</td>
+							<td>CN25584411111DL</td>							
+							<td class="percon_right">600</td>
+							<td>是</td>
+							<td>否</td>
+							<td class="percon_right">1800</td>
+							<td class="percon_right">1877.55</td>
+							<td class="percon_right">0</td>
+							<td class="percon_right">北京物流公司</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>PH099292</td>
+							<td>111-111-32546</td>
+							<td>美国</td>
+							<td>amazon-店铺1</td>
+							<td>快速</td>
+							<td>上海DHL</td>
+							<td>2017-5-5 15:30</td>
+							<td>CN25584411111DL</td>							
+							<td class="percon_right">600</td>
+							<td>是</td>
+							<td>否</td>
+							<td class="percon_right">1800</td>
+							<td class="percon_right">1877.55</td>
+							<td class="percon_right">0</td>
+							<td class="percon_right">北京物流公司</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>PH099292</td>
+							<td>111-111-32546</td>
+							<td>美国</td>
+							<td>amazon-店铺1</td>
+							<td>快速</td>
+							<td>上海DHL</td>
+							<td>2017-5-5 15:30</td>
+							<td>CN25584411111DL</td>							
+							<td class="percon_right">600</td>
+							<td>是</td>
+							<td>否</td>
+							<td class="percon_right">1800</td>
+							<td class="percon_right">1877.55</td>
+							<td class="percon_right">0</td>
+							<td class="percon_right">北京物流公司</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<script src="../../assets/js/jquery-1.8.1.min.js"></script>
+		<script src="../../assets/js/bui-min.js?t=201309041336"></script>
+		<script src="http://g.tbcdn.cn/fi/bui/jquery-1.8.1.min.js"></script>
+		<script src="http://g.alicdn.com/bui/seajs/2.3.0/sea.js"></script>
+		<script src="http://g.alicdn.com/bui/bui/1.1.21/config.js"></script>
+		<!-- script start -->
+		<script type="text/javascript">
+			 BUI.use('bui/calendar',function(Calendar){
+	          var datepicker = new Calendar.DatePicker({
+	            trigger:'.calendar',
+	            autoRender : true
+	          });
+	        });
+			
+		</script>
+		</div>
+	</body>
+
+</html>

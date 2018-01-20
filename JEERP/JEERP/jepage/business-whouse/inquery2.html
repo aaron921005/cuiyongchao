@@ -23,27 +23,45 @@
 		<div class="demo-content">
 			<div class="doc-content">
 				<ul class="link-tabs" style="width: 100%;">
-					<li class="active">
+					<li>
 						<a href="inquery.html">库存汇总</a>
 					</li>
-					<li>
+					<li  class="active">
 						<a href="inquery2.html">库存清单</a>
 					</li>
 				</ul>
 			</div>
 			<!-- script end -->
 		</div>
-		<div class="demo-content">			
+		<div class="demo-content">	
+			<div class="row m">
+	          <div class="control-group span15">
+	            <label class="control-label">选择仓库：</label>
+				<a href="#" class="aa">全部</a>
+				<a href="#" class="aa">上海一仓</a>
+				<a href="#" class="aa">上海二仓</a>
+				<a href="#" class="aa">美国CA仓</a>
+				<a href="#" class="aa">FBA仓</a>
+				<a href="#" class="aa">采购在途</a>
+				<a href="#" class="aa">FBA在途</a>
+	          </div>
+	        </div>
 	        <div class="row m">
 	          <div class="control-group span8" style="width: 250px;">	            
 	            <div class="controls">
-	              <label class="control-label">SKU号：</label>
+	              <label class="control-label" style="padding-left: 11px;">SKU号：</label>
 	              <input name="id" type="text" class="input-normal control-text">
 	            </div>
 	          </div>
 	          <div class="control-group span8" style="width: 250px;">	            
 	            <div class="controls">
 	            	<label class="control-label">商品名称：</label>
+	              	<input name="id" type="text" class="input-normal control-text">
+	            </div>
+	          </div>
+	          <div class="control-group span8" style="width: 250px;">	            
+	            <div class="controls">
+	            	<label class="control-label">货位编号：</label>
 	              	<input name="id" type="text" class="input-normal control-text">
 	            </div>
 	          </div>
@@ -54,7 +72,7 @@
 	          </div>
 	        </div>
 			<div class="row">
-				<p style="padding-left:20px;"><button class="button">导出库汇总</button></p>
+				<p style="padding-left:20px;"><button class="button">导出库存清单</button></p>
 				<table class="table">
 					<thead>
 						<tr>
@@ -62,14 +80,9 @@
 							<th>SKU号</th>
 							<th>图片</th>
 							<th>商品名称</th>
-							<th>上海一仓</th>							
-							<th>上海二仓</th>
-							<th>美国CA仓</th>
-							<th>FBA仓</th>
-							<th>采购在途</th>
-							<th>挑拨在途</th>
-							<th>FBA在途</th>
-							<th>库存总数</th>
+							<th>仓库名称</th>							
+							<th>货位编号</th>
+							<th>库存总数</th>							
 						</tr>
 					</thead>
 					<tbody>
@@ -78,42 +91,27 @@
 							<td>SH9892992-WHITE</td>
 							<td><img src="../../assets/img/uploadImg.png"/ width="40"></td>
 							<td>哥弟 半高领蝙蝠袖针织</td>
-							<td>21</td>
-							<td>57</td>							
-							<td>10</td>
-							<td>85</td>
-							<td>5</td>
-							<td>5</td>
-							<td>5</td>
-							<td>101</td>
+							<td>上海一仓</td>
+							<td>HS-01919-1331</td>							
+							<td>101</td>							
 						</tr>
 						<tr>
 							<td>2</td>
 							<td>SH9892992-WHITE</td>
 							<td><img src="../../assets/img/uploadImg.png"/ width="40"></td>
 							<td>哥弟 半高领蝙蝠袖针织</td>
-							<td>21</td>
-							<td>57</td>							
-							<td>10</td>
-							<td>85</td>
-							<td>5</td>
-							<td>5</td>
-							<td>5</td>
-							<td>101</td>
+							<td>上海一仓</td>
+							<td>HS-01919-1331</td>							
+							<td>101</td>							
 						</tr>
 						<tr>
 							<td>3</td>
 							<td>SH9892992-WHITE</td>
 							<td><img src="../../assets/img/uploadImg.png"/ width="40"></td>
 							<td>哥弟 半高领蝙蝠袖针织</td>
-							<td>21</td>
-							<td>57</td>							
-							<td>10</td>
-							<td>85</td>
-							<td>5</td>
-							<td>5</td>
-							<td>5</td>
-							<td>101</td>
+							<td>上海一仓</td>
+							<td>HS-01919-1331</td>							
+							<td>101</td>							
 						</tr>
 					</tbody>
 				</table>

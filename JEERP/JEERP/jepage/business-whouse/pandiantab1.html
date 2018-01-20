@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>库存查询</title>
+		<title>盘点</title>
 		<link href="../../assets/css/bs3/dpl.css" rel="stylesheet">
 		<link href="../../assets/css/bs3/bui.css" rel="stylesheet">
 		<link href="../../assets/css/goodtype.css" rel="stylesheet">
@@ -23,97 +23,92 @@
 		<div class="demo-content">
 			<div class="doc-content">
 				<ul class="link-tabs" style="width: 100%;">
-					<li class="active">
-						<a href="inquery.html">库存汇总</a>
-					</li>
 					<li>
-						<a href="inquery2.html">库存清单</a>
+						<a href="incheck.html">盘点</a>
+					</li>
+					<li class="active">
+						<a href="pandiantab1.html">盘点记录</a>
 					</li>
 				</ul>
 			</div>
 			<!-- script end -->
 		</div>
-		<div class="demo-content">			
-	        <div class="row m">
-	          <div class="control-group span8" style="width: 250px;">	            
-	            <div class="controls">
-	              <label class="control-label">SKU号：</label>
-	              <input name="id" type="text" class="input-normal control-text">
-	            </div>
+		<div class="demo-content">
+			<div class="row m">
+	          <div class="control-group span15">
+	            <label class="control-label">选择：</label>
+				<a href="#" class="aa">全部</a>
+				<a href="#" class="aa">盘盈</a>
+				<a href="#" class="aa">盘亏</a>
 	          </div>
+	        </div>
+	        <div class="row">
 	          <div class="control-group span8" style="width: 250px;">	            
 	            <div class="controls">
-	            	<label class="control-label">商品名称：</label>
-	              	<input name="id" type="text" class="input-normal control-text">
+	              <label class="control-label" style="padding-left: 10px;">SKU：</label>
+	              <input name="id" type="text" class="input-normal control-text">
 	            </div>
 	          </div>
 	          <div class="control-group span8">	            
 	            <div class="controls">
-	               <p><button class="button button-success">搜索</button></p>
+	              <label class="control-label">盘点时间：</label>
+	              <input name="start" class="input-small calendar" type="text"><label>&nbsp;-&nbsp;</label><input name="end" class="input-small calendar" type="text">
+	            </div>
+	          </div>
+	          <div class="control-group span8">	            
+	            <div class="controls">
+	               <p><button class="button button-success">确定</button></p>
 	            </div>
 	          </div>
 	        </div>
 			<div class="row">
-				<p style="padding-left:20px;"><button class="button">导出库汇总</button></p>
 				<table class="table">
 					<thead>
 						<tr>
 							<th>序列</th>
+							<th>盘点单号</th>
+							<th>盘点结果</th>
+							<th>创建日期</th>							
 							<th>SKU号</th>
 							<th>图片</th>
-							<th>商品名称</th>
-							<th>上海一仓</th>							
-							<th>上海二仓</th>
-							<th>美国CA仓</th>
-							<th>FBA仓</th>
-							<th>采购在途</th>
-							<th>挑拨在途</th>
-							<th>FBA在途</th>
-							<th>库存总数</th>
+							<th>货位</th>
+							<th>盘点数量</th>
+							<th>盘点备注</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
 							<td>1</td>
-							<td>SH9892992-WHITE</td>
+							<td>PD919001</td>
+							<td>盘盈</td>
+							<td>2011/1/1 17:05:23</td>
+							<td>S2983882-white</td>
 							<td><img src="../../assets/img/uploadImg.png"/ width="40"></td>
-							<td>哥弟 半高领蝙蝠袖针织</td>
-							<td>21</td>
-							<td>57</td>							
-							<td>10</td>
-							<td>85</td>
-							<td>5</td>
-							<td>5</td>
-							<td>5</td>
-							<td>101</td>
+							<td>AB-29392</td>
+							<td>1</td>
+							<td>王小丫   2017-5-5 17：00   盘点少了</td>
 						</tr>
 						<tr>
 							<td>2</td>
-							<td>SH9892992-WHITE</td>
+							<td>PD919001</td>
+							<td>盘盈</td>
+							<td>2011/1/1 17:05:23</td>
+							<td>S2983882-white</td>
 							<td><img src="../../assets/img/uploadImg.png"/ width="40"></td>
-							<td>哥弟 半高领蝙蝠袖针织</td>
-							<td>21</td>
-							<td>57</td>							
-							<td>10</td>
-							<td>85</td>
-							<td>5</td>
-							<td>5</td>
-							<td>5</td>
-							<td>101</td>
+							<td>AB-29392</td>
+							<td>1</td>
+							<td>无</td>
 						</tr>
 						<tr>
 							<td>3</td>
-							<td>SH9892992-WHITE</td>
+							<td>PD919001</td>
+							<td>盘盈</td>
+							<td>2011/1/1 17:05:23</td>
+							<td>S2983882-white</td>
 							<td><img src="../../assets/img/uploadImg.png"/ width="40"></td>
-							<td>哥弟 半高领蝙蝠袖针织</td>
-							<td>21</td>
-							<td>57</td>							
-							<td>10</td>
-							<td>85</td>
-							<td>5</td>
-							<td>5</td>
-							<td>5</td>
-							<td>101</td>
+							<td>AB-29392</td>
+							<td>1</td>
+							<td>无</td>
 						</tr>
 					</tbody>
 				</table>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>已归档</title>
+		<link href="../../assets/css/bs3/dpl.css" rel="stylesheet">
+		<link href="../../assets/css/bs3/bui.css" rel="stylesheet">
+		<link href="../../assets/css/goodtype.css" rel="stylesheet">
+		<style type="text/css">
+			.hjbh{cursor: pointer;}
+			.hjbhArea{display:none;}
+			input[name='range']{ vertical-align: middle;}
+			.checkbox input, .radio input{ margin-top: 0;}
+			.demo-content{ margin-bottom:20px;} 
+			.table tr th{ text-align: center;}
+			.table tr td{ text-align: center;}
+			.aa{ padding: 0px 10px; color:#36c; text-decoration: underline;}
+			.m{ margin: 10px 2px;}
+			.precon_a{ color:#4cae4c; margin: 0 4px;}
+			.precon_lable{ color: #FE0000;}
+			.percon_right{ text-align: right!important;}
+		</style>
+	</head>
+
+	<body>
+		<div class="demo-content">
+			<div class="doc-content">
+				<ul class="link-tabs" style="width: 100%;">
+					<li>
+						<a href="pshiprecon.html">采购账单</a>
+					</li>
+					<li class="active">
+						<a href="pshiprecon2.html">已归档</a>
+					</li>
+				</ul>
+			</div>
+			<!-- script end -->
+		</div>
+		<div class="demo-content">
+			<div class="row">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>序列</th>
+							<th>付款单号</th>
+							<th>结算方式</th>
+							<th>物流商</th>							
+							<th>创建时间</th>
+							<th>付款日 [剩余天数]</th>
+							<th>是否逾期</th>
+							<th>结算金额</th>
+							<th>调整金额</th>
+							<th>备注</th>
+							<th>状态</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td><a href="pshipreconlist.html" target="_blank" class="precon_a">FK357454774</a></td>
+							<td>现结</td>
+							<td>上海物流公司</td>
+							<td>2017-5-5 15:30</td>
+							<td>2017-5-5 15:30</td>
+							<td>是  <span class="precon_lable">[-4]</span></td>
+							<td class="percon_right">1877.55</td>
+							<td class="percon_right">1800</td>
+							<td>王小丫 2017-5-5 18:00：请求挂款</td>
+							<td>已申请</td>
+							<td>
+								<a href="#" class="precon_a">付款</a>
+								<a href="#" class="precon_a">打回</a>
+								<a href="#" class="precon_a">归档 </a>
+								<a href="#" class="precon_a">备注</a>
+							</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td><a href="pshipreconlist.html" target="_blank" class="precon_a">FK357454774</a></td>
+							<td>现结</td>
+							<td>上海物流公司</td>
+							<td>2017-5-5 15:30</td>
+							<td>2017-5-5 15:30</td>
+							<td>是  <span class="precon_lable">[-4]</span></td>
+							<td class="percon_right">1877.55</td>
+							<td class="percon_right">1800</td>
+							<td>王小丫 2017-5-5 18:00：请求挂款</td>
+							<td>已申请</td>
+							<td>
+								<a href="#" class="precon_a">付款</a>
+								<a href="#" class="precon_a">打回</a>
+								<a href="#" class="precon_a">归档 </a>
+								<a href="#" class="precon_a">备注</a>
+							</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td><a href="pshipreconlist.html" target="_blank" class="precon_a">FK357454774</a></td>
+							<td>现结</td>
+							<td>上海物流公司</td>
+							<td>2017-5-5 15:30</td>
+							<td>2017-5-5 15:30</td>
+							<td>是  <span class="precon_lable">[-4]</span></td>
+							<td class="percon_right">1877.55</td>
+							<td class="percon_right">1800</td>
+							<td>王小丫 2017-5-5 18:00：请求挂款</td>
+							<td>已申请</td>
+							<td>
+								<a href="#" class="precon_a">付款</a>
+								<a href="#" class="precon_a">打回</a>
+								<a href="#" class="precon_a">归档 </a>
+								<a href="#" class="precon_a">备注</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<script src="../../assets/js/jquery-1.8.1.min.js"></script>
+		<script src="../../assets/js/bui-min.js?t=201309041336"></script>
+		<script src="http://g.tbcdn.cn/fi/bui/jquery-1.8.1.min.js"></script>
+		<script src="http://g.alicdn.com/bui/seajs/2.3.0/sea.js"></script>
+		<script src="http://g.alicdn.com/bui/bui/1.1.21/config.js"></script>
+		<!-- script start -->
+		<script type="text/javascript">
+			 BUI.use('bui/calendar',function(Calendar){
+	          var datepicker = new Calendar.DatePicker({
+	            trigger:'.calendar',
+	            autoRender : true
+	          });
+	        });
+			//切换选项卡
+			$('.link-tabs').on('click', 'li', function() {
+				$(this).addClass('active').siblings().removeClass('active');
+			})
+			//展开隐藏
+			$('table').on('click','.hjbh',function(){
+				$(this).parent().next('.hjbhArea').toggle();
+			})
+		</script>
+		</div>
+	</body>
+
+</html>

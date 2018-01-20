@@ -1,57 +1,153 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
- <head>
-  <title> 页面操作快捷方式</title>
-   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-       <link href="../../assets/css/dpl-min.css" rel="stylesheet" type="text/css" />
-    <link href="../../assets/css/bui-min.css" rel="stylesheet" type="text/css" />
-    <link href="../../assets/css/page-min.css" rel="stylesheet" type="text/css" />   <!-- 下面的样式，仅是为了显示代码，而不应该在项目中使用-->
-   <link href="../../assets/css/prettify.css" rel="stylesheet" type="text/css" />
-   <style type="text/css">
-    code {
-      padding: 0px 4px;
-      color: #d14;
-      background-color: #f7f7f9;
-      border: 1px solid #e1e1e8;
-    }
-   </style>
- </head>
- <body>
-  
-  <div class="container">
-    <div class="row">
-      <div class="span10">
-        <div class="tips tips-large tips-success">
-          <span class="x-icon x-icon-success"><i class="icon icon-ok icon-white"></i></span>
-          <div class="tips-content">
-            <h2>成功信息</h2>
-            <p class="auxiliary-text">
-              你可以继续操作以下内容：
-            </p>
-            <p>
-              <a class="page-action" data-type="setTitle" title="编辑用户个性化功能权限" href="userFunc.html">编辑用户个性化功能权限</a>
-              <a class="page-action" data-type="setTitle" title="配置用户数据权限" href="userData.html">配置用户数据权限</a>
-              <a class="page-action" data-type="setTitle" title="返回用户管理" href="userManage.html">返回用户管理</a>
-            </p>
-          </div>
-        </div>
-      </div> 
-    </div>
-  </div>
-  <script type="text/javascript" src="../../assets/js/jquery-1.8.1.min.js"></script>
-  <script type="text/javascript" src="../../assets/js/bui-min.js"></script>
+	<head>
+		<meta charset="utf-8">
+		<title>订单统计</title>
+		<link href="../../assets/css/bs3/dpl.css" rel="stylesheet">
+		<link href="../../assets/css/bs3/bui.css" rel="stylesheet">
+		<link href="../../assets/css/goodtype.css" rel="stylesheet">
+		<style type="text/css">
+			.hjbh{cursor: pointer;}
+			.hjbhArea{display:none;}
+			input[name='range']{ vertical-align: middle;}
+			.checkbox input, .radio input{ margin-top: 0;}
+			.demo-content{ margin-bottom:20px;} 
+			.table tr th{ text-align: center;}
+			.table tr td{ text-align: center;}
+			.aa{ padding: 0px 10px; color:#36c; text-decoration: underline;}
+			.m{ margin: 10px 2px;}
+			.percon_right{ text-align: right!important;}
+		</style>
+	</head>
 
-  <script type="text/javascript" src="../../assets/js/config-min.js"></script>
-  <script type="text/javascript">
-    BUI.use('common/page');
-  </script>
-  <!-- 仅仅为了显示代码使用，不要在项目中引入使用-->
-  <script type="text/javascript" src="../../assets/js/prettify.js"></script>
-  <script type="text/javascript">
-    $(function () {
-      prettyPrint();
-    });
-  </script> 
+	<body>
+		<div class="demo-content">
+			<div class="doc-content">
+				<ul class="link-tabs" style="width: 100%;">
+					<!--<li>
+						<a href="inquery.html">库存汇总</a>
+					</li>-->
+					<li  class="active">
+						<a href="odata.html">订单统计</a>
+					</li>
+				</ul>
+			</div>
+			<!-- script end -->
+		</div>
+		<div class="demo-content">	
+			<div class="row m">
+	          <div class="control-group span15">
+	            <label class="control-label">平台1：</label>
+				<a href="#" class="aa">全部</a>
+				<a href="#" class="aa">AMAZON</a>
+				<a href="#" class="aa">Aliexpress</a>
+				<a href="#" class="aa">Wish</a>
+				<a href="#" class="aa">DHGATE</a>
+	          </div>
+	        </div>
+	        <div class="row m">
+	          <div class="control-group span15">
+	            <label class="control-label" style="padding-left: 8px;">店铺：</label>
+				<a href="#" class="aa">全部</a>
+				<a href="#" class="aa">店铺1</a>
+				<a href="#" class="aa">店铺2</a>
+				<a href="#" class="aa">店铺3</a>
+				<a href="#" class="aa">店铺4</a>
+	          </div>
+	        </div>
+	        <div class="row">
+	        	<div class="control-group">
+			        <label class="control-label" style="padding-left:6px;">统计方式：</label>
+			        <div class="controls" style="display: inline-block;">
+			          <label class="radio" for=""><input type="radio">订单量</label>&nbsp;&nbsp;&nbsp;
+			          <label class="radio" for=""><input type="radio">销售额</label>
+			        </div>
+			     </div>
+	        </div>	        
+	        <div class="row m">
+	        	<div class="control-group span8" style=" width:210px;">	            
+		            <div class="controls">
+		              <label class="control-label" style="padding-left: 8px;">时间：</label>
+		              <div class="controls" style="display: inline-block;">
+			              <select name="type" class="input-normal"> 
+			              	<option value="saler">选择时间</option>
+			                <option value="saler">三天</option>
+			                <option value="large">七天</option>
+			                <option value="saler">30天</option>
+			              </select>
+			          </div>
+		            </div>
+	           </div>	            
+	        	<div class="control-group span8">	            
+		            <div class="controls">
+		               <p><button class="button button-success">查看</button></p>
+		            </div>
+		        </div>
+	        </div>
+			<div class="row">				
+				<table class="table">
+					<thead>
+						<tr>
+							<th>序列</th>
+							<th>日期</th>
+							<th>客户数</th>
+							<th>订单总数 </th>
+							<th>订单总金额</th>							
+							<th>已付款总金额</th>
+							<th>已付款客户数</th>
+							<th>未付款客户数</th>
+							<th>未付款订单数</th>							
+							<th>未付款总金额</th>
+							<th>客单价</th>							
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>SH98</td>
+							<td>盈利</td>
+							<td>2017-1-10</td>
+							<td>上海一仓</td>
+							<td>运输中</td>							
+							<td>物流渠道</td>							
+							<td>上海</td>
+							<td>SH9892992</td>
+							<td class="percon_right">1233</td>							
+							<td class="percon_right">400</td>	
+							<td class="percon_right">1233.00</td>
+							<td class="percon_right">123333</td>	
+							<td class="percon_right">20</td>	
+							<td class="percon_right">0</td>	
+							<td class="percon_right">3000</td>	
+							<td class="percon_right">20%</td>	
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<script src="../../assets/js/jquery-1.8.1.min.js"></script>
+		<script src="../../assets/js/bui-min.js?t=201309041336"></script>
+		<script src="http://g.tbcdn.cn/fi/bui/jquery-1.8.1.min.js"></script>
+		<script src="http://g.alicdn.com/bui/seajs/2.3.0/sea.js"></script>
+		<script src="http://g.alicdn.com/bui/bui/1.1.21/config.js"></script>
+		<!-- script start -->
+		<script type="text/javascript">
+			 BUI.use('bui/calendar',function(Calendar){
+	          var datepicker = new Calendar.DatePicker({
+	            trigger:'.calendar',
+	            autoRender : true
+	          });
+	        });
+			//切换选项卡
+			$('.link-tabs').on('click', 'li', function() {
+				$(this).addClass('active').siblings().removeClass('active');
+			})
+			//展开隐藏
+			$('table').on('click','.hjbh',function(){
+				$(this).parent().next('.hjbhArea').toggle();
+			})
+		</script>
+		</div>
+	</body>
 
-<body>
-</html>  
+</html>
