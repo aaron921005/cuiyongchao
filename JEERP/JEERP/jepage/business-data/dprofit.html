@@ -1,202 +1,140 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
- <head>
-  <title> 表单中的表格</title>
-   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-       <link href="../../assets/css/dpl-min.css" rel="stylesheet" type="text/css" />
-    <link href="../../assets/css/bui-min.css" rel="stylesheet" type="text/css" />
-    <link href="../../assets/css/page-min.css" rel="stylesheet" type="text/css" />   <!-- 下面的样式，仅是为了显示代码，而不应该在项目中使用-->
-   <link href="../../assets/css/prettify.css" rel="stylesheet" type="text/css" />
-   <style type="text/css">
-    code {
-      padding: 0px 4px;
-      color: #d14;
-      background-color: #f7f7f9;
-      border: 1px solid #e1e1e8;
-    }
-   </style>
- </head>
- <body>
-  
-  <div class="container">
-    <form id ="J_Form" class="form-horizontal">
-      <!--    -->
-      <h3>基本信息</h3>
-      <div class="row">
-        <div class="control-group span12">
-          <label class="control-label"><s>*</s>学生姓名：</label>
-          <div class="controls">
-            <input name="sname" type="text" class="control-text" data-rules="{required:true}">
-          </div>
-        </div>
-        <div class="control-group span12">
-          <label class="control-label"><s>*</s>学生编号：</label>
-          <div class="controls">
-            <input name="sid" type="text" class="control-text" data-rules="{required:true}">
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="control-group span12">
-          <label class="control-label">性别：</label>
-          <div class="controls">
-            <select name="sex">
-              <option value="0">男</option>
-              <option value="1">女</option>
-            </select>
-          </div>
-        </div>
-        <div class="control-group12 span12">
-          <label class="control-label"><s>*</s>出生日期：</label>
-          <div class="controls">
-            <input name="birthday" type="text" class="calendar" data-rules="{required:true}">
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="control-group span12">
-          <label class="control-label"><s>*</s>家庭住址：</label>
-          <div class="controls">
-            <input name="address" type="text" class="span8 span-width control-text"  data-rules="{required:true}">
-          </div>
-        </div>
-      </div>
-      <hr/>
-      <h3>学校信息</h3>
-      <div class="row">
-        <div class="control-group span12">
-          <label class="control-label"><s>*</s>学校名称：</label>
-          <div class="controls">
-            <input name="" type="text" class=" control-text  span8 span-width" data-rules="{required:true}">
-          </div>
-        </div>
-        <div class="control-group span12">
-          <label class="control-label"><s>*</s>入学日期：</label>
-          <div class="controls bui-form-group" data-rules="{dateRange:true}" >
-            <input name="start" type="text" class="calendar" data-rules="{required:true}"><span> - </span><input name="end" type="text" class="calendar" data-rules="{required:true}">
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="control-group span24">
-          <label class="control-label"><s>*</s>学校地址：</label>
-          <div class="controls">
-            <input type="text" class="control-text span8 span-width"  data-rules="{required:true}">
-          </div>
-        </div>
-        
-      </div>
-      <div class="row">
-        <div class="control-group span24">
-          <label class="control-label">备注：</label>
-          <div class="controls control-row4">
-            <textarea name="" id="" class="span8 span-width"></textarea>
-          </div>
-        </div>
-      </div>
-      <hr/>
+	<head>
+		<meta charset="utf-8">
+		<title>毛利分析</title>
+		<link href="../../assets/css/bs3/dpl.css" rel="stylesheet">
+		<link href="../../assets/css/bs3/bui.css" rel="stylesheet">
+		<link href="../../assets/css/goodtype.css" rel="stylesheet">
+		<style type="text/css">
+			.hjbh{cursor: pointer;}
+			.hjbhArea{display:none;}
+			input[name='range']{ vertical-align: middle;}
+			.checkbox input, .radio input{ margin-top: 0;}
+			.demo-content{ margin-bottom:20px;} 
+			.table tr th{ text-align: center;}
+			.table tr td{ text-align: center;}
+			.aa{ padding: 0px 10px; color:#36c; text-decoration: underline;}
+			.m{ margin: 10px 2px;}
+			.percon_right{ text-align: right!important;}
+		</style>
+	</head>
 
-      <h3>教育经历</h3>
-      <div class="row">
-        <div class="span21 offset3 control-row-auto">
-          <div id="grid"></div>
-        </div>
-      </div>
-      
-      <div class="row">
-        <div class="form-actions offset3">
-          <button type="submit" class="button button-primary">保存</button>
-          <button type="reset" class="button">重置</button>
-        </div>
-      </div>
-    </form>
-  </div>
-  <script type="text/javascript" src="../../assets/js/jquery-1.8.1.min.js"></script>
-  <script type="text/javascript" src="../../assets/js/bui-min.js"></script>
+	<body>
+		<div class="demo-content">
+			<div class="doc-content">
+				<ul class="link-tabs" style="width: 100%;">
+					<!--<li>
+						<a href="inquery.html">库存汇总</a>
+					</li>-->
+					<li  class="active">
+						<a href="odata.html">成本统计</a>
+					</li>
+				</ul>
+			</div>
+			<!-- script end -->
+		</div>
+		<div class="demo-content">	
+			<div class="row m">
+	          <div class="control-group span15">
+	            <label class="control-label" style="padding-left: 8px;">平台：</label>
+				<a href="#" class="aa">全部</a>
+				<a href="#" class="aa">AMAZON</a>
+				<a href="#" class="aa">Aliexpress</a>
+				<a href="#" class="aa">Wish</a>
+				<a href="#" class="aa">DHGATE</a>
+	          </div>
+	        </div>
+	        <div class="row m">
+	          <div class="control-group span15">
+	            <label class="control-label" style="padding-left: 8px;">店铺：</label>
+				<a href="#" class="aa">全部</a>
+				<a href="#" class="aa">店铺1</a>
+				<a href="#" class="aa">店铺2</a>
+				<a href="#" class="aa">店铺3</a>
+				<a href="#" class="aa">店铺4</a>
+	          </div>
+	        </div>	               
+	        <div class="row m">
+	        	<div class="control-group span8" style=" width:210px;">	            
+		            <div class="controls">
+		              <label class="control-label" style="padding-left: 8px;">时间：</label>
+		              <div class="controls" style="display: inline-block;">
+			              <select name="type" class="input-normal"> 
+			              	<option value="saler">选择时间</option>
+			                <option value="saler">三天</option>
+			                <option value="large">七天</option>
+			                <option value="saler">30天</option>
+			              </select>
+			          </div>
+		            </div>
+	           </div>	            
+	        	<div class="control-group span8">	            
+		            <div class="controls">
+		               <p><button class="button button-success">查看</button></p>
+		            </div>
+		        </div>
+	        </div>
+			<div class="row">				
+				<table class="table">
+					<thead>
+						<tr>
+							<th>序列</th>
+							<th>日期</th>
+							<th>退款客户数</th>
+							<th>退款订单数 </th>
+							<th>总金退款额</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>2017-12-12 00:00:00</td>
+							<td class="percon_right">10</td>
+							<td class="percon_right">20</td>
+							<td class="percon_right">4000</td>							
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>2017-12-12 00:00:00</td>
+							<td class="percon_right">10</td>
+							<td class="percon_right">20</td>
+							<td class="percon_right">4000</td>							
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>2017-12-12 00:00:00</td>
+							<td class="percon_right">10</td>
+							<td class="percon_right">20</td>
+							<td class="percon_right">4000</td>							
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<script src="../../assets/js/jquery-1.8.1.min.js"></script>
+		<script src="../../assets/js/bui-min.js?t=201309041336"></script>
+		<script src="http://g.tbcdn.cn/fi/bui/jquery-1.8.1.min.js"></script>
+		<script src="http://g.alicdn.com/bui/seajs/2.3.0/sea.js"></script>
+		<script src="http://g.alicdn.com/bui/bui/1.1.21/config.js"></script>
+		<!-- script start -->
+		<script type="text/javascript">
+			 BUI.use('bui/calendar',function(Calendar){
+	          var datepicker = new Calendar.DatePicker({
+	            trigger:'.calendar',
+	            autoRender : true
+	          });
+	        });
+			//切换选项卡
+			$('.link-tabs').on('click', 'li', function() {
+				$(this).addClass('active').siblings().removeClass('active');
+			})
+			//展开隐藏
+			$('table').on('click','.hjbh',function(){
+				$(this).parent().next('.hjbhArea').toggle();
+			})
+		</script>
+		</div>
+	</body>
 
-  <script type="text/javascript" src="../../assets/js/config-min.js"></script>
-  <script type="text/javascript">
-    BUI.use('common/page');
-  </script>
-  <!-- 仅仅为了显示代码使用，不要在项目中引入使用-->
-  <script type="text/javascript" src="../../assets/js/prettify.js"></script>
-  <script type="text/javascript">
-    $(function () {
-      prettyPrint();
-    });
-  </script> 
-<script type="text/javascript">
-  BUI.use(['bui/grid','bui/data','bui/form'],function (Grid,Data,Form) {
-
-    var columns = [{title : '学校名称',dataIndex :'school',editor : {xtype : 'text',rules:{required:true}}},
-            {title : '入学日期',dataIndex :'enter',editor : {xtype : 'date',rules:{required:true}},renderer : Grid.Format.dateRenderer},//使用现有的渲染函数，日期格式化
-            {title : '毕业日期',dataIndex :'outter',editor : {xtype : 'date',rules:{required:true},validator : function(value,obj){
-              if(obj.enter && value && obj.enter > value){
-                return '毕业日期不能晚于入学日期！'
-              }
-            }},renderer : Grid.Format.dateRenderer},
-            {title : '备注',dataIndex :'memo',width:200,editor : {xtype : 'text'}}
-            
-          ],
-      //默认的数据
-      data = [{id:'1',school:'武汉第一初级中学',enter:936144000000,outter:993945600000,memo:'表现优异，多次评为三好学生'},
-        {id:'2',school:'武汉第一高级中学',enter:999561600000,outter:1057017600000,memo:'表现优异，多次评为三好学生'}],
-      store = new Data.Store({
-        data:data
-      }),
-      editing = new Grid.Plugins.CellEditing(),
-      grid = new Grid.Grid({
-        render : '#grid',
-        columns : columns,
-        width : 700,
-        forceFit : true,
-        store : store,
-        plugins : [Grid.Plugins.CheckSelection,editing],
-        tbar:{
-            items : [{
-              btnCls : 'button button-small',
-              text : '<i class="icon-plus"></i>添加',
-              listeners : {
-                'click' : addFunction
-              }
-            },
-            {
-              btnCls : 'button button-small',
-              text : '<i class="icon-remove"></i>删除',
-              listeners : {
-                'click' : delFunction
-              }
-            }]
-        }
-
-      });
-    grid.render();
-
-    function addFunction(){
-      var newData = {school :'请输入学校名称'};
-      store.add(newData);
-      editing.edit(newData,'school'); //添加记录后，直接编辑
-    }
-
-    function delFunction(){
-      var selections = grid.getSelection();
-      store.remove(selections);
-    }
-
-    var form = new Form.HForm({
-      srcNode : '#J_Form'
-    });
-    form.render();
-
-    form.on('beforesubmit',function(){
-      if(!editing.isValid()){
-        return false;
-      }
-    });
-
-
-  });
-</script>
-
-<body>
-</html> 
+</html>

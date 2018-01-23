@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>角色设定</title>
+		<link href="../../assets/css/bs3/dpl.css" rel="stylesheet">
+		<link href="../../assets/css/bs3/bui.css" rel="stylesheet">
+		<link href="../../assets/css/goodtype.css" rel="stylesheet">
+		<style type="text/css">
+			.hjbh{cursor: pointer;}
+			.hjbhArea{display:none;}
+			input[name='range']{ vertical-align: middle;}
+			.checkbox input, .radio input{ margin-top: 0;}
+			.demo-content{ margin-bottom:20px;} 
+			.table tr th{ text-align: center;}
+			.table tr td{ text-align: center;}
+			.aa{ padding: 0px 10px; color:#36c; text-decoration: underline;}
+			.m{ margin: 10px 2px;}
+			.m1{ margin: 4px 0px;}
+			.precon_a{ color:#4cae4c; margin: 0 4px;}
+			.precon_lable{ color: #FE0000;}
+			.percon_right{ text-align: right!important;}
+			.font_gray{ color: #ccc; font-size: 10px;}
+			.label_padd{ padding: 0 20px;} 
+			p{ margin: 0!important;}
+		</style> 
+	</head>
+
+	<body>
+		<div class="demo-content">
+			<div class="doc-content">
+				<ul class="link-tabs" style="width: 100%;">
+					<li>
+						<a href="spermis.html">用户及权限</a>
+					</li>
+					<li class="active">
+						<a href="spermis2.html">角色设定</a>
+					</li>
+				</ul>
+			</div>
+			<!-- script end -->
+		</div>
+		<div class="demo-content">
+			<div class="row m">
+				<p style="padding-left:20px;"><button class="button">添加角色</button></p>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>序列</th>
+							<th>角色</th>							
+							<th>编辑</th>							
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>超级管理员</td>
+							<td>
+								<a href="#" class="grid-command bianji">重置密码</a>
+							</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>采购</td>
+							<td>
+								<a href="#" class="grid-command bianji">编辑</a>
+								<a href="#" class="grid-command bianji">删除</a>
+							</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>物流</td>
+							<td>
+								<a href="#" class="grid-command bianji">编辑</a>
+								<a href="#" class="grid-command bianji">删除</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<!--编辑弹框-->
+			<div class="row bianjishouhouArea">					            
+	            <div class="controls m1">
+	            	<label class="control-label">角色名称：</label>
+	              	<input name="id" type="text" class="input-normal control-text" placeholder="运营">
+	            </div>	 
+	            <div class="controls m1">
+	            	<label class="control-label">全局权限：</label>
+	              	<span class="font_gray">（全局权限只针对订单列表部分有效）</span>
+	            </div>	 
+	            <div class="control-group m1" style="padding-left:74px;">
+				    <label class="control-label">店铺权限：</label>			        
+		            <label class="radio" for=""><input type="checkbox">AMAZOM-1991999@163.com</label>
+		            <label class="radio" for=""><input type="checkbox">AMAZOM-1991999@163.com</label>
+		            <label class="radio" for=""><input type="checkbox">AMAZOM-1991999@163.com</label>
+		            <label class="radio" for=""><input type="checkbox">AMAZOM-1991999@163.com</label>
+		            <label class="radio" for=""><input type="checkbox">AMAZOM-1991999@163.com</label>
+			    </div>
+			    <div class="control-group m1" style="padding-left:74px;">
+				    <label class="control-label">仓库权限：</label>			        
+		            <label class="radio" for=""><input type="checkbox">上海一仓</label>
+		            <label class="radio" for=""><input type="checkbox">山海二仓</label>
+		            <label class="radio" for=""><input type="checkbox">上海三仓</label>
+			    </div>
+			    <div class="controls m1">
+	            	<label class="control-label">模块权限：</label>	
+	            	<div class="control-group m1" style="padding-left:74px;">
+					    <label class="control-label">商品</label>
+					    <label class="control-label label_padd">商品列表</label>
+			            <label class="radio" for=""><input type="checkbox">SKU合并</label>
+			            <label class="radio" for=""><input type="checkbox">SKU配对</label>
+				    </div>
+				    <div class="control-group m1" style="padding-left:74px;">
+					    <label class="control-label">订单</label>
+					    <label class="control-label label_padd">订单列表</label>
+			            <label class="radio" for=""><input type="checkbox">销售订单</label>
+			            <label class="radio" for=""><input type="checkbox">售后订单</label>
+				    </div>
+				    <div class="control-group m1" style="padding-left:74px;">
+					    <label class="control-label">采购</label>
+					    <label class="control-label label_padd">采购管理</label>
+			            <label class="radio" for=""><input type="checkbox">代采购</label>
+			            <label class="radio" for=""><input type="checkbox">采购单</label>
+			            <label class="radio" for=""><input type="checkbox">供应商管理</label>
+			            <label class="radio" for=""><input type="checkbox">采购对账</label>
+				    </div>
+				    <div class="control-group m1" style="padding-left:74px;">
+					    <label class="control-label">物流</label>
+					    <label class="control-label label_padd">收货管理</label>
+			            <label class="radio" for=""><input type="checkbox">待收货列表</label>
+			            <label class="radio" for=""><input type="checkbox">收货</label>
+			            <p style="padding-left: 32px;" >
+			            	<label class="control-label label_padd">发货管理</label>
+				            <label class="radio" for=""><input type="checkbox">待发货</label>
+				            <label class="radio" for=""><input type="checkbox">拣选</label>
+				            <label class="radio" for=""><input type="checkbox">扫描称重打单</label>
+				            <label class="radio" for=""><input type="checkbox">发货</label>
+			            </p>
+			            <p style="padding-left: 32px;" >
+			            	<label class="control-label label_padd">海外发货</label>
+				            <label class="radio" for=""><input type="checkbox">创建货件</label>
+				            <label class="radio" for=""><input type="checkbox">货件列表</label>				            
+			            </p>
+			            <p style="padding-left: 32px;" >
+			            	<label class="control-label label_padd">调拨管理</label>
+				            <label class="radio" for=""><input type="checkbox">创建调拨单</label>
+				            <label class="radio" for=""><input type="checkbox">调拨列表</label>				            
+			            </p>
+			            <p style="padding-left: 32px;" >
+			            	<label class="control-label label_padd">配送管理</label>
+				            <label class="radio" for=""><input type="checkbox">物流商管理</label>
+				            <label class="radio" for=""><input type="checkbox">快递跟踪</label>				            
+			            </p>
+			            <p style="padding-left: 32px;" >
+			            	<label class="control-label label_padd">物流对账</label>
+				            <label class="radio" for=""><input type="checkbox">对账单列表</label>
+				            <label class="radio" for=""><input type="checkbox">付款单列表</label>				            
+			            </p>
+				    </div>
+				    <div class="control-group m1" style="padding-left:74px;">
+				    	<label class="control-label">仓库</label>
+					    <label class="control-label label_padd">上架管理</label>
+					    <label class="control-label"><input type="checkbox">待上架列表</label>
+			            <label class="radio" for=""><input type="checkbox">上架</label>
+			            <label class="radio" for=""><input type="checkbox">库存移位</label>
+			            <p style="padding-left: 32px;" >
+			            	<label class="control-label label_padd">盘点管理</label>
+				            <label class="radio" for=""><input type="checkbox">盘点</label>
+			            </p>
+			            <p style="padding-left: 32px;" >
+			            	<label class="control-label label_padd">仓库查询</label>
+				            <label class="radio" for=""><input type="checkbox">库存查询</label>
+				            <label class="radio" for=""><input type="checkbox">出入库记录查询</label>				            
+			            </p>
+				    </div>
+				    <div class="control-group m1" style="padding-left:74px;">
+					    <label class="control-label">财务</label>
+					    <label class="control-label label_padd">订单对账</label>
+			            <label class="radio" for=""><input type="checkbox">采购对账</label>
+			            <label class="radio" for=""><input type="checkbox">物流对账</label>
+			            <label class="radio" for=""><input type="checkbox">订单成本核算</label>
+			            <label class="radio" for=""><input type="checkbox">毛利分析</label>
+			            <label class="radio" for=""><input type="checkbox">成本统计</label>
+				    </div>
+				    <div class="control-group m1" style="padding-left:74px;">
+					    <label class="control-label">数据</label>
+					    <label class="control-label label_padd">数据管理</label>
+			            <label class="radio" for=""><input type="checkbox">订单统计</label>
+			            <label class="radio" for=""><input type="checkbox">物流对账</label>
+			            <label class="radio" for=""><input type="checkbox">SKU热度</label>
+			            <label class="radio" for=""><input type="checkbox">销售热度分析</label>
+				    </div>
+				    <div class="control-group m1" style="padding-left:74px;">
+					    <label class="control-label">设置</label>
+					    <label class="control-label label_padd">系统设置</label>
+			            <label class="radio" for=""><input type="checkbox">用户及权限</label>
+			            <label class="radio" for=""><input type="checkbox">平台对接</label>
+			            <p style="padding-left: 32px;" >
+			            	<label class="control-label label_padd">物流设置</label>
+				            <label class="radio" for=""><input type="checkbox">练选规则设置</label>
+				            <label class="control-label label_padd">SKU规则设置</label>
+				            <label class="radio" for=""><input type="checkbox">物流规则设置</label>
+				            <label class="radio" for=""><input type="checkbox">标签模板设置</label>
+			            </p>
+			            <p style="padding-left: 32px;" >
+			            	<label class="control-label label_padd">仓库设置</label>
+				            <label class="radio" for=""><input type="checkbox">仓库管理</label>
+				            <label class="radio" for=""><input type="checkbox">仓库规则设置</label>	
+				            <label class="control-label label_padd">采购建议设置</label>
+			            </p>
+				    </div>
+	            </div>
+			</div>
+		</div>
+		<script src="../../assets/js/jquery-1.8.1.min.js"></script>
+		<script src="../../assets/js/bui-min.js?t=201309041336"></script>
+		<script src="http://g.tbcdn.cn/fi/bui/jquery-1.8.1.min.js"></script>
+		<script src="http://g.alicdn.com/bui/seajs/2.3.0/sea.js"></script>
+		<script src="http://g.alicdn.com/bui/bui/1.1.21/config.js"></script>
+		<script src="../../assets/layer/layer.js"></script>
+		<!-- script start -->
+		<script type="text/javascript">
+			 BUI.use('bui/calendar',function(Calendar){
+	          var datepicker = new Calendar.DatePicker({
+	            trigger:'.calendar',
+	            autoRender : true
+	          });
+	        });
+			//切换选项卡
+			$('.link-tabs').on('click', 'li', function() {
+				$(this).addClass('active').siblings().removeClass('active');
+			})
+			//展开隐藏
+			$('table').on('click','.hjbh',function(){
+				$(this).parent().next('.hjbhArea').toggle();
+			})
+			
+			$('.bianjishouhouArea').hide();
+			$('table').on('click', '.bianji', function() {
+				layer.open({
+					title: '权限编辑',
+					area: '880px',
+					content: $('.bianjishouhouArea').html(),
+					btn: ['保存', '取消'],
+					yes: function(index, layero) {
+						//按钮【按钮一】的回调
+					},
+					btn2: function(index, layero) {
+						//按钮【按钮二】的回调
+
+						//return false 开启该代码可禁止点击该按钮关闭
+					}
+				});
+			});
+		</script>
+		</div>
+	</body>
+
+</html>

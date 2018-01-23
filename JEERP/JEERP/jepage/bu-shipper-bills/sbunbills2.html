@@ -3,14 +3,14 @@
 
 	<head>
 		<meta charset="utf-8">
-		<title>渠道设置</title>
+		<title>未结算列表</title>
 		<link href="../../assets/css/bs3/dpl.css" rel="stylesheet">
 		<link href="../../assets/css/bs3/bui.css" rel="stylesheet">
 		<link href="../../assets/css/goodtype.css" rel="stylesheet">
 		<link href="../../assets/css/layui.css" rel="stylesheet" media="all">
 		<style type="text/css">
 			body {
-				padding: 20px;
+				padding: 10px;
 			}
 			
 			.updown_box {
@@ -22,18 +22,64 @@
 	</head>
 
 	<body>
-
+		<div class="demo-content" style="margin-bottom: 5px;">
+			<div class="doc-content">
+				<ul class="link-tabs" style="width: 100%;">
+					<li class="">
+						<a href="sbunbills.html">结算列表</a>
+					</li>
+					<li class="active">
+						<a href="#">已归档</a>
+					</li>
+				</ul>
+			</div>
+		</div>
 		<div class="demo-content">
-			<div class="row"> 
-				<p><button id="btnAdd" class="button button-primary">添加渠道</button></p>
+			<div class="row">
+				<div class="span26">
+					<form id="searchForm" class="form-horizontal" tabindex="0" style="outline: none;">
+						<div class="row">
+							<div class="control-group span8">
+								<label class="control-label">付款单状态：</label>
+								<div class="controls" style="padding-top: 8px;">
+									<input type="radio" name="fkd" />已申请
+									<input type="radio" name="fkd" />已付款
+								</div>
+							</div>
+							<div class="control-group span11">
+								<label class="control-label">客户名称：</label>
+								<div class="controls">
+									<select id="">
+							          <option selected="" value="输入客户名称">输入客户名称</option>
+							          <option value="上海琳琳商贸">上海琳琳商贸</option>
+							          <option value="上海琳琳商贸">上海琳琳商贸</option>
+							          <option value="上海琳琳商贸">上海琳琳商贸</option>
+							        </select>
+								</div>
+							</div>
+							<div class="form-actions span5">
+								<button id="btnSearch" type="submit" class="button button-primary">搜索</button>
+							</div>
+						</div>
+
+					</form>
+				</div>
+			</div>
+
+			<div class="row">
+
 				<table class="table">
+					<!--<p style="margin-left: 10px;">共 2388条记录 ， 销售额$ 2992022.00元</p>-->
 					<thead>
 						<tr>
 							<th>序列</th>
-							<th>渠道名称</th>
-							<th>渠道属性</th>
-							<th>配送国家</th>
-							<th>服务地区</th>
+							<th>申请单号</th>
+							<th>客户名称</th>
+							<th>创建时间</th>
+							<th>起始时间</th>
+							<th>结束时间</th>
+							<th>运费总金额</th>
+							<th>调整金额</th>
 							<th>状态</th>
 							<th>操作</th>
 						</tr>
@@ -41,31 +87,36 @@
 					<tbody>
 						<tr>
 							<td>1</td>
-							<td>上海EUB</td>
-							<td>标准</td>
-							<td>美国、德国、意大利、日本、加拿大、法国、墨西哥</td>
-							<td>浙江，江苏，福建，河南</td>
-							<td>正常</td>
+							<td>SH255555533</td>
+							<td>上海欧酷网络科技有限公司</td>
+							<td>2018-09-09</td>
+							<td>2018-09-23</td>
+							<td>2018-12-09</td>
+							<td>232323.00</td>
+							<td>100.00</td>
+							<td>已申请</td>
 							<td>
 								<p>
-									<a href="#" class="bj">编辑</a>|
-									<a href="#">停用</a>|
-									<a href="#">删除</a>
+									<a href="#">确认</a>|
+									<a href="#">归档</a>|
+									<a href="#" class="mx">查看明细</a>
 								</p>
 							</td>
 						</tr>
 						<tr>
 							<td>2</td>
-							<td>上海EUB</td>
-							<td>标准</td>
-							<td>美国、德国、意大利、日本、加拿大、法国、墨西哥</td>
-							<td>浙江，江苏，福建，河南</td>
-							<td>正常</td>
+							<td>SH255555533</td>
+							<td>上海欧酷网络科技有限公司</td>
+							<td>2018-09-09</td>
+							<td>2018-09-23</td>
+							<td>2018-12-09</td>
+							<td>232323.00</td>
+							<td>100.00</td>
+							<td>已付款</td>
 							<td>
 								<p>
-									<a href="#" class="bj">编辑</a>|
-									<a href="#">停用</a>|
-									<a href="#">删除</a>
+									<a href="#">归档</a>|
+									<a href="#" class="mx">查看明细</a>
 								</p>
 							</td>
 						</tr>
