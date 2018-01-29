@@ -17,6 +17,7 @@
 				width: auto;
 				padding: 0px;
 			}
+			.controls span{margin: 15px;}
 			/*a{color: blue;}*/
 		</style>
 	</head>
@@ -25,11 +26,11 @@
 		<div class="demo-content" style="margin-bottom: 5px;">
 			<div class="doc-content">
 				<ul class="link-tabs" style="width: 100%;">
-					<li class="active">
-						<a href="#">用户及权限</a>
-					</li>
 					<li class="">
-						<a href="bsspurview2.html">角色设定</a>
+						<a href="bsspurview.html">用户及权限</a>
+					</li>
+					<li class="active">
+						<a href="#">角色设定</a>
 					</li>
 				</ul>
 			</div>
@@ -37,15 +38,12 @@
 		<div class="demo-content">
 			<div class="row">
 				<div class="span24">
-					<button id="btnAdd" class="button button-primary tj">添加账号</button>
+					<button id="btnAdd" class="button button-primary tj">添加角色</button>
 				</div>
 				<table class="table">
 					<thead>
 						<tr>
 							<th>序列</th>
-							<th>用户名</th>
-							<th>显示名称</th>
-							<th>密码</th>
 							<th>角色</th>
 							<th>操作</th>
 						</tr>
@@ -53,21 +51,16 @@
 					<tbody>
 						<tr>
 							<td>1</td>
-							<td>aaron@hotmail.com</td>
-							<td>Aaron</td>
-							<td>************</td>
 							<td>超级管理员</td>
 							<td>
 								<p>
-									<a href="#" class="bj">重置密码</a>
+									<a href="#" class="bj">编辑</a>|
+									<a href="#" class="sc">删除</a>
 								</p>
 							</td>
 						</tr>
 						<tr>
 							<td>2</td>
-							<td>aaron@hotmail.com</td>
-							<td>Aaron</td>
-							<td>************</td>
 							<td>管理员</td>
 							<td>
 								<p>
@@ -78,9 +71,6 @@
 						</tr>
 						<tr>
 							<td>3</td>
-							<td>aaron@hotmail.com</td>
-							<td>Aaron</td>
-							<td>************</td>
 							<td>发货</td>
 							<td>
 								<p>
@@ -91,9 +81,6 @@
 						</tr>
 						<tr>
 							<td>4</td>
-							<td>aaron@hotmail.com</td>
-							<td>Aaron</td>
-							<td>************</td>
 							<td>财务</td>
 							<td>
 								<p>
@@ -111,39 +98,21 @@
 				<form id="J_Form" action="" class="form-horizontal">
 					<div class="row">
 						<div class="control-group span8">
-							<label class="control-label">用户名：</label>
+							<label class="control-label">角色名称：</label>
 							<div class="controls">
-								<input type="text" value="alala@hotmail.com" />
+								<input type="text" value="财务" />
 							</div>
 						</div>
 					</div>
 					<div class="row">
-						<div class="control-group span8">
-							<label class="control-label">显示名称：</label>
+						<div class="control-group span18">
+							<label class="control-label">模块权限：</label>
 							<div class="controls">
-								<input type="text" value="王小丫" />
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="control-group span8">
-							<label class="control-label">密码：</label>
-							<div class="controls">
-								<input type="password" value="王小丫" />
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="control-group span8">
-							<label class="control-label">角色选择：</label>
-							<div class="controls">
-								<input type="checkbox" value="管理员" />管理员<br />
-								<input type="checkbox" value="采购" />采购<br />
-								<input type="checkbox" value="物流" />物流<br />
-								<input type="checkbox" value="仓库" />仓库<br />
-								<input type="checkbox" value="运营" />运营<br />
-								<input type="checkbox" value="财务" />财务<br />
-								<input type="checkbox" value="商品开发" />商品开发
+								<span>订单</span><span>订单</span><input type="checkbox" value="订单扫描" />订单扫描<input type="checkbox" value="订单列表" />订单列表<br />
+								<span>对账</span><span>对账管理</span><input type="checkbox" value="付款单列表" />付款单列表<input type="checkbox" value="财务管理" />财务管理<br />
+								<span>设置</span><span>设置</span><input type="checkbox" value="渠道设置" />渠道设置<input type="checkbox" value="客户管理" />客户管理<input type="checkbox" value="模板管理" />模板管理<input type="checkbox" value="API管理" />API管理<input type="checkbox" value="权限管理" />权限管理<br />
+								<span>信息</span><span>信息</span><input type="checkbox" value="联系信息" />联系信息<input type="checkbox" value="关于我们" />关于我们<br />
+					
 							</div>
 						</div>
 					</div>
@@ -161,7 +130,7 @@
 				$('.bj').click(function() {
 					layer.open({
 						title: '编辑',
-						area: ['800px','500px'],
+						area: ['800px','300px'],
 						content: $('.area.bj').html(),
 						yes: function(index, layero) {
 							layer.close(index); //如果设定了yes回调，需进行手工关闭
@@ -171,7 +140,7 @@
 				$('.tj').click(function() {
 					layer.open({
 						title: '添加',
-						area: ['800px','500px'],
+						area: ['800px','300px'],
 						content: $('.area.bj').html(),
 						yes: function(index, layero) {
 							layer.close(index); //如果设定了yes回调，需进行手工关闭

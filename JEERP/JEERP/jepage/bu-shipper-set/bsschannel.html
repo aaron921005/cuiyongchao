@@ -24,8 +24,8 @@
 	<body>
 
 		<div class="demo-content">
-			<div class="row"> 
-				<p><button id="btnAdd" class="button button-primary">添加渠道</button></p>
+			<div class="row">
+				<p><button id="btnAddQD" class="button button-primary">添加渠道</button></p>
 				<table class="table">
 					<thead>
 						<tr>
@@ -74,115 +74,268 @@
 
 				<div id="test1" style="float: right;margin-right: 20px;"></div>
 			</div>
-			<div class="area mx">
+			<div class="area qd">
 				<form id="J_Form" action="" class="form-horizontal">
 					<div class="row">
 						<div class="control-group span8">
-							<label class="control-label">申请单号：</label>
+							<label class="control-label">渠道名称：</label>
 							<div class="controls">
-								SH2333322
+								<input type="text" />
 							</div>
 						</div>
 						<div class="control-group span8">
-							<label class="control-label">客户名称：</label>
+							<label class="control-label">渠道标准：</label>
 							<div class="controls">
-								上海欧酷网络科技有限公司
+								<select id="">
+						          <option value="EUB">EUB</option>
+						          <option value="DHL">DHL</option>
+						          <option value="UPS">UPS</option>
+						          <option value="FEDEX">FEDEX</option>
+						          <option value="TNT">TNT</option>
+						          <option value="USPS">USPS</option>
+						          <option value="德国专线">德国专线</option>
+						          <option value="澳洲专线">澳洲专线</option>
+						          <option value="北美专线">北美专线</option>
+						          <option value="其他">其他</option>
+						        </select>
 							</div>
 						</div>
 					</div>
 					<div class="row">
 						<div class="control-group span8">
-							<label class="control-label">申请时间：</label>
-							<div class="controls">
-								2018-09-09
+							<label class="control-label">渠道属性：</label>
+							<div class="controls" style="    line-height: 31px;">
+								<input type="radio" name="rqd" />快递&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<input type="radio" name="rqd" />标准
 							</div>
 						</div>
-						<div class="control-group span8">
-							<label class="control-label">账单日期：</label>
-							<div class="controls">
-								2018-09-09 ~ 2019-12-08
-							</div>
-						</div>
-						<a href="#" class="dc">导出账单</a>
 					</div>
+					<div class="row">
+						<div class="control-group span8">
+							<label class="control-label">服务地区：</label>
+							<div class="controls" style="    height: 30px;">
+								<a href="#" style="    line-height: 30px;">添加</a>
+							</div>
+						</div>
+					</div>
+					<div class="row" style="    margin-left: 94px;">
+						<div class="control-group span16">
+							<label class="control-label"></label>
+							<div class="controls">
+								<ul class="nav-tabs">
+									<li class="active"><a href="#">上海</a></li>
+									<li><a href="#">江苏</a></li>
+									<li><a href="#">浙江</a></li>
+									<li><a href="#">湖北</a></li>
+								</ul>
+								<div>
+									<input type="radio" name="rcs" value="苏州" />苏州
+									<input type="radio" name="rcs" />南京
+									<input type="radio" name="rcs" />昆山
+
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="area qd_edit">
+				<div class="row">
+					<div class="span24">
+						<button id="" class="button button-primary btnAdd">添加国家</button>
+						<button id="" class="button button-primary btnFill">填充</button>
+					</div>
+
 					<table class="table">
-						<!--<p style="margin-left: 10px;">共 2388条记录 ， 销售额$ 2992022.00元</p>-->
 						<thead>
 							<tr>
 								<th>序列</th>
-								<th>包裹号</th>
-								<th>扫描时间</th>
-								<th>运单号</th>
-								<th>快递方式</th>
-								<th>目的地</th>
-								<th>重量</th>
-								<th>是否送达</th>
-								<th>是否逾期</th>
-								<th>运费金额</th>
-								<th>调整金额</th>
-								<th>调整原因</th>
+								<th>国家</th>
+								<th>服务时效(天)</th>
+								<th>操作费</th>
+								<th>首重</th>
+								<th>续重</th>
+								<th>首重克数</th>
+								<th>折扣</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
 								<td>1</td>
-								<td>SH255555533</td>
-								<td>2017-12-05 17:00</td>
-								<td>RL35841256845CN</td>
-								<td>苏州EUB</td>
 								<td>美国</td>
-								<td>458</td>
-								<td>是</td>
-								<td>是</td>
-								<td>58.6</td>
-								<td>58.6</td>
-								<td></td>
+								<td>7-10</td>
+								<td>17</td>
+								<td>87</td>
+								<td>20</td>
+								<td>50</td>
+								<td>1</td>
+								<td>80%</td>
 							</tr>
 							<tr>
 								<td>2</td>
-								<td>SH255555533</td>
-								<td>2017-12-05 17:00</td>
-								<td>RL35841256845CN</td>
-								<td>苏州EUB</td>
 								<td>美国</td>
-								<td>458</td>
-								<td>是</td>
-								<td>是</td>
-								<td>58.6</td>
-								<td>58.6</td>
-								<td></td>
+								<td>7-10</td>
+								<td>17</td>
+								<td>87</td>
+								<td>20</td>
+								<td>50</td>
+								<td>1</td>
+								<td>80%</td>
 							</tr>
 							<tr>
 								<td>3</td>
-								<td>SH255555533</td>
-								<td>2017-12-05 17:00</td>
-								<td>RL35841256845CN</td>
-								<td>苏州EUB</td>
 								<td>美国</td>
-								<td>458</td>
-								<td>是</td>
-								<td>是</td>
-								<td>58.6</td>
-								<td>58.6</td>
-								<td></td>
+								<td>7-10</td>
+								<td>17</td>
+								<td>87</td>
+								<td>20</td>
+								<td>50</td>
+								<td>1</td>
+								<td>80%</td>
 							</tr>
+							<tr>
+								<td>4</td>
+								<td>美国</td>
+								<td>7-10</td>
+								<td>17</td>
+								<td>87</td>
+								<td>20</td>
+								<td>50</td>
+								<td>1</td>
+								<td>80%</td>
+							</tr>
+
 						</tbody>
 					</table>
+
+				</div>
+			</div>
+			<div class="area gj">
+				<form id="J_Form" action="" class="form-horizontal">
+					<div class="row" style="">
+						<div class="control-group span8">
+							<div class="controls">
+								<ul class="nav-tabs">
+									<li class="active"><a href="#">全部</a></li>
+									<li><a href="#">美洲</a></li>
+									<li><a href="#">亚洲</a></li>
+									<li><a href="#">欧洲</a></li>
+								</ul>
+								<div>
+									<input type="checkbox" name="rcs" value="美国" />美国
+									<input type="checkbox" name="rcs" />德国
+									<input type="checkbox" name="rcs" />法国
+
+								</div>
+
+							</div>
+						</div>
+					</div>
 				</form>
 			</div>
-
+			<div class="area tc">
+				<form id="J_Form" action="" class="form-horizontal">
+					<div class="row">
+						<div class="control-group span12">
+							<label class="control-label">服务时效：</label>
+							<div class="controls">
+								<input type="text" class="calendar" />-<input type="text" class="calendar" />
+							</div>
+						</div>
+					</div>
+					<hr />
+					<div class="row">
+						<div class="control-group span12">
+							<label class="control-label">操作费：</label>
+							<div class="controls">
+								<input type="text" />
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="control-group span8">
+							<label class="control-label">首重：</label>
+							<div class="controls">
+								<input type="text" />
+							</div>
+						</div>
+						<div class="control-group span8">
+							<label class="control-label">首重克数：</label>
+							<div class="controls">
+								<input type="text" />
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="control-group span8">
+							<label class="control-label">续重：</label>
+							<div class="controls">
+								<input type="text" />
+							</div>
+						</div>
+						<div class="control-group span8">
+							<label class="control-label">续重克数：</label>
+							<div class="controls">
+								<input type="text" />
+							</div>
+						</div>
+					</div>
+					<hr />
+					<div class="row">
+						<div class="control-group span12">
+							<label class="control-label">折扣：</label>
+							<div class="controls">
+								<input type="text" />
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
 			<script src="../../assets/js/jquery-1.8.1.min.js"></script>
 			<script src="../../assets/js/bui-min.js?t=201309041336"></script>
 			<script src="../../assets/layer/layer.js"></script>
 			<script src="../../assets/layui.js"></script>
 
 			<script type="text/javascript">
-				$('.area').hide();
-				$('.mx').click(function() {
+				$(function() {
+					$('.area').hide();
+				});
+				$('#btnAddQD').click(function() {
 					layer.open({
-						title: '结算单明细',
-						area: '800px',
-						content: $('.area.mx').html(),
+						title: '添加渠道',
+						area: ['800px', '350px'],
+						content: $('.area.qd').html(),
+						yes: function(index, layero) {
+							layer.close(index); //如果设定了yes回调，需进行手工关闭
+						}
+					});
+				});
+				$('.bj').click(function() {
+					layer.open({
+						title: '编辑渠道',
+						area: ['800px', '350px'],
+						content: $('.area.qd_edit').html(),
+						yes: function(index, layero) {
+							layer.close(index); //如果设定了yes回调，需进行手工关闭
+						}
+					});
+				});
+				$('.btnAdd').live('click', function() {
+					layer.open({
+						title: '添加国家',
+						area: ['400px', '200px'],
+						content: $('.area.gj').html(),
+						yes: function(index, layero) {
+							layer.close(index); //如果设定了yes回调，需进行手工关闭
+						}
+					});
+				});
+				$('.btnFill').live('click', function() {
+					layer.open({
+						title: '填充',
+						area: ['800px', '400px'],
+						content: $('.area.tc').html(),
 						yes: function(index, layero) {
 							layer.close(index); //如果设定了yes回调，需进行手工关闭
 						}
@@ -195,6 +348,17 @@
 						elem: 'test1' //注意，这里的 test1 是 ID，不用加 # 号
 							,
 						count: 50 //数据总数，从服务端得到
+					});
+				});
+				$('.nav-tabs li').live('click', function() {
+					$(this).siblings().removeClass('active');
+					$(this).addClass('active');
+				});
+				//日期
+				BUI.use('bui/calendar', function(Calendar) {
+					var datepicker = new Calendar.DatePicker({
+						trigger: '.calendar',
+						autoRender: true
 					});
 				});
 			</script>

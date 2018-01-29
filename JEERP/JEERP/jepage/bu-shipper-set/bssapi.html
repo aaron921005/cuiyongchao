@@ -1,120 +1,233 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
- <head>
-  <title> 顶部导航</title>
-   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-       <link href="../../assets/css/dpl-min.css" rel="stylesheet" type="text/css" />
-    <link href="../../assets/css/bui-min.css" rel="stylesheet" type="text/css" />
-    <link href="../../assets/css/page-min.css" rel="stylesheet" type="text/css" />   <!-- 下面的样式，仅是为了显示代码，而不应该在项目中使用-->
-   <link href="../../assets/css/prettify.css" rel="stylesheet" type="text/css" />
-   <style type="text/css">
-    code {
-      padding: 0px 4px;
-      color: #d14;
-      background-color: #f7f7f9;
-      border: 1px solid #e1e1e8;
-    }
-   </style>
- </head>
- <body>
-  
-  <div class="container">
-    <div class="row">
-      <div class="span8">
-        <h2>简介</h2>
-        <p>框架中的导航，事实上由3级导航构成：</p>
-        <ol>
-          <li>顶部的一级导航，用于大的模块分类,右图所示：</li>
-          <li>左边菜单中可以展开、折叠的是第二级，用于菜单的分类</li>
-          <li>左边最下面的菜单项，不能展开、折叠，用于打开页面</li>
-        </ol>
-        <p>简单起见，我们用一级导航，二级菜单（包括二级、三级菜单）来说明</p>
-      </div>
-      <div class="span16">
-        <h2>图示</h2>
-        <img src="../../assets/img/nav.jpg" alt="一级导航">
-        <h2>代码</h2>
-        <p>dom中有一个钩子<code>J_Nav</code>来绑定顶部导航的事件</p>
-        <pre class="prettyprint linenums">
-&lt;ul id="J_Nav"  class="nav-list ks-clear"&gt;
-&lt;li class="nav-item dl-selected"&gt;&lt;div class="nav-item-inner nav-storage"&gt;首页&lt;/div&gt;&lt;/li&gt;
-&lt;li class="nav-item"&gt;&lt;div class="nav-item-inner nav-inventory"&gt;搜索页&lt;/div&gt;&lt;/li&gt;
-&lt;/ul&gt;            
-        </pre>
-        <p>有以下几点说明：</p>
-        <ol>
-          <li>导航项：<code>.nav-item</code>可以任意添加删除</li>
-          <li>导航内容中 <code>.nav-</code>起始的样式决定导航项的图标,如：<code>nav-home</code>等</li>
-          <li><code>.dl-selected</code>标示选中的项</li>
-          <li><code>.dl-hover</code>标示鼠标悬浮的项</li>
-          <li>导航文本可以随意修改</li>
-          <li>导航项太多时，显示不出来的导航项作为下拉列表展示在最后一个显示导航项的位置</li>
-        </ol>
-      </div>
-    </div>
 
-    <div class="row">
-      <div class="span8">
-        <h2>导航图标</h2>
-        <p>导航图标由CSS样式实现，图标的大小和位置需要几个注意的地方：</p>
-        <ol>
-          <li>透明背景</li>
-          <li>图标大小30 * 30</li>
-          <li>图标间距，由导航项的宽度决定，避免出现覆盖。导航项宽145px,图标间距150px</li>
-          <li>如果希望兼容ie6，不要使用半透明，否则可以提供2张图片或者使用滤镜</li>
-        </ol>
-      </div>
-      <div class="span16">
-        <h2>图片</h2>
-        <p>
-          <img src="http://img01.taobaocdn.com/tps/i1/T1eQj0XndXXXXp89vi-806-614.png"/>
-        </p>
-      </div>
-    </div>
+	<head>
+		<meta charset="utf-8">
+		<title>API管理</title>
+		<link href="../../assets/css/bs3/dpl.css" rel="stylesheet">
+		<link href="../../assets/css/bs3/bui.css" rel="stylesheet">
+		<link href="../../assets/css/goodtype.css" rel="stylesheet">
+		<link href="../../assets/css/layui.css" rel="stylesheet" media="all">
+		<style type="text/css">
+			body {
+				padding: 10px;
+			}
+			
+			.updown_box {
+				width: auto;
+				padding: 0px;
+			}
+			/*a{color: blue;}*/
+		</style>
+	</head>
 
-    <div class="row">
-      <div class="span8">
-        <h2>自定义图标</h2>
-        <p>可以自定义导航项的图标，通过修改一下内容：</p>
+	<body>
+		<!--<div class="demo-content" style="margin-bottom: 5px;">
+			<div class="doc-content">
+				<ul class="link-tabs" style="width: 100%;">
+					<li class="active">
+						<a href="#">结算列表</a>
+					</li>
+					<li class="">
+						<a href="sbunbills2.html">已归档</a>
+					</li>
+				</ul>
+			</div>
+		</div>-->
+		<div class="demo-content">
 
-        <ol>
-          <li>添加背景图片</li>
-          <li>标示导航项图标的位置</li>
-          <li>选中、hover图标时图标的变化</li>
-        </ol>
-        <p>目前的应用中选中时只是背景变化，不需要指定样式，如果选中、hover时的图标都要发生改变时，则需要一一指定样式</p>
-      </div>
-      <div class="span16">
-        <h3>示例</h3>
-        <pre  class="prettyprint linenums">
-.nav-home,.nav-step{
-  background:url('../img/nav_icon.png') no-repeat 0 0  transparent;
-}
+			<div class="row">
 
-.nav-home{
-  background-position:-300px -149px;
-}
-/**悬浮时向上一个像素，可以指定其他图标**/
-.dl-hover .nav-home{
-  background-position:-300px -150px;
-}
-        </pre>
-      </div>
-    </div>
-  </div>
-  <script type="text/javascript" src="../../assets/js/jquery-1.8.1.min.js"></script>
-  <script type="text/javascript" src="../../assets/js/bui-min.js"></script>
-  <script type="text/javascript" src="../../assets/js/config-min.js"></script>
-  <script type="text/javascript">
-    BUI.use('common/page');
-  </script>
-  <!-- 仅仅为了显示代码使用，不要在项目中引入使用-->
-  <script type="text/javascript" src="../../assets/js/prettify.js"></script>
-  <script type="text/javascript">
-    $(function () {
-      prettyPrint();
-    });
-  </script>  
+				<table class="table">
+					<!--<p style="margin-left: 10px;">共 2388条记录 ， 销售额$ 2992022.00元</p>-->
+					<thead>
+						<tr>
+							<th>序列</th>
+							<th>渠道名称</th>
+							<th>状态</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>上海EUB</td>
+							<td>正常</td>
+							<td>
+								<p>
+									<a href="#" class="sz">设置</a>|
+									<a href="#" class="sc">删除</a>
+								</p>
+							</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>上海EUB</td>
+							<td>正常</td>
+							<td>
+								<p>
+									<a href="#" class="sz">设置</a>|
+									<a href="#" class="sc">删除</a>
+								</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
 
-<body>
-</html>  
+				<div id="test1" style="float: right;margin-right: 20px;"></div>
+			</div>
+			<div class="area sz">
+				<form id="J_Form" action="" class="form-horizontal">
+					<div class="row">
+						<div class="control-group span8">
+							<label class="control-label">渠道名称：</label>
+							<div class="controls">
+								苏州EUB
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="control-group span16">
+							<label class="control-label">对接方式：</label>
+							<div class="controls">
+								<input type="radio" name="dj" value="API对接" checked="" />API对接
+								<input type="radio" name="dj" value="自定义规则" />自定义规则
+							</div>
+						</div>
+					</div>
+					<div class="row api">
+						<div class="control-group span16">
+							<label class="control-label">API字段1：</label>
+							<div class="controls">
+								<input type="text" />
+							</div>
+						</div>
+					</div>
+					<div class="row api">
+						<div class="control-group span16">
+							<label class="control-label">API字段2：</label>
+							<div class="controls">
+								<input type="text" />
+							</div>
+						</div>
+					</div>
+					<div class="row api">
+						<div class="control-group span16">
+							<label class="control-label">API字段3：</label>
+							<div class="controls">
+								<input type="text" />
+							</div>
+						</div>
+					</div>
+					<div class="row zdy">
+						<div class="control-group 8">
+							<label class="control-label">号码位数：</label>
+							<div class="controls">
+								<input type="text" />
+							</div>
+						</div>
+					</div>
+					<div class="row zdy">
+						<div class="control-group span16">
+							<label class="control-label">是否包含字母：</label>
+							<div class="controls">
+								<input type="radio" name="zm" value="是" checked="" />是
+								<input type="radio" name="zm" value="否" />否
+							</div>
+						</div>
+					</div>
+					<div class="row zdy zm">
+						<div class="control-group span8">
+							<label class="control-label">前缀字母：</label>
+							<div class="controls">
+								<input type="text" />
+							</div>
+						</div>
+						<div class="control-group span8">
+							<label class="control-label">后缀字母：</label>
+							<div class="controls">
+								<input type="text" />
+							</div>
+						</div>
+					</div>
+					<div class="row zdy">
+						<div class="control-group span8">
+							<label class="control-label">起始号码：</label>
+							<div class="controls">
+								<input type="text" />
+							</div>
+						</div>
+					</div>
+					<div class="row zdy">
+						<div class="control-group span8">
+							<label class="control-label">终止号码：</label>
+							<div class="controls">
+								<input type="text" />
+							</div>
+						</div>
+					</div>
+					<div class="row zdy">
+						<div class="control-group span8">
+							<label class="control-label">运单号规则：</label>
+							<div class="controls">
+								<select id="">
+						          <option selected="" value="顺序排列">顺序排列</option>
+						          <option value="只取奇数">只取奇数</option>
+						          <option value="只取偶数">只取偶数</option>
+						          <option value="验证规则">验证规则</option>
+						        </select>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+
+			<script src="../../assets/js/jquery-1.8.1.min.js"></script>
+			<script src="../../assets/js/bui-min.js?t=201309041336"></script>
+			<script src="../../assets/layer/layer.js"></script>
+			<script src="../../assets/layui.js"></script>
+
+			<script type="text/javascript">
+				$('.area').hide();
+				$('.sz').click(function() {
+					layer.open({
+						title: '结算单明细',
+						area: '800px',
+						content: $('.area.sz').html(),
+						yes: function(index, layero) {
+							layer.close(index); //如果设定了yes回调，需进行手工关闭
+						}
+					});
+					$('.api').show();
+					$('.zdy').hide();
+				});
+				layui.use('laypage', function() {
+					var laypage = layui.laypage;
+					//执行一个laypage实例
+					laypage.render({
+						elem: 'test1' //注意，这里的 test1 是 ID，不用加 # 号
+							,
+						count: 50 //数据总数，从服务端得到
+					});
+				});
+				$("[name=dj]:radio").live('click', function() {
+					if ($(this).val() == 'API对接') {
+						$('.api').show();
+						$('.zdy').hide();
+					} else {
+						$('.api').hide();
+						$('.zdy').show();
+					}
+				});
+				$("[name=zm]:radio").live('click', function() {
+					if ($(this).val() == '是') {
+						$('.zm').show();
+					} else {
+						$('.zm').hide();
+					}
+				});
+			</script>
+		</div>
+	</body>
+
+</html>
