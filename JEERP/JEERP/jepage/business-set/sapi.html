@@ -1,117 +1,242 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
- <head>
-  <title> 详情页简介</title>
-   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-       <link href="../../assets/css/dpl-min.css" rel="stylesheet" type="text/css" />
-    <link href="../../assets/css/bui-min.css" rel="stylesheet" type="text/css" />
-    <link href="../../assets/css/page-min.css" rel="stylesheet" type="text/css" />   <!-- 下面的样式，仅是为了显示代码，而不应该在项目中使用-->
-   <link href="../../assets/css/prettify.css" rel="stylesheet" type="text/css" />
-   <style type="text/css">
-    code {
-      padding: 0px 4px;
-      color: #d14;
-      background-color: #f7f7f9;
-      border: 1px solid #e1e1e8;
-    }
-   </style>
- </head>
- <body>
-  
-  <div class="container">
-    <div class="row">
-      <div class="span8">
-        <h2>简介</h2>
-        <p>详情页包含以下内容：</p>
-        <ol>
-          <li>详情区块，包含</li>
-          <li>多个详情行</li>
-          <li>显示数据的表格</li>
-        </ol>
-      </div>
-    </div>
-    <div class="row">
-      <div class="span8">
-        <h2>详情区块</h2>
-        <p>包含子标题和多个详情行</p>
-      </div>
-      <div class="span16">
-        <h2>代码</h2>
-        <pre class="prettyprint linenums">
-&lt;div class="detail-section"&gt;  
-  &lt;h3&gt;基本信息&lt;/h3&gt;
-  &lt;div class="row detail-row"&gt;
-    &lt;div class="span8"&gt;
-      &lt;label&gt;姓名：&lt;/label&gt;&lt;span class="detail-text"&gt;张三&lt;/span&gt;
-    &lt;/div&gt;
-    &lt;div class="span8"&gt;
-      &lt;label&gt;编号：&lt;/label&gt;&lt;span class="detail-text"&gt;1223&lt;/span&gt;
-    &lt;/div&gt;
-     &lt;div class="span8"&gt;
-      &lt;label&gt;性别：&lt;/label&gt;&lt;span class="detail-text"&gt;男&lt;/span&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class="row detail-row"&gt;
-    &lt;div class="span8"&gt;
-      &lt;label&gt;班级：&lt;/label&gt;&lt;span class="detail-text"&gt;一年级一班&lt;/span&gt;
-    &lt;/div&gt;
-    &lt;div class="span8"&gt;
-      &lt;label&gt;年龄：&lt;/label&gt;&lt;span class="detail-text"&gt;21&lt;/span&gt;
-    &lt;/div&gt;
-     &lt;div class="span8"&gt;
-      &lt;label&gt;家庭住址：&lt;/label&gt;&lt;span class="detail-text"&gt;速度发撒旦法师打法是否撒反对撒范德萨发撒旦法倒萨发生&lt;/span&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-        </pre>
-      </div>
-    </div>
-    <div class="row">
-      <div class="span8">
-        <h2>显示列表</h2>
-        <p>详情页中的列表往往仅显示数据，所以使用简单列表</p>
-      </div>
-      <div class="span16">
-        <h2>代码</h2>
-        <pre class="prettyprint linenums">
-BUI.use('bui/grid',function (Grid) {          
-  var data = [
-    {id:'1112',name:'李四',day:1349622209547,address:'上海市浦东新区杨高北路938号'},
-    {id:'1112',name:'李四',day:1349622209547,address:'上海市浦东新区杨高北路938号'},
-    {id:'1112',name:'李四',day:1349622209547,address:'上海市浦东新区杨高北路938号'},
-    {id:'1112',name:'李四',day:1349622209547,address:'上海市浦东新区杨高北路938号'}],
-   
-  grid = new Grid.SimpleGrid({
-    render : '#grid', //显示Grid到此处
-    width : 950,      //设置宽度
-    columns : [
-      {title:'学生编号',dataIndex:'id',width:80},
-      {title:'学生姓名',dataIndex:'name',width:100},
-      {title:'入学时间',dataIndex:'day',width:100,renderer:Grid.Format.dateRenderer},
-      {title:'学生家庭住址',dataIndex:'address',width:300}
-    ]
-  });
-  grid.render();
-  grid.showData(data);
-});
-        </pre>
-      </div>
-    </div>
-  </div>
-  <script type="text/javascript" src="../../assets/js/jquery-1.8.1.min.js"></script>
-  <script type="text/javascript" src="../../assets/js/bui-min.js"></script>
+	<head>
+		<meta charset="utf-8">
+		<title>平台对接</title>
+		<link href="../../assets/css/bs3/dpl.css" rel="stylesheet">
+		<link href="../../assets/css/bs3/bui.css" rel="stylesheet">
+		<link href="../../assets/css/goodtype.css" rel="stylesheet">
+		<style type="text/css">
+			.hjbh{cursor: pointer;}
+			.hjbhArea{display:none;}
+			input[name='range']{ vertical-align: middle;}
+			.checkbox input, .radio input{ margin-top: 0;}
+			.demo-content{ margin-bottom:20px;} 
+			.table tr th{ text-align: center;}
+			.table tr td{ text-align: center;}
+			.aa{ padding: 0px 10px; color:#36c; text-decoration: underline;}
+			.m{ margin: 10px 2px;}
+			.precon_a{ color:#4cae4c; margin: 0 4px;}
+			.precon_lable{ color: #FE0000;}
+			.percon_right{ text-align: right!important;}
+			.m1{ margin:6px 0px;}
+			.label_padd{ padding:0 50px;}
+			.control-group{ margin: 4px 0!important; }
+			.aa{ padding: 0px 10px; color:#36c; text-decoration: underline;}
+			.p_font{ font-size: 10px; color: #ccc;}
+		</style>
+	</head>
 
-  <script type="text/javascript" src="../../assets/js/config-min.js"></script>
-  <script type="text/javascript">
-    BUI.use('common/page');
-  </script>
-  <!-- 仅仅为了显示代码使用，不要在项目中引入使用-->
-  <script type="text/javascript" src="../../assets/js/prettify.js"></script>
-  <script type="text/javascript">
-    $(function () {
-      prettyPrint();
-    });
-  </script> 
+	<body>
+		<div class="demo-content">
+			<div class="doc-content">
+				<ul class="link-tabs" style="width: 100%;">
+					<li class="active">
+						<a href="spermis.html">平台对接</a>
+					</li>
+					<!--<li>
+						<a href="spermis2.html">角色设定</a>
+					</li>-->
+				</ul>
+			</div>
+			<!-- script end -->
+		</div>
+		<div class="demo-content">
+			<div class="row m">
+	          <div class="control-group span15">
+	            <label class="control-label" style="padding-left:12px;">Amazon：</label>
+				<a href="#" class="aa">店铺一</a>
+				<a href="#" class="aa">店铺一</a>
+				<a href="#" class="aa">店铺一</a>
+				<a href="#" class="aa">店铺一</a>
+	          </div>
+	        </div>
+	        <div class="row m">
+	          <div class="control-group span15">
+	            <label class="control-label" style="padding-left: 30px;">Wish：</label>
+				<a href="#" class="aa">店铺一</a>
+				<a href="#" class="aa">店铺一</a>
+				<a href="#" class="aa">店铺一</a>
+				<a href="#" class="aa">店铺一</a>
+	          </div>
+	        </div>
+	        <div class="row m">
+	          <div class="control-group span15">
+	            <label class="control-label">Aliexpress：</label>
+				<a href="#" class="aa">店铺一</a>
+				<a href="#" class="aa">店铺一</a>
+				<a href="#" class="aa">店铺一</a>
+				<a href="#" class="aa">店铺一</a>
+	          </div>
+	        </div>
+			<div class="row m">
+				<p>
+					<button class="button bianji">添加授权</button>
+					<button class="button bianji2">取消授权</button>
+				</p>
+				
+			</div>
+			<!--编辑弹框-->
+			<div class="row bianjishouhouArea">
+			    <div class="control-group">	            
+		            <div class="controls">
+		              <label class="control-label">选择平台：</label>
+		              <div class="controls" style="display: inline-block;">
+			              <select name="type" class="input-normal"> 
+			                <option value="saler">全部</option>
+			                <option value="large">标准</option>
+			                <option value="saler">快速</option>
+			              </select>
+			          </div>
+		            </div>
+	            </div>
+	            <!--显示名称-->
+	            <div class="control-group">	            
+		            <div class="controls">
+		              <label class="control-label" style="">显示名称：</label>
+		              <input name="id" type="text" class="input-normal control-text">
+		            </div>
+		        </div>
+		        <!--登陆账号-->
+	            <div class="control-group">	            
+		            <div class="controls">
+		              <label class="control-label" style="">登陆账号：</label>
+		              <input name="id" type="text" class="input-normal control-text">
+		            </div>
+		        </div>
+		        <!--登陆密码-->
+	            <div class="control-group">	            
+		            <div class="controls">
+		              <label class="control-label" style="">登陆密码：</label>
+		              <input name="id" type="text" class="input-normal control-text">
+		            </div>
+		        </div>
+		        <div class="control-group">
+			        <label class="control-label">店铺国家：</label>
+			        <div class="controls" style="display:initial;">
+			          <label class="radio" for=""><input type="radio">美国</label>&nbsp;&nbsp;&nbsp;
+			          <label class="radio" for=""><input type="radio">加拿大</label>
+			          <label class="radio" for=""><input type="radio">墨西哥</label>&nbsp;&nbsp;&nbsp;
+			          <label class="radio" for=""><input type="radio">英国</label>
+			          <label class="radio" for=""><input type="radio">西班牙</label>&nbsp;&nbsp;&nbsp;
+			          <label class="radio" for=""><input type="radio">澳大利亚</label>
+			        </div>
+			     </div>
+			     <div class="control-group">	            
+		            <div class="controls">
+		              <label class="control-label" style="padding-left: 14px;">卖家ID：</label>
+		              <input name="id" type="text" class="input-normal control-text">
+		              <a href="#" class="aa">查看教程</a>
+		            </div>
+		        </div>
+		        <div class="control-group">	            
+		            <div class="controls">
+		              <label class="control-label" style="padding-left:28px;">秘钥：</label>
+		              <input name="id" type="text" class="input-normal control-text">
+		              <a href="#" class="aa">查看教程</a>
+		            </div>
+		        </div>
+		        <div class="control-group">	            
+		            <div class="controls" style="margin-left:-9px;">
+		              <label class="control-label">TEKENED：</label>
+		              <input name="id" type="text" class="input-normal control-text">
+		              <a href="#" class="aa">查看教程</a>
+		            </div>
+		        </div>
+			</div>
+			<!--编辑弹框2-->
+			<div class="row bianjishouhouArea2">				
+			    <div class="control-group">	            
+		            <div class="controls">
+		              <label class="control-label">选择平台：</label>
+		              <div class="controls" style="display: inline-block;">
+			              <select name="type" class="input-normal"> 
+			                <option value="saler">全部</option>
+			                <option value="large">标准</option>
+			                <option value="saler">快速</option>
+			              </select>
+			          </div>
+		            </div>
+	            </div>	           
+		        <div class="control-group">
+			        <label class="control-label">选择店铺：</label>
+			        <div class="controls" style="display:initial;">
+			          <label class="radio" for=""><input type="checkbox">店铺1</label>&nbsp;&nbsp;&nbsp;
+			          <label class="radio" for=""><input type="checkbox">店铺1</label>
+			          <label class="radio" for=""><input type="checkbox">店铺1</label>&nbsp;&nbsp;&nbsp;
+			          <label class="radio" for=""><input type="checkbox">店铺1</label>
+			          <label class="radio" for=""><input type="checkbox">店铺1</label>&nbsp;&nbsp;&nbsp;
+			          <label class="radio" for=""><input type="checkbox">店铺1</label>
+			        </div>
+			    </div>
+			    <div class="control-group">
+			       <p class="p_font">
+			       	 <input type="radio" style="padding-right:6px; vertical-align: middle;">
+			       	 确认取消授权，一单取消授权，店铺将不再同步该店铺数据，但之前同步的数据会依然保留
+			       </p>
+			    </div>
+			</div>
+		</div>
+		<script src="../../assets/js/jquery-1.8.1.min.js"></script>
+		<script src="../../assets/js/bui-min.js?t=201309041336"></script>
+		<script src="http://g.tbcdn.cn/fi/bui/jquery-1.8.1.min.js"></script>
+		<script src="http://g.alicdn.com/bui/seajs/2.3.0/sea.js"></script>
+		<script src="http://g.alicdn.com/bui/bui/1.1.21/config.js"></script>
+		<script src="../../assets/layer/layer.js"></script>
+		<!-- script start -->
+		<script type="text/javascript">
+			 BUI.use('bui/calendar',function(Calendar){
+	          var datepicker = new Calendar.DatePicker({
+	            trigger:'.calendar',
+	            autoRender : true
+	          });
+	        });
+			//切换选项卡
+			$('.link-tabs').on('click', 'li', function() {
+				$(this).addClass('active').siblings().removeClass('active');
+			})
+			//展开隐藏
+			$('table').on('click','.hjbh',function(){
+				$(this).parent().next('.hjbhArea').toggle();
+			})
+			//编辑弹框
+			$('.bianjishouhouArea').hide();
+			$('p').on('click', '.bianji', function() {
+				layer.open({
+					title: '添加授权',
+					area: '400px',
+					content: $('.bianjishouhouArea').html(),
+					btn: ['添加', '取消'],
+					yes: function(index, layero) {
+						//按钮【按钮一】的回调
+					},
+					btn2: function(index, layero) {
+						//按钮【按钮二】的回调
 
-<body>
-</html>  
+						//return false 开启该代码可禁止点击该按钮关闭
+					}
+				});
+			});
+			//编辑弹框
+			$('.bianjishouhouArea2').hide();
+			$('p').on('click', '.bianji2', function() {
+				layer.open({
+					title: '取消授权',
+					area: '400px',
+					content: $('.bianjishouhouArea2').html(),
+					btn: ['添加', '取消'],
+					yes: function(index, layero) {
+						//按钮【按钮一】的回调
+					},
+					btn2: function(index, layero) {
+						//按钮【按钮二】的回调
+
+						//return false 开启该代码可禁止点击该按钮关闭
+					}
+				});
+			});
+		</script>
+		</div>
+	</body>
+
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>系统模式设置</title>
+		<link href="../../assets/css/bs3/dpl.css" rel="stylesheet">
+		<link href="../../assets/css/bs3/bui.css" rel="stylesheet">
+		<link href="../../assets/css/goodtype.css" rel="stylesheet">
+		<style type="text/css">
+			.hjbh{cursor: pointer;}
+			.hjbhArea{display:none;}
+			input[name='range']{ vertical-align: middle;}
+			.checkbox input, .radio input{ margin-top: 0;}
+			.demo-content{ margin-bottom:20px;} 
+			.table tr th{ text-align: center;}
+			.table tr td{ text-align: center;}
+			.aa{ padding: 0px 10px; color:#36c; text-decoration: underline;}
+			.m{ margin: 10px 2px;}
+			.precon_a{ color:#4cae4c; margin: 0 4px;}
+			.precon_lable{ color: #FE0000;}
+			.percon_right{ text-align: right!important;}
+			.m1{ margin:6px 0px;}
+			.label_padd{ padding:0 50px;}
+			.control-group{ margin: 4px 0!important; }
+			.aa{ padding: 0px 10px; color:#36c; text-decoration: underline;}
+			.p_font{ font-size: 10px; color: #ccc;}
+			.label_design{ padding-left:16px;}
+			.font_aa{ color: #FE0000; display: inline-block;padding-left: 10px;}
+			.span_left{ padding-left: 20px;}
+		</style>
+	</head>
+
+	<body>
+		<div class="demo-content">
+			<div class="doc-content">
+				<ul class="link-tabs" style="width: 100%;">
+					<li class="active">
+						<a href="spermis.html">系统模式设置</a>
+					</li>
+					<!--<li>
+						<a href="spermis2.html">角色设定</a>
+					</li>-->
+				</ul>
+			</div>
+			<!-- script end -->
+		</div>
+		<div class="demo-content">
+			<label class="label_design">选择模式</label>		
+			<div class="row m">
+				<label class="radio label_design" for="">
+					<input type="radio">精简模式
+					<span class="span_left" style="float: none!important;">快速出库，无需扫描分拣</span>
+				</label>
+				<a href="#" class="font_aa">免费</a>
+				<p>
+					<label style=" padding-left:116px;">精简模式适合日订单少于500，粗放式管理，无专业仓库的小型电商企业</label>
+				</p>				
+			</div>
+			<div class="row m">
+				<label class="radio label_design" for="">
+					<input type="radio">高级模式
+					<span class="span_left" style="float: none!important;">精细操作，按照订单拣选扫描发货</span>
+				</label>
+				<a href="#" class="font_aa">免费</a>
+				<p>
+					<label style=" padding-left:116px;">高级模式适合订单量大于500，精细化管理，分工明确的中大型电商企业</label>
+				</p>				
+			</div>
+		</div>
+		<script src="../../assets/js/jquery-1.8.1.min.js"></script>
+		<script src="../../assets/js/bui-min.js?t=201309041336"></script>
+		<script src="http://g.tbcdn.cn/fi/bui/jquery-1.8.1.min.js"></script>
+		<script src="http://g.alicdn.com/bui/seajs/2.3.0/sea.js"></script>
+		<script src="http://g.alicdn.com/bui/bui/1.1.21/config.js"></script>
+		<script src="../../assets/layer/layer.js"></script>
+		<!-- script start -->
+		<script type="text/javascript">
+			 BUI.use('bui/calendar',function(Calendar){
+	          var datepicker = new Calendar.DatePicker({
+	            trigger:'.calendar',
+	            autoRender : true
+	          });
+	        });
+			//切换选项卡
+			$('.link-tabs').on('click', 'li', function() {
+				$(this).addClass('active').siblings().removeClass('active');
+			})
+			//展开隐藏
+			$('table').on('click','.hjbh',function(){
+				$(this).parent().next('.hjbhArea').toggle();
+			})
+			//编辑弹框
+			$('.bianjishouhouArea').hide();
+			$('p').on('click', '.bianji', function() {
+				layer.open({
+					title: '添加授权',
+					area: '400px',
+					content: $('.bianjishouhouArea').html(),
+					btn: ['添加', '取消'],
+					yes: function(index, layero) {
+						//按钮【按钮一】的回调
+					},
+					btn2: function(index, layero) {
+						//按钮【按钮二】的回调
+
+						//return false 开启该代码可禁止点击该按钮关闭
+					}
+				});
+			});
+			//编辑弹框
+			$('.bianjishouhouArea2').hide();
+			$('p').on('click', '.bianji2', function() {
+				layer.open({
+					title: '取消授权',
+					area: '400px',
+					content: $('.bianjishouhouArea2').html(),
+					btn: ['添加', '取消'],
+					yes: function(index, layero) {
+						//按钮【按钮一】的回调
+					},
+					btn2: function(index, layero) {
+						//按钮【按钮二】的回调
+
+						//return false 开启该代码可禁止点击该按钮关闭
+					}
+				});
+			});
+		</script>
+		</div>
+	</body>
+
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>物流商管理</title>
+		<link href="../../assets/css/bs3/dpl.css" rel="stylesheet">
+		<link href="../../assets/css/bs3/bui.css" rel="stylesheet">
+		<link href="../../assets/css/goodtype.css" rel="stylesheet">
+		<link href="../../assets/css/layui.css" rel="stylesheet" media="all">
+		<style type="text/css">
+			body {
+				padding: 10px;
+			}
+			.updown_box{width:auto;padding: 0px;}
+		</style>
+	</head>
+
+	<body>
+		<div class="demo-content">
+			<div class="doc-content">
+				<ul class="link-tabs" style="width: 100%;">
+					<li class="">
+						<a href="sgshipper.html">物流商管理</a>
+					</li>
+					<li class="active">
+						<a href="3">查找物流商</a>
+					</li>
+				</ul>
+			</div>
+		</div><br />
+		<div class="demo-content">
+			<div class="row">
+				<div class="span26">
+					<form id="searchForm" class="form-horizontal" tabindex="0" style="outline: none;">
+						<div class="row">
+							<div class="control-group span20">
+								<label class="control-label">按照公司名称：</label>
+								<div class="controls updown_box">
+									<input type="text" />
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="control-group span20">
+								<label class="control-label">选择渠道：</label>
+								<div class="controls updown_box">
+									<ul id="select1">
+										<li class="">
+											<a href="javascript:;">EUB</a>
+										</li>
+										<li class="selected">
+											<a href="javascript:;">DHL</a>
+										</li>
+										<li>
+											<a href="javascript:;">FEDEX</a>
+										</li>
+										<li>
+											<a href="javascript:;">TNT</a>
+										</li>
+										<li>
+											<a href="javascript:;">专线</a>
+										</li>
+
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="control-group span20">
+								<label class="control-label">按服务区域：</label>
+								<div class="controls updown_box">
+									<ul id="select1">
+										<li class="">
+											<a href="javascript:;">上海</a>
+										</li>
+										<li class="selected">
+											<a href="javascript:;">浙江</a>
+										</li>
+										<li>
+											<a href="javascript:;">广东</a>
+										</li>
+										<li>
+											<a href="javascript:;">江西</a>
+										</li>
+										<li>
+											<a href="javascript:;">福建</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						
+					</form>
+				</div>
+			</div>
+
+			<div class="row">
+
+				<table class="table">
+					<!--<p style="margin-left: 10px;">共 2388条记录 ， 销售额$ 2992022.00元</p>-->
+					<thead>
+						<tr>
+							<th>序列</th>
+							<th>公司名称</th>
+							<th>服务地区</th>
+							<th>主要渠道</th>
+							<th>联系方式</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>上海xxx物流有限公司</td>
+							<td>上海，义务，台州</td>
+							<td>EUB DHL FEDEX</td>
+							<td>杭州 郑小姐 18896965632</td>
+							<td class="qy"><a href="#">启用</a></td>
+						</tr>
+					</tbody>
+				</table>
+
+				<div id="test1" style="float: right;margin-right: 20px;"></div>
+			</div>
+			<div class="area qy">
+				<form id="J_Form" action="" class="form-horizontal">
+					<div class="control-group">
+						<label class="control-label">授权秘钥：</label>
+						<div class="controls">
+							<input type="text" />
+						</div>
+					</div>
+					
+				</form>
+			</div>
+
+			<div class="area ty">
+				<form id="J_Form" action="" class="form-horizontal">
+					<div class="control-group">
+						<label class="control-label">授权秘钥：</label>
+						<div class="controls">
+							<input type="text" />
+						</div>
+					</div>
+				</form>
+			</div>
+			<script src="../../assets/js/jquery-1.8.1.min.js"></script>
+			<script src="../../assets/js/bui-min.js?t=201309041336"></script>
+			<script src="../../assets/layer/layer.js"></script>
+			<script src="../../assets/layui.js"></script>
+
+			<script type="text/javascript">
+				$('.area').hide();
+				$('td.qy').click(function() {
+					layer.open({
+						title: '授权',
+						area: '350px',
+						content: $('.area.qy').html(),
+						yes: function(index, layero) {
+							layer.close(index); //如果设定了yes回调，需进行手工关闭
+						}
+					});
+				});
+				$('td.ty').click(function() {
+					layer.open({
+						title: '授权',
+						area: '350px',
+						content: $('.area.ty').html(),
+						yes: function(index, layero) {
+							layer.close(index); //如果设定了yes回调，需进行手工关闭
+						}
+					});
+				});
+				layui.use('laypage', function() {
+					var laypage = layui.laypage;
+					//执行一个laypage实例
+					laypage.render({
+						elem: 'test1' //注意，这里的 test1 是 ID，不用加 # 号
+							,
+						count: 50 //数据总数，从服务端得到
+					});
+				});
+				//日期
+				BUI.use('bui/calendar', function(Calendar) {
+					var datepicker = new Calendar.DatePicker({
+						trigger: '.calendar',
+						autoRender: true
+					});
+				});
+			</script>
+		</div>
+	</body>
+
+</html>
