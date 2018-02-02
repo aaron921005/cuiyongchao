@@ -1,127 +1,160 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
- <head>
-  <title> 首页代码结构</title>
-   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-       <link href="../../assets/css/dpl-min.css" rel="stylesheet" type="text/css" />
-    <link href="../../assets/css/bui-min.css" rel="stylesheet" type="text/css" />
-    <link href="../../assets/css/page-min.css" rel="stylesheet" type="text/css" />   <!-- 下面的样式，仅是为了显示代码，而不应该在项目中使用-->
-   <link href="../../assets/css/prettify.css" rel="stylesheet" type="text/css" />
-   <style type="text/css">
-    code {
-      padding: 0px 4px;
-      color: #d14;
-      background-color: #f7f7f9;
-      border: 1px solid #e1e1e8;
-    }
-   </style>
- </head>
- <body>
-  
-    
-    <div class="container">
-     <div class="row">
-       <div class="span4">
-         <h2>整体结构</h2>
-         <ol>
-           <li>页面声明</li>
-           <li>首页title</li>
-           <li>登录信息</li>
-           <li>顶部导航</li>
-           <li>二级菜单</li>
-           <li>tab</li>
-           <li>首页JS配置项</li>
-         </ol>
-       </div>
-       <div class="span20">
-         <pre class="prettyprint linenums">
-&lt;!DOCTYPE HTML&gt;
-&lt;html&gt;
- &lt;head&gt;
-  &lt;title&gt; HTC 管理系统&lt;/title&gt;
-   &lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8" /&gt;
-   &lt;link href="assets/css/dpl-min.css" rel="stylesheet" type="text/css" /&gt;
-   &lt;link href="assets/css/bui-min.css" rel="stylesheet" type="text/css" /&gt;
-   &lt;link href="assets/css/main.css" rel="stylesheet" type="text/css" /&gt;
- &lt;/head&gt;
- &lt;body&gt;
-   &lt;div class="header"&gt;
-    &lt;div class="dl-title"&gt;&lt;span class=""&gt;前端框架&lt;/span&gt;&lt;/div&gt;
-    &lt;div class="dl-log"&gt;欢迎您，&lt;span class="dl-log-user"&gt;XXX&lt;/span&gt;
-        &lt;a href="###" title="退出系统" class="dl-log-quit"&gt;[退出]&lt;/a&gt;
-    &lt;/div&gt;
-   &lt;/div&gt;
-   &lt;div class="content"&gt;
-    &lt;div class="dl-main-nav"&gt;
-      &lt;ul id="J_Nav"  class="nav-list ks-clear"&gt;
-        &lt;li class="nav-item dl-selected"&gt;&lt;div class="nav-item-inner nav-storage"&gt;首页&lt;/div&gt;&lt;/li&gt;
-        &lt;li class="nav-item"&gt;&lt;div class="nav-item-inner nav-inventory"&gt;搜索页&lt;/div&gt;&lt;/li&gt;
-      &lt;/ul&gt;
-    &lt;/div&gt;
-    &lt;ul id="J_NavContent" class="dl-tab-conten"&gt;
 
-    &lt;/ul&gt;
-      
-   &lt;/div&gt;
-  &lt;script type="text/javascript" src="assets/js/jquery-1.8.1.min.js"&gt;&lt;/script&gt;
-  &lt;script type="text/javascript" src="assets/js/bui-min.js"&gt;&lt;/script&gt;
-  &lt;script type="text/javascript" src="assets/js/config-min.js"&gt;&lt;/script&gt;
-  &lt;script&gt;
-     BUI.use('common/main',function(){
-      var config = [{
-          id:'menu',
-          menu:[{
-              text:'首页内容',
-              items:[
-                {id:'main-menu',text:'顶部导航',href:'main/menu.php'},
-                {id:'second-menu',text:'二级菜单',href:'main/second-menu.php'}
-              ]
-            }]
-          },{
-            id:'search',
-            menu:[{
-                text:'搜索页面',
-                items:[
-                  {id:'introduce',text:'搜索页面简介',href:'search/introduce.html'}
-                ]
-              }]
-          }];
-      new PageUtil.MainPage({
-        modulesConfig : config
-      });
-    });
+	<head>
+		<meta charset="utf-8">
+		<title>标签模板设置</title>
+		<link href="../../assets/css/bs3/dpl.css" rel="stylesheet">
+		<link href="../../assets/css/bs3/bui.css" rel="stylesheet">
+		<link href="../../assets/css/goodtype.css" rel="stylesheet">
+		<style type="text/css">
+			h1 {
+				margin-left: 10px;
+			}
+			
+			.controls {
+				line-height: 30px;
+			}
+		</style>
+	</head>
 
-  &lt;/script&gt;
- &lt;/body&gt;
-&lt;/html&gt;
+	<body>
 
-         </pre>
-       </div>
-     </div>
-     <div class="row">
-       <div class="span24">
-         <h2>几点说明</h2>
-         <ol>
-           <li>文档声明为 <code>&lt;!doctype html&gt;</code>,文件格式是utf-8</li>
-           <li>css文件在 title中引入，js在页面底部引入</li>
-           <li>页面引入的 prettify.js和prettify.css仅是为了展示代码使用</li>
-         </ol>
-       </div>
-     </div>
-    </div>
-  <script type="text/javascript" src="../../assets/js/jquery-1.8.1.min.js"></script>
-  <script type="text/javascript" src="../../assets/js/bui-min.js"></script>
-  <script type="text/javascript" src="../../assets/js/config-min.js"></script>
-  <script type="text/javascript">
-    BUI.use('common/page');
-  </script>
-  <!-- 仅仅为了显示代码使用，不要在项目中引入使用-->
-  <script type="text/javascript" src="../../assets/js/prettify.js"></script>
-  <script type="text/javascript">
-    $(function () {
-      prettyPrint();
-    });
-  </script>  
+		<div class="demo-content">
+			<div class="row">
+				<h1>地址一</h1>
+				<div class="doc-content">
+					<form class="form-horizontal well">
+						<div class="row">
+							<div class="control-group span18">
+								<label class="control-label">公司名称：</label>
+								<div class="controls">
+									<label for="">苏州玛雅国际快递有限公司</label>
 
-<body>
-</html>  
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="control-group span18">
+								<label class="control-label">联系地址：</label>
+								<div class="controls">
+									<label for="">江苏省 苏州市 姑苏区 城北西路1588号1幢21室</label>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="control-group span18">
+								<label class="control-label">联系邮箱：</label>
+								<div class="controls">
+									<label for="">12345678@163.com</label>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="control-group span18">
+								<label class="control-label">联系电话：</label>
+								<div class="controls" style="height: auto;">
+									<p>13025252525</p>
+									<p>13025252525</p>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="control-group span18">
+								<label class="control-label">联系QQ：</label>
+								<div class="controls">
+									<p>686654545</p>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="row">
+				<h1>地址二</h1>
+				<div class="doc-content">
+					<form class="form-horizontal well">
+
+						<div class="row">
+							<div class="control-group span18">
+								<label class="control-label">公司资料：</label>
+								<div class="controls">
+									<input type="text" />
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="control-group span28">
+								<label class="control-label">联系地址：</label>
+								<div class="controls" >
+									<select id="">
+							          <option value="选择国家">选择国家</option>
+							          <option selected="" value="中国">中国</option>
+							        </select>
+									<select id="">
+							          <option value="安徽省">安徽省</option>
+							          <option selected="" value="江苏省">江苏省</option>
+							          <option value="浙江省">浙江省</option>
+							        </select>
+									<select id="">
+							          <option selected="" value="苏州市">苏州市</option>
+							          <option value="南京市">南京市</option>
+							          <option value="常州市">常州市</option>
+							        </select>
+									<select id="">
+							          <option selected="" value="姑苏区">姑苏区</option>
+							          <option value="虎丘区">虎丘区</option>
+							          <option value="工业园区">工业园区</option>
+							        </select>
+									<input type="text" />
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="control-group span18">
+								<label class="control-label">联系邮箱：</label>
+								<div class="controls">
+									<input type="text" />
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="control-group span18">
+								<label class="control-label">联系电话：</label>
+								<div class="controls" >
+									<input type="text" />
+									<input type="text" />
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="control-group span18">
+								<label class="control-label">联系QQ：</label>
+								<div class="controls" style="height: auto;">
+									<input type="text" />
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="row">
+					<div class="form-actions offset3">
+						<button type="submit" class="button button-primary">保存</button>
+						<!--						<button type="reset" class="button">重置</button>-->
+					</div>
+				</div>
+			</div>
+			<!-- script end -->
+		</div>
+		<script src="../../assets/js/jquery-1.8.1.min.js"></script>
+		<script src="../../assets/js/bui-min.js?t=201309041336"></script>
+		<script src="http://g.tbcdn.cn/fi/bui/jquery-1.8.1.min.js"></script>
+		<script src="http://g.alicdn.com/bui/seajs/2.3.0/sea.js"></script>
+		<script src="http://g.alicdn.com/bui/bui/1.1.21/config.js"></script>
+		<script src="../../assets/layer/layer.js"></script>
+		<!-- script start -->
+		<script type="text/javascript">
+		</script>
+	</body>
+
+</html>

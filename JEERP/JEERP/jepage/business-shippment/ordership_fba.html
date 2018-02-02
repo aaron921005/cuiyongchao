@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>SKU配对</title>
+		<link href="../../assets/css/bs3/dpl.css" rel="stylesheet">
+		<link href="../../assets/css/bs3/bui.css" rel="stylesheet">
+		<link href="../../assets/css/goodtype.css" rel="stylesheet">
+
+	</head>
+
+	<body>
+		<div class="demo-content"><br />
+			<!-- 搜索页 ================================================== -->
+			<div class="row">
+				<div class="span26">
+					<form id="searchForm" class="form-horizontal" tabindex="0" style="outline: none;">
+						<div class="row">
+							<div class="content">
+								<div class="updown_box" style="    padding: 0 60px;">
+									<span>发货类型：</span>
+									<ul class="select1" style="    padding-left: 3px;">
+										<li class="c_type" data-index="1">
+											<a href="javascript:;">FBA发货</a>
+										</li>
+										<li class="c_type" data-index="2">
+											<a href="javascript:;">海外仓发货</a>
+										</li>
+									</ul>
+								</div>
+								<div class="updown_box" style="    padding: 0 60px;">
+									<span>选择店铺：</span>
+									<ul class="select1" style="    padding-left: 3px;">
+										<li>
+											<a href="javascript:;">店铺1</a>
+										</li>
+										<li>
+											<a href="javascript:;">店铺2</a>
+										</li>
+										<li>
+											<a href="javascript:;">店铺3</a>
+										</li>
+										<li>
+											<a href="javascript:;">店铺4</a>
+										</li>
+										<li>
+											<a href="javascript:;">店铺5</a>
+										</li>
+										<li>
+											<a href="javascript:;">店铺6</a>
+										</li>
+
+									</ul>
+								</div>
+								<div class="updown_box type type1" style="    padding: 0 60px;">
+									<span>FBA目的地：</span>
+									<ul class="select1 " style="    padding-left: 3px;">
+										<li>
+											<a href="javascript:;">美国</a>
+										</li>
+										<li>
+											<a href="javascript:;">加拿大</a>
+										</li>
+										<li>
+											<a href="javascript:;">墨西哥</a>
+										</li>
+										<li>
+											<a href="javascript:;">英国</a>
+										</li>
+										<li>
+											<a href="javascript:;">德国</a>
+										</li>
+										<li>
+											<a href="javascript:;">法国</a>
+										</li>
+
+									</ul>
+								</div>
+								<div class="updown_box type type2" style="    padding: 0 60px;">
+									<span>选择仓库：</span>
+									<ul class="select1" style="    padding-left: 3px;">
+										<li>
+											<a href="javascript:;">仓库1</a>
+										</li>
+										<li>
+											<a href="javascript:;">仓库2</a>
+										</li>
+										<li>
+											<a href="javascript:;">仓库3</a>
+										</li>
+										<li>
+											<a href="javascript:;">仓库4</a>
+										</li>
+										<li>
+											<a href="javascript:;">仓库5</a>
+										</li>
+
+									</ul>
+								</div>
+
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="row">
+				<div class="span24">
+					<button id="btnxinjian" class="button button-primary addSP">添加商品</button>
+					<button id="btnshanchu" class="button button-danger">删除</button>
+					<div id="grid1">
+					</div>
+					<p style="text-align: right;"><button class="button button-primary createHJ">创建货件</button></p>
+				</div>
+			</div>
+			<div class="row addSPArea">
+				<div class="span16">
+					<form id="searchForm" class="form-horizontal" tabindex="0" style="outline: none;">
+						<div class="row">
+							<div class="control-group span8">
+								<label class="control-label">SKU：</label>
+								<div class="controls">
+									<input type="text" name="a" class="control-text">
+								</div>
+							</div>
+							<div class="form-actions span5">
+								<button id="btnSearch" type="submit" class="button button-primary">搜索</button>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="span16">
+					<div id="grid2">
+					</div>
+				</div>
+			</div>
+			<script src="../../assets/js/jquery-1.8.1.min.js"></script>
+			<script src="../../assets/js/bui-min.js?t=201309041336"></script>
+			<script src="../../assets/layer/layer.js"></script>
+			<!-- script start -->
+			<script type="text/javascript">
+				BUI.use(['bui/grid', 'bui/data'], function(Grid, Data) {
+					var Grid = BUI.Grid,
+						Store = BUI.Data.Store,
+						columns = [{
+								title: '序号',
+								width: 10,
+								sortable: false,
+								dataIndex: 'order'
+							},
+							{
+								title: 'SKU',
+								width: 50,
+								sortable: true,
+								dataIndex: 'a',
+								selectable: true
+							},
+							{
+								title: '商品图片',
+								width: 30,
+								sortable: true,
+								dataIndex: 'b',
+								selectable: true
+							},
+							{
+								title: '商品名称',
+								width: 60,
+								sortable: true,
+								dataIndex: 'c',
+								renderer: function(value, obj) {
+									return value;
+								}
+							},
+							{
+								title: '库存总数',
+								width: 30,
+								sortable: true,
+								dataIndex: 'd',
+								showTip: true
+							},
+							{
+								title: '出库数量',
+								width: 30,
+								dataIndex: 'e',
+								renderer: function(value, obj) {
+									return value;
+								}
+							}
+						],
+						data = [{
+							"order": "1",
+							"a": "W2325521222",
+							"b": "<img src=\"../../data/窗口.png\">",
+							"c": "MIER 16 Can Large Insulated Lunch Bag",
+							"d": "171",
+							"e": "999"
+						}, {
+							"order": "2",
+							"a": "W2325521222",
+							"b": "<img src=\"../../data/窗口.png\">",
+							"c": "MIER 16 Can Large Insulated Lunch Bag",
+							"d": "51",
+							"e": "88"
+						}];
+
+					var grid = new Grid.Grid({
+						render: '#grid1',
+						columns: columns,
+						loadMask: true,
+						items: data,
+						forceFit: true,
+						plugins: [Grid.Plugins.CheckSelection, Grid.Plugins.AutoFit] // Grid.Plugins.Cascade 插件
+					});
+
+					grid.render();
+
+				});
+				BUI.use(['bui/grid', 'bui/data'], function(Grid, Data) {
+					var Grid = BUI.Grid,
+						Store = BUI.Data.Store,
+						columns = [{
+								title: '序号',
+								width: 10,
+								sortable: false,
+								dataIndex: 'order'
+							},
+							{
+								title: 'SKU',
+								width: 50,
+								sortable: true,
+								dataIndex: 'a',
+								selectable: true
+							},
+							{
+								title: '商品图片',
+								width: 30,
+								sortable: true,
+								dataIndex: 'b',
+								selectable: true
+							},
+							{
+								title: '操作',
+								width: 20,
+								sortable: true,
+								dataIndex: 'c',
+								renderer: function(value, obj) {
+									return '选择';
+								}
+							}
+						],
+						data = [{
+							"order": "1",
+							"a": "W2325521222",
+							"b": "<img src=\"../../data/窗口.png\">"
+						}, {
+							"order": "2",
+							"a": "W2325521222",
+							"b": "<img src=\"../../data/窗口.png\">"
+						}];
+
+					var grid = new Grid.Grid({
+						render: '#grid2',
+						columns: columns,
+						loadMask: true,
+						items: data,
+						forceFit: true,
+						plugins: [Grid.Plugins.CheckSelection, Grid.Plugins.AutoFit] // Grid.Plugins.Cascade 插件
+					});
+
+					grid.render();
+
+				});
+			</script>
+			<!-- script end -->
+			<script type="text/javascript">
+				$('.type,.addSPArea').hide();
+				$(".select1 li").click(function() {
+					$(this).addClass("selected").siblings().removeClass("selected");
+				});
+				$('.c_type').click(function() {
+					var index = $(this).attr('data-index');
+					$('.type').hide();
+					$('.type' + index).show();
+				});
+				$('.createHJ').click(function() {
+					layer.alert('该店铺没有此商品，若要发送此商品，必须先创建此商品', {
+							title: '提示'
+						},
+						function(index) {
+
+							layer.close(index);
+						});
+				});
+				$('.addSP').click(function() {
+
+					layer.open({
+						title: '添加商品',
+						area: '680px',
+						content: $('.addSPArea').html()
+					});
+				});
+			</script>
+		</div>
+	</body>
+
+</html>

@@ -1,118 +1,294 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
- <head>
-  <title> 详情页</title>
-   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-       <link href="../../assets/css/dpl-min.css" rel="stylesheet" type="text/css" />
-    <link href="../../assets/css/bui-min.css" rel="stylesheet" type="text/css" />
-    <link href="../../assets/css/page-min.css" rel="stylesheet" type="text/css" />   <!-- 下面的样式，仅是为了显示代码，而不应该在项目中使用-->
-   <link href="../../assets/css/prettify.css" rel="stylesheet" type="text/css" />
-   <style type="text/css">
-    code {
-      padding: 0px 4px;
-      color: #d14;
-      background-color: #f7f7f9;
-      border: 1px solid #e1e1e8;
-    }
-   </style>
- </head>
- <body>
-      
-  <div class="container">
-    <div class="detail-page">
-      <h2>学生信息</h2>
-      <div class="detail-section">  
-        <h3>基本信息</h3>
-        <div class="row detail-row">
-          <div class="span8">
-            <label>姓名：</label><span class="detail-text">张三</span>
-          </div>
-          <div class="span8">
-            <label>编号：</label><span class="detail-text">1223</span>
-          </div>
-           <div class="span8">
-            <label>性别：</label><span class="detail-text">男</span>
-          </div>
-        </div>
-        <div class="row detail-row">
-          <div class="span8">
-            <label>班级：</label><span class="detail-text">一年级一班</span>
-          </div>
-          <div class="span8">
-            <label>年龄：</label><span class="detail-text">21</span>
-          </div>
-           <div class="span8">
-            <label>家庭住址：</label><span class="detail-text">速度发撒旦法师打法是否撒反对撒范德萨发撒旦法倒萨发生</span>
-          </div>
-        </div>
-      </div>
-      <div class="detail-section"> 
-        <h3>学校信息</h3>
-        <div class="row detail-row">
-          <div class="span8">
-            <label>入学时间：</label><span class="detail-text">2001-10-8</span>
-          </div>
-          <div class="span8">
-            <label>专业：</label><span class="detail-text">信息自动化</span>
-          </div>
-          <div class="span8">
-            <label>班主任：</label><span class="detail-text">王五</span>
-          </div>
-        </div>
-        <div class="row detail-row">
-          <div class="span8">
-            <label>入学时间：</label><span class="detail-text">2001-10-8</span>
-          </div>
-          <div class="span8">
-            <label>专业：</label><span class="detail-text">信息自动化</span>
-          </div>
-          <div class="span8">
-            <label>班主任：</label><span class="detail-text">王五</span>
-          </div>
-        </div>
-      </div> 
-      <div class="detail-section"> 
-        <h3>受教育经历</h3>
-        <div class="row detail-row">
-          <div class="span24">
-            <div id="grid"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <script type="text/javascript" src="../../assets/js/jquery-1.8.1.min.js"></script>
-  <script type="text/javascript" src="../../assets/js/bui-min.js"></script>
 
-  <script type="text/javascript" src="../../assets/js/config-min.js"></script>
-  <script type="text/javascript">
-    BUI.use('common/page');
-  </script>
-  <!-- 仅仅为了显示代码使用，不要在项目中引入使用-->
-  <script type="text/javascript" src="../../assets/js/prettify.js"></script>
-  <script type="text/javascript">
-    $(function () {
-      prettyPrint();
-    });
-  </script> 
-<script type="text/javascript">
-  BUI.use('bui/grid',function (Grid) {
-    var data = [{id:'1112',name:'李四',day:1349622209547,address:'上海市浦东新区杨高北路938号'},{id:'1112',name:'李四',day:1349622209547,address:'上海市浦东新区杨高北路938号'},{id:'1112',name:'李四',day:1349622209547,address:'上海市浦东新区杨高北路938号'},{id:'1112',name:'李四',day:1349622209547,address:'上海市浦东新区杨高北路938号'}],
- 
-        grid = new Grid.SimpleGrid({
-          render : '#grid', //显示Grid到此处
-          width : 950,      //设置宽度
-          columns : [
-            {title:'学生编号',dataIndex:'id',width:80},
-            {title:'学生姓名',dataIndex:'name',width:100},
-            {title:'入学时间',dataIndex:'day',width:100,renderer:Grid.Format.dateRenderer},
-            {title:'学生家庭住址',dataIndex:'address',width:300}
-          ]
-        });
-      grid.render();
-      grid.showData(data);
-  });
-</script>
+	<head>
+		<meta charset="utf-8">
+		<title>采购建议设置</title>
+		<link href="../../assets/css/bs3/dpl.css" rel="stylesheet">
+		<link href="../../assets/css/bs3/bui.css" rel="stylesheet">
+		<link href="../../assets/css/goodtype.css" rel="stylesheet">
+		<link href="../../assets/css/layui.css" rel="stylesheet" media="all">
+		<style type="text/css">
+			body {
+				padding: 10px;
+			}
+			
+			.updown_box {
+				width: auto;
+				padding: 0px;
+			}
+			
+			.controls {
+				line-height: 32px;
+			}
+			
+			table img {
+				cursor: pointer;
+			}
+		</style>
+	</head>
 
-<body>
-</html>  
+	<body>
+		<!--<div class="demo-content">
+			<div class="doc-content">
+				<ul class="link-tabs" style="width: 100%;">
+					<li class="active">
+						<a href="#">商品管理</a>
+					</li>
+				</ul>
+			</div>
+		</div>-->
+		<div class="demo-content">
+			<div class="row">
+				<div class="">
+					<form id="searchForm" class="form-horizontal" tabindex="0" style="outline: none;">
+
+						<div class="row">
+							<div class="control-group">
+								<label class="control-label">全局规则：</label>
+								<div class="controls">
+									<label for="">基础销量 > 5，备货周期 7 天，按销售系数  0.8 ，起订量 3 的规则备货</label>
+									<a href="#" class="yxjbj" style="margin-left: 15px;">编辑</a>
+									<a href="#" class="yxjsc" style="margin-left: 15px;">删除</a>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label">设置特例：</label>
+								<div class="controls" style="height: auto;">
+									<p><a href="#" class="tjlw">添加特例</a></p>
+								</div>
+							</div>
+
+						</div>
+						<div class="row" style="padding-left: 120px;">
+							<table class="table">
+								<thead>
+									<tr>
+										<th>序列</th>
+										<th>SKU号</th>
+										<th>图片</th>
+										<th>销量-7/15/30/60/90</th>
+										<th>规则</th>
+										<th>操作</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>1</td>
+										<td>S92939992-1881-white</td>
+										<td><img src="../../data/窗口.png"></td>
+										<td>25/65/128/465/1650</td>
+										<td>基础销量 > 5，备货周期 7 天，按销售系数 0.8 备货</td>
+										<td>
+											<p>
+												<a href="#" class="bj">编辑</a>|
+												<a href="#" class="sc">删除</a>
+											</p>
+										</td>
+									</tr>
+									<tr>
+										<td>2</td>
+										<td>S92939992-1881-white</td>
+										<td><img src="../../data/窗口.png"></td>
+										<td>25/65/128/465/1650</td>
+										<td>基础销量 > 5，备货周期 7 天，按销售系数 0.8 备货</td>
+										<td>
+											<p>
+												<a href="#" class="bj">编辑</a>|
+												<a href="#" class="sc">删除</a>
+											</p>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</form>
+				</div>
+			</div>
+
+			<div class="area yxjbj">
+				<div class="demo-content">
+					<div class="row">
+						<div class="span16 doc-content">
+							<form class="form-horizontal">
+								<div class="row">
+									<div class="control-group span8">
+										<label class="control-label">基础销量：</label>
+										<div class="controls">
+											<input type="text" class="control-text">
+										</div>
+									</div>
+									<div class="control-group span8">
+										<label class="control-label">销售系数：</label>
+										<div class="controls">
+											<input type="text" class="control-text">
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="control-group span8">
+										<label class="control-label">备货周期：</label>
+										<div class="controls">
+											<input type="text" class="control-text">
+										</div>
+									</div>
+									<div class="control-group span8">
+										<label class="control-label">起订量：</label>
+										<div class="controls">
+											<input type="text" class="control-text">
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+					<!-- script end -->
+				</div>
+			</div>
+
+			<div class="area bj">
+				<form id="J_Form" action="" class="form-horizontal">
+					<div class="control-group">
+						<label class="control-label">SKU设置：</label>
+						<div class="controls">
+							<input type="text" />
+							<button class="button button-primary">加载</button>
+
+						</div>
+					</div>
+					<hr />
+					<table class="table">
+						<thead>
+							<tr>
+								<th>序列</th>
+								<th>图片</th>
+								<th>销量-7/15/30/60/90</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>SH009922-White</td>
+								<td><img src="../../data/窗口.png"></td>
+								<td>25/65/128/465/1650</td>
+							</tr>
+						</tbody>
+					</table>
+					<hr />
+					<form class="form-horizontal">
+						<div class="row">
+							<div class="control-group span8">
+								<label class="control-label">基础销量：</label>
+								<div class="controls">
+									<input type="text" class="control-text">
+								</div>
+							</div>
+							<div class="control-group span8">
+								<label class="control-label">备货周期：</label>
+								<div class="controls">
+									<input type="text" class="control-text">
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="control-group span8">
+								<label class="control-label">7日销量占比：</label>
+								<div class="controls">
+									<input type="text" class="control-text">%
+								</div>
+							</div>
+							<div class="control-group span8">
+								<label class="control-label">起订量：</label>
+								<div class="controls">
+									<input type="text" class="control-text">
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="control-group span8">
+								<label class="control-label">15日销量占比：</label>
+								<div class="controls">
+									<input type="text" class="control-text">%
+								</div>
+							</div>
+							<div class="control-group span8">
+								<label class="control-label">销售系数：</label>
+								<div class="controls">
+									<input type="text" class="control-text" value="1.5" disabled="">
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="control-group span8">
+								<label class="control-label">30日销量占比：</label>
+								<div class="controls">
+									<input type="text" class="control-text">%
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="control-group span8">
+								<label class="control-label">60日销量占比：</label>
+								<div class="controls">
+									<input type="text" class="control-text">%
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="control-group span8">
+								<label class="control-label">90日销量占比：</label>
+								<div class="controls">
+									<input type="text" class="control-text">%
+								</div>
+							</div>
+						</div>
+					</form>
+				</form>
+			</div>
+			<script src="../../assets/js/jquery-1.8.1.min.js"></script>
+			<script src="../../assets/js/bui-min.js?t=201309041336"></script>
+			<script src="../../assets/layer/layer.js"></script>
+			<script src="../../assets/layui.js"></script>
+
+			<script type="text/javascript">
+				$('.area').hide();
+				$('.yxjbj').click(function() {
+					layer.open({
+						title: '设置优先级',
+						area: '650px',
+						content: $('.area.yxjbj').html(),
+						yes: function(index, layero) {
+							layer.close(index); //如果设定了yes回调，需进行手工关闭
+						}
+					});
+				});
+				$('.bj').click(function() {
+					layer.open({
+						title: 'SKU例外',
+						area: '750px',
+						content: $('.area.bj').html(),
+						yes: function(index, layero) {
+							layer.close(index); //如果设定了yes回调，需进行手工关闭
+						}
+					});
+				});
+				layui.use('laypage', function() {
+					var laypage = layui.laypage;
+					//执行一个laypage实例
+					laypage.render({
+						elem: 'test1' //注意，这里的 test1 是 ID，不用加 # 号
+							,
+						count: 50 //数据总数，从服务端得到
+					});
+				});
+				//日期
+				BUI.use('bui/calendar', function(Calendar) {
+					var datepicker = new Calendar.DatePicker({
+						trigger: '.calendar',
+						autoRender: true
+					});
+				});
+			</script>
+		</div>
+	</body>
+
+</html>
